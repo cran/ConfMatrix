@@ -15,8 +15,8 @@
 #' concept of QCCS is directly linked to quality control, so the
 #' specifications of this control must be indicated \insertCite{QCCS}{ConfMatrix}.
 #' Specifications are stated as percentages. E.g. for class "A" under
-#' consideration, a minimum quality value is established (e.g. better than 90%), and
-#' maximum values of confusion with other categories (e.g. confusion
+#' consideration, a minimum quality value is established (e.g. better than 90%),
+#' and maximum values of confusion with other categories (e.g. confusion
 #' between A and B less than 5%). The specifications are proportions of
 #' a multinomial. First, an object of this class of object must be
 #' created (instantiated) and then the methods that offer the index
@@ -30,7 +30,8 @@
 #'  \item \code{Error type 3}: The sum of the elements of the data vectors is 0.
 #'  \item \code{Error type 4}: The sum of each probability vectors must be 1.
 #'  \item \code{Error type 5}: Some element of the data vector is negative.
-#'  \item \code{Error type 6}: Some element of the probability vector is negative.
+#'  \item \code{Error type 6}: Some element of the probability vector is
+#'  negative.
 #'}
 #' @references
 #' \insertRef{alba2020}{ConfMatrix}
@@ -47,44 +48,44 @@
 QCCS <- R6Class("QCCS",
   cloneable=FALSE,
    public = list(
-    #' @field Vectors
-    #'\verb{
-    #'List of integer values data for the vectors.
-    #'}
-    Vectors = NULL,
-    #' @field Prob
-    #'\verb{
-    #'List of probability values corresponding to each of the vectors.
-    #'}
-    Prob = NULL,
-    #' @field ID
-    #'\verb{
-    #'Identifier. It is a character string with a maximum length of 50 characters.
-    #'By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
-    #'number of QCCS instances already defined in the session.
-    #'}
-    ID=NULL,
-    #' @field Date
-    #'\verb{
-    #'Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-    #'By default the date provided by the system will be taken.
-    #'}
-    Date=NULL,
-    #' @field ClassNames
-    #'\verb{
-    #' Name of the classes. It is given by a character strings vector whose elements
-    #' are the name of the classes. Each element of the vector is a string of maximum
-    #' 20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
-    #' class).}
-    #'
-    ClassNames=NULL,
-    #' @field Source
-    #'\verb{
-    #' Indicates where the "vectors" and "prob" parameters come from (article, project,
-    #' etc.). It is suggested to enter a reference or a DOI. A character string with
-    #' a maximum length of 80 characters can be entered. By default, is NULL.
-    #'}
-    Source=NULL,
+     #' @field Vectors
+     #'\verb{
+     #'List of integer values data for the vectors.
+     #'}
+     Vectors = NULL,
+     #' @field Prob
+     #'\verb{
+     #'List of probability values corresponding to each of the vectors.
+     #'}
+     Prob = NULL,
+     #' @field ID
+     #'\verb{
+     #'Identifier. It is a character string with a maximum length of 50 characters.
+     #'By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
+     #'number of QCCS instances already defined in the session.
+     #'}
+     ID = NULL,
+     #' @field Date
+     #'\verb{
+     #'Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
+     #'By default the date provided by the system will be taken.
+     #'}
+     Date = NULL,
+     #' @field ClassNames
+     #'\verb{
+     #' Name of the classes. It is given by a character strings vector whose elements
+     #' are the name of the classes. Each element of the vector is a string of maximum
+     #' 20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
+     #' class).}
+     #'
+     ClassNames = NULL,
+     #' @field Source
+     #'\verb{
+     #' Indicates where the "vectors" and "prob" parameters come from (article, project,
+     #' etc.). It is suggested to enter a reference or a DOI. A character string with
+     #' a maximum length of 80 characters can be entered. By default, is NULL.
+     #'}
+     Source = NULL,
 
 
     #' @description Public method to create an instance of the QCCS class.
@@ -103,11 +104,11 @@ QCCS <- R6Class("QCCS",
     #' List of probability values corresponding to each of the vectors.
     #' }
     #' @param ID
-    #'\verb{
-    #'Identifier. It is a character string with a maximum length of 50 characters.
-    #'By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
+    #' \verb{
+    #' Identifier. It is a character string with a maximum length of 50 characters.
+    #' By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
     #'the number of QCCS instances already defined in the session.
-    #'}
+    #' }
     #' @param Date
     #'\verb{
     #' Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
@@ -144,8 +145,8 @@ QCCS <- R6Class("QCCS",
     self$Prob <- Prob
 
     if(is.null(ID)){
-      sequence<- private$sequence()
-      self$ID <- paste("QCCS_",sequence,sep="")
+      sequence <- private$sequence()
+      self$ID <- paste("QCCS_", sequence, sep = "")
     }else{
       self$ID<-substr(ID,1,50)
     }
@@ -156,14 +157,14 @@ QCCS <- R6Class("QCCS",
     colname<-c()
     if (!is.null(ClassNames)) {
       self$ClassNames <- ClassNames
-      for (i in 1:length(self$Vectors)) {
+      for (i in seq_along(self$Vectors)) {
         colname <- c(colname, sprintf("PC_%.20s", self$ClassNames[i]))
       }
       names(self$Vectors) <- colname
 
     } else {
       self$ClassNames <- ClassNames
-      for (i in 1:length(self$Vectors)) {
+      for (i in seq_along(self$Vectors)) {
         colname <- c(colname, sprintf("PC_%d", i))
       }
       names(self$Vectors) <- colname
@@ -205,6 +206,10 @@ QCCS <- R6Class("QCCS",
         if(length(pi[pi<0])>0){
           stop("Error type 6: Some element of the probability\nvector is negative.\n")
         }
+        
+        if (any(pi == 0)) {
+          warning(sprintf("Column %d contains zeros in probabilities. Ji-squared tests will not be available for this object.", i))
+        }
       }
   },
 
@@ -235,7 +240,7 @@ QCCS <- R6Class("QCCS",
       cat("-------------------------------------\n")
       cat("Source\n", self$Source, "\n")
       cat("-------------------------------------\n")
-      for(i in 1:length(self$Vectors)){
+      for(i in seq_along(self$Vectors)){
         cat("Name of Class|",names(self$Vectors)[i], "\n")
         cat("Vector       |",self$Vectors[[i]],"\n")
         cat("Probability  |",self$Prob[[i]],"\n")
@@ -264,13 +269,11 @@ QCCS <- R6Class("QCCS",
       #' the original data vectors and the probability vectors are also returned as
       #' parameters of the htest class.
       #' @examples
-      #' \donttest{
       #' Vectors<-list(c(47,4,0),c(40,5,3))
       #' Prob<-list(c(0.95,0.04,0.01),c(0.88,0.1,0.02))
       #' A<-QCCS$new(Vectors,Prob,
       #' Source="Ariza-Lopez et al. 2019")
       #' A$Exact.test()
-      #' }
       #'
       #' @aliases NULL
 
@@ -282,26 +285,13 @@ QCCS <- R6Class("QCCS",
 
       n <- length(self$Vectors)
       m <- length(self$Prob)
-      sol <- c()
+      
       p_value<-c()
-      p_value1<-0
         for (i in 1:n) {
           vi <- self$Vectors[[i]]
           pi <- self$Prob[[i]]
-          ni <- length(vi)
-          mi <- length(pi)
-          s <- sum(vi)
-
-          if(ni==2){
-            p_value1<-private$test.2tol(vi,pi)[1]
-          } else
-          if(ni!=2){
-            p_value1<-private$test.ntol(vi,pi)$p.valor
-          }
-          p_value<-c(p_value,p_value1)
+          p_value<-c(p_value,private$test.ntol(vi,pi))
         }
-
-     sol <- c(sol, p_value)
 
       htest_result <- list(
         method = "Exact Test with Bonferroni Correction",
@@ -343,6 +333,12 @@ QCCS <- R6Class("QCCS",
       #' @aliases NULL
 
     Ji.test=function(a=NULL){
+      
+      p0 <- any(sapply(self$Prob, function(p) any(p == 0)))
+      
+      if (p0) {
+        stop("Error: Ji.test cannot be performed when probabilities contain zeros (division by zero). Please use Exact.test().")
+      }
       if(is.null(a)){
       a<-0.05
       }else{a<-a}
@@ -466,121 +462,47 @@ QCCS <- R6Class("QCCS",
 
 
   private = list(
-
-    combines = function(n, N) {
-      result <- NULL
-      stack <- list(list(comb = NULL, remaining = N, index = 1))
-      pb <- txtProgressBar(min = 0,
-                           max = choose(N+1+n-1,n),
-                           style = 3,
-                           width = 50,
-                           char = "=")
-      k<-0
-      while (length(stack) > 0) {
-        current <- stack[[length(stack)]]
-        stack <- stack[-length(stack)]
-
-        comb <- current$comb
-        remaining <- current$remaining
-        index <- current$index
-          if (length(comb) == n) {
-            k=k+1
-            setTxtProgressBar(pb, k)
-            result <- rbind(result, comb)
-          } else {
-            for (i in 0:remaining) {
-            stack <- c(stack, list(list(comb = c(comb, i),
-                     remaining = remaining - i, index = index + 1)))
-          }
-        }
-      }
-      close(pb)
-      return(result)
+     sequence = function() {
+       .envQCCS$counter <- .envQCCS$counter + 1
+       return(.envQCCS$counter)
     },
 
-    sequence = function() {
-      variables <- ls(envir = .GlobalEnv)
-      es_qccs <- sapply(variables, function(x) {
-        obj <- tryCatch(get(x, envir = .GlobalEnv), error = function(e) NULL)
-        if (!is.null(obj)) {
-          return(inherits(obj, "QCCS"))
-        } else {
-          return(FALSE)
-        }
-      }, USE.NAMES = FALSE)
-
-      number_qccs <- sum(es_qccs, na.rm = TRUE)
-      return(number_qccs + 1)
-    },
-
-# Functions depending on the number of tolerances -------------------------
-
-    test.ntol = function(M, p){
-      n<-length(M)
-      N <- sum(M)
-
-      Samples1<-NULL
-      Samples<-private$combines(n,N)
-      Samples1<- matrix(ncol = n,nrow=0)
-
-        for (i in 1:dim(Samples)[1]) {
-          if (sum(Samples[i,]) == N) {
-          Samples1<-rbind(Samples1,Samples[i,])
+    test.ntol = function(v, p) {
+      k <- length(v)
+      N <- sum(v)
+      
+      if(k != length(p)) stop("'v' and 'p' must have the same length (number of categories).")
+      if (k == 1) {
+        Sucesos <- matrix(N, nrow = 1)
+      } else {
+        dividers <- utils::combn(N + k - 1, k - 1) 
+        m <- ncol(dividers)
+        Sucesos <- matrix(0, nrow = m, ncol = k)
+        Sucesos[, 1] <- dividers[1, ] - 1
+        if(k > 2) {
+          for(i in 2:(k-1)) {
+            Sucesos[, i] <- dividers[i, ] - dividers[i-1, ] - 1
           }
         }
-      Q <- matrix(ncol = n+2, nrow = dim(Samples1)[1])
-
-      for (i in 1:dim(Samples1)[1]) {
-        Q[,1:n]<-Samples1[,1:n]
-        Q[i,n+1]<-dmultinom(Samples1[i,1:n],prob=p)
-        Q[1,n+2]<-Q[1,n+1]
-        if(i>1){
-          Q[i,n+2]<-Q[i, n+1] + Q[(i - 1), n+2]
-        }
+        Sucesos[, k] <- (N + k) - dividers[k-1, ] - 1
       }
-      A <- matrix(nrow = 0, ncol = n+2)
-      cond<-"Q[j,1]==M[1]"
-      cond1<-paste(" Q[j,", 2:n, "] == M[", 2:n, "]", sep = "")
-      cond<-c(cond,cond1)
-      condition<-noquote(cond)
-
-      for(j in 1:dim(Q)[1]) {
-        if ( (Q[j, 1] < M[1])){
-          A <- rbind(A, Q[j, ])
-        }
-
-        for(ni in 1:n-1){
-        condition1<-paste(cond[1:ni], collapse = " & ")
-
-          if(( eval(parse(text=condition1)))){
-            if(Q[j, ni+1] < M[ni+1]){
-              A<-rbind(A,Q[j,])
-            }
-          }
-        }
-        if(Q[j,1]==M[1] & Q[j,2]==M[2] & Q[j,3]==M[3] ){
-              A<-rbind(A,Q[j,])
-        }
+      probs <- apply(Sucesos, 1, function(x) dmultinom(x, size = N, prob = p))
+      
+      is_worse <- rep(FALSE, nrow(Sucesos))
+      is_equal_so_far <- rep(TRUE, nrow(Sucesos))
+      
+      for (i in 1:(k-1)) {
+        is_worse <- is_worse | (is_equal_so_far & (Sucesos[, i] < v[i]))
+        is_equal_so_far <- is_equal_so_far & (Sucesos[, i] == v[i])
       }
-
-      p_valor<-sum(A[,n+1])
-      results <- list(A = A, p.valor = p_valor)
-
-    return(results)
-    },
-
-
-# Function for 2 tolerances -----------------------------------------------
-
-
-
-    test.2tol=function(M, p){
-      N<-sum(M)
-      p<-pbinom(M,N,p)
-      p_value<-p[1]
-     return(p_value)
+      is_worse <- is_worse | is_equal_so_far
+      p_valor <- sum(probs[is_worse])
+      return(p_valor)
     }
 
  )
 )
+
+.envQCCS <- new.env(parent = emptyenv())
+.envQCCS$counter <- 0
 

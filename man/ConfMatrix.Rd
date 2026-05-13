@@ -54,7 +54,7 @@ Error Messages: List of possible errors:
 \examples{
 
 ## ------------------------------------------------
-## Method `ConfMatrix$new`
+## Method `ConfMatrix$new()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -63,7 +63,7 @@ cm<-ConfMatrix$new (A,ID="5",Date="27-10-2023",Source="Congalton and Green,
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$plot.index`
+## Method `ConfMatrix$plot.index()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -72,7 +72,7 @@ p$plot.index()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$plot.UserProdAcc`
+## Method `ConfMatrix$plot.UserProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -81,7 +81,7 @@ p$plot.UserProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$print`
+## Method `ConfMatrix$print()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -91,7 +91,7 @@ p$print()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AllParameters`
+## Method `ConfMatrix$AllParameters()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -100,7 +100,7 @@ p$AllParameters()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$UserAcc`
+## Method `ConfMatrix$UserAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -109,7 +109,7 @@ p$UserAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$UserAcc_i`
+## Method `ConfMatrix$UserAcc_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
@@ -118,7 +118,7 @@ p$UserAcc_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvUserAcc`
+## Method `ConfMatrix$AvUserAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
@@ -127,7 +127,7 @@ p$AvUserAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$CombUserAcc`
+## Method `ConfMatrix$CombUserAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
@@ -136,7 +136,7 @@ p$CombUserAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ProdAcc`
+## Method `ConfMatrix$ProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -145,7 +145,7 @@ p$ProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ProdAcc_i`
+## Method `ConfMatrix$ProdAcc_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -154,7 +154,7 @@ p$ProdAcc_i(1)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvProdAcc`
+## Method `ConfMatrix$AvProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
@@ -163,7 +163,7 @@ p$AvProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$CombProdAcc`
+## Method `ConfMatrix$CombProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
@@ -172,7 +172,7 @@ p$CombProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$UserProdAcc`
+## Method `ConfMatrix$UserProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -181,7 +181,7 @@ p$UserProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$CombUserProdAcc`
+## Method `ConfMatrix$CombUserProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -190,7 +190,7 @@ p$CombUserProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvUserProdAcc`
+## Method `ConfMatrix$AvUserProdAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -199,7 +199,7 @@ p$AvUserProdAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvUserProdAcc_i`
+## Method `ConfMatrix$AvUserProdAcc_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -208,7 +208,7 @@ p$AvUserProdAcc_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$UserProdAcc_W`
+## Method `ConfMatrix$UserProdAcc_W()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -218,7 +218,7 @@ p$UserProdAcc_W(WM)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$OverallAcc`
+## Method `ConfMatrix$OverallAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -227,7 +227,7 @@ p$OverallAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Kappa`
+## Method `ConfMatrix$Kappa()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -236,7 +236,7 @@ p$Kappa()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ModKappa`
+## Method `ConfMatrix$ModKappa()`
 ## ------------------------------------------------
 
 A <- matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
@@ -245,7 +245,7 @@ p$ModKappa()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$UserKappa_i`
+## Method `ConfMatrix$UserKappa_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35, 29,13,3,5,7,28,48,1,0,2,3,17),
@@ -255,7 +255,7 @@ p$UserKappa_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ModKappaUser_i`
+## Method `ConfMatrix$ModKappaUser_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
@@ -264,7 +264,7 @@ p$ModKappaUser_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ProdKappa_i`
+## Method `ConfMatrix$ProdKappa_i()`
 ## ------------------------------------------------
 
 A <- matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35,29,13,3,5,7,28,48,1,0,2,3,17),
@@ -274,7 +274,7 @@ p$ProdKappa_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ModKappaProd_i`
+## Method `ConfMatrix$ModKappaProd_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
@@ -283,7 +283,7 @@ p$ModKappaProd_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$DetailKappa`
+## Method `ConfMatrix$DetailKappa()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -292,7 +292,7 @@ p$DetailKappa()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$DetailCondKappa`
+## Method `ConfMatrix$DetailCondKappa()`
 ## ------------------------------------------------
 
 A<-matrix(c(0.2361,0.0694,0.1389,0.0556,0.1667,0.0417,0.1111,0,0.1806),
@@ -302,7 +302,7 @@ p$DetailCondKappa ()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$DetailWKappa`
+## Method `ConfMatrix$DetailWKappa()`
 ## ------------------------------------------------
 
 A <- matrix(c(1,1,0,0,0,5,55,27,23,0,3,30,68,74,4,0,8,8,39,26,0,0,2,4,26),
@@ -314,7 +314,7 @@ p$DetailWKappa(WM)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Tau`
+## Method `ConfMatrix$Tau()`
 ## ------------------------------------------------
 
 A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
@@ -326,7 +326,7 @@ p$Tau()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$DetailWTau`
+## Method `ConfMatrix$DetailWTau()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -336,7 +336,7 @@ p$DetailWTau(WV)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Ent`
+## Method `ConfMatrix$Ent()`
 ## ------------------------------------------------
 
 A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
@@ -345,7 +345,7 @@ p$Ent(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvNormEnt`
+## Method `ConfMatrix$AvNormEnt()`
 ## ------------------------------------------------
 
 A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
@@ -354,7 +354,7 @@ p$AvNormEnt(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$GeomAvNormEnt`
+## Method `ConfMatrix$GeomAvNormEnt()`
 ## ------------------------------------------------
 
 A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
@@ -363,7 +363,7 @@ p$GeomAvNormEnt(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvMaxNormEnt`
+## Method `ConfMatrix$AvMaxNormEnt()`
 ## ------------------------------------------------
 
 A<-matrix(c(8,0,0,0,0,16,0,0,0,0,8,0,0,0,0,16),nrow=4,ncol=4)
@@ -372,7 +372,7 @@ p$AvMaxNormEnt(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$EntUser_i`
+## Method `ConfMatrix$EntUser_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
@@ -381,7 +381,7 @@ p$EntUser_i(1,v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$NormEntUser`
+## Method `ConfMatrix$NormEntUser()`
 ## ------------------------------------------------
 
 A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
@@ -390,7 +390,7 @@ p$NormEntUser(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$EntProd_i`
+## Method `ConfMatrix$EntProd_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
@@ -399,7 +399,7 @@ p$EntProd_i(3,v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$NormEntProd`
+## Method `ConfMatrix$NormEntProd()`
 ## ------------------------------------------------
 
 A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
@@ -408,7 +408,7 @@ p$NormEntProd(v=2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Sucess`
+## Method `ConfMatrix$Sucess()`
 ## ------------------------------------------------
 
 A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
@@ -417,7 +417,7 @@ p$Sucess()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Sucess_i`
+## Method `ConfMatrix$Sucess_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
@@ -426,7 +426,7 @@ p$Sucess_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvHellAcc`
+## Method `ConfMatrix$AvHellAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -435,7 +435,7 @@ p$AvHellAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvHellAcc_i`
+## Method `ConfMatrix$AvHellAcc_i()`
 ## ------------------------------------------------
 
 A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
@@ -445,7 +445,7 @@ p$AvHellAcc_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$AvShortAcc`
+## Method `ConfMatrix$AvShortAcc()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -454,7 +454,7 @@ p$AvShortAcc()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$ShortAcc_i`
+## Method `ConfMatrix$ShortAcc_i()`
 ## ------------------------------------------------
 
 A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
@@ -464,7 +464,7 @@ p$ShortAcc_i(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$GroundTruth`
+## Method `ConfMatrix$GroundTruth()`
 ## ------------------------------------------------
 
 A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
@@ -474,7 +474,7 @@ p$GroundTruth()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$GroundTruth_i`
+## Method `ConfMatrix$GroundTruth_i()`
 ## ------------------------------------------------
 
 A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
@@ -484,7 +484,7 @@ p$GroundTruth_i(3)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$HellingerDist`
+## Method `ConfMatrix$HellingerDist()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -495,7 +495,7 @@ r$HellingerDist(f)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$QES`
+## Method `ConfMatrix$QES()`
 ## ------------------------------------------------
 
 A<-matrix(c(3,2,1,1,3,3,2,0,1),nrow=3,ncol=3)
@@ -504,7 +504,7 @@ p$QES()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$MTypify`
+## Method `ConfMatrix$MTypify()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -512,7 +512,7 @@ p<-ConfMatrix$new(A, Source="Congalton and Green 2008")
 p$MTypify(RaR=5)
 
 ## ------------------------------------------------
-## Method `ConfMatrix$MBootStrap`
+## Method `ConfMatrix$MBootStrap()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -521,7 +521,7 @@ p$MBootStrap(2)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$MNormalize`
+## Method `ConfMatrix$MNormalize()`
 ## ------------------------------------------------
 
 A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
@@ -533,7 +533,7 @@ p$MNormalize()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$MPseudoZeroes`
+## Method `ConfMatrix$MPseudoZeroes()`
 ## ------------------------------------------------
 
 A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
@@ -545,7 +545,7 @@ p$MPseudoZeroes()
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$OverallAcc.test`
+## Method `ConfMatrix$OverallAcc.test()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -556,7 +556,7 @@ p$OverallAcc.test(f)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Kappa.test`
+## Method `ConfMatrix$Kappa.test()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -567,7 +567,7 @@ p$Kappa.test(f)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$Tau.test`
+## Method `ConfMatrix$Tau.test()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -578,7 +578,7 @@ p$Tau.test(f)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$TSCM.test`
+## Method `ConfMatrix$TSCM.test()`
 ## ------------------------------------------------
 
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
@@ -589,7 +589,7 @@ p$TSCM.test(f)
 
 
 ## ------------------------------------------------
-## Method `ConfMatrix$QIndep.test`
+## Method `ConfMatrix$QIndep.test()`
 ## ------------------------------------------------
 
 A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
@@ -658,25 +658,25 @@ p$QIndep.test()
 \insertRef{turk2002}{ConfMatrix}
 }
 \section{Public fields}{
-\if{html}{\out{<div class="r6-fields">}}
-\describe{
-\item{\code{Values}}{\verb{
+  \if{html}{\out{<div class="r6-fields">}}
+  \describe{
+    \item{\code{Values}}{\verb{
 Matrix of integer values. An matrix must be added.
 }}
 
-\item{\code{ID}}{\verb{
+    \item{\code{ID}}{\verb{
 Identifier. It is a character string with a maximum length of 50 characters.
 By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
 number of ConfMatrix instances already defined in the session.
 }}
 
-\item{\code{Date}}{\verb{
+    \item{\code{Date}}{\verb{
 Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
 By default the date provided by the system will be taken.
 
 }}
 
-\item{\code{ClassNames}}{\verb{
+    \item{\code{ClassNames}}{\verb{
 Name of the classes. It is given by a character strings vector whose elements
 are the name of the classes. Each element of the vector is a string of maximum
 20 characters. By default for the column elements they will be} \eqn{PC_i}
@@ -684,81 +684,81 @@ are the name of the classes. Each element of the vector is a string of maximum
 ing row or column number.
 }}
 
-\item{\code{Source}}{\verb{
+    \item{\code{Source}}{\verb{
 Indicates where the matrix comes from (article, project, etc.). It is suggest-
 ed to enter a reference or a DOI. A character string with a maximum length of
 80 characters can be entered. By default, is NULL.
 }}
-}
-\if{html}{\out{</div>}}
+  }
+  \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-ConfMatrix-new}{\code{ConfMatrix$new()}}
-\item \href{#method-ConfMatrix-plot.index}{\code{ConfMatrix$plot.index()}}
-\item \href{#method-ConfMatrix-plot.UserProdAcc}{\code{ConfMatrix$plot.UserProdAcc()}}
-\item \href{#method-ConfMatrix-print}{\code{ConfMatrix$print()}}
-\item \href{#method-ConfMatrix-AllParameters}{\code{ConfMatrix$AllParameters()}}
-\item \href{#method-ConfMatrix-UserAcc}{\code{ConfMatrix$UserAcc()}}
-\item \href{#method-ConfMatrix-UserAcc_i}{\code{ConfMatrix$UserAcc_i()}}
-\item \href{#method-ConfMatrix-AvUserAcc}{\code{ConfMatrix$AvUserAcc()}}
-\item \href{#method-ConfMatrix-CombUserAcc}{\code{ConfMatrix$CombUserAcc()}}
-\item \href{#method-ConfMatrix-ProdAcc}{\code{ConfMatrix$ProdAcc()}}
-\item \href{#method-ConfMatrix-ProdAcc_i}{\code{ConfMatrix$ProdAcc_i()}}
-\item \href{#method-ConfMatrix-AvProdAcc}{\code{ConfMatrix$AvProdAcc()}}
-\item \href{#method-ConfMatrix-CombProdAcc}{\code{ConfMatrix$CombProdAcc()}}
-\item \href{#method-ConfMatrix-UserProdAcc}{\code{ConfMatrix$UserProdAcc()}}
-\item \href{#method-ConfMatrix-CombUserProdAcc}{\code{ConfMatrix$CombUserProdAcc()}}
-\item \href{#method-ConfMatrix-AvUserProdAcc}{\code{ConfMatrix$AvUserProdAcc()}}
-\item \href{#method-ConfMatrix-AvUserProdAcc_i}{\code{ConfMatrix$AvUserProdAcc_i()}}
-\item \href{#method-ConfMatrix-UserProdAcc_W}{\code{ConfMatrix$UserProdAcc_W()}}
-\item \href{#method-ConfMatrix-OverallAcc}{\code{ConfMatrix$OverallAcc()}}
-\item \href{#method-ConfMatrix-Kappa}{\code{ConfMatrix$Kappa()}}
-\item \href{#method-ConfMatrix-ModKappa}{\code{ConfMatrix$ModKappa()}}
-\item \href{#method-ConfMatrix-UserKappa_i}{\code{ConfMatrix$UserKappa_i()}}
-\item \href{#method-ConfMatrix-ModKappaUser_i}{\code{ConfMatrix$ModKappaUser_i()}}
-\item \href{#method-ConfMatrix-ProdKappa_i}{\code{ConfMatrix$ProdKappa_i()}}
-\item \href{#method-ConfMatrix-ModKappaProd_i}{\code{ConfMatrix$ModKappaProd_i()}}
-\item \href{#method-ConfMatrix-DetailKappa}{\code{ConfMatrix$DetailKappa()}}
-\item \href{#method-ConfMatrix-DetailCondKappa}{\code{ConfMatrix$DetailCondKappa()}}
-\item \href{#method-ConfMatrix-DetailWKappa}{\code{ConfMatrix$DetailWKappa()}}
-\item \href{#method-ConfMatrix-Tau}{\code{ConfMatrix$Tau()}}
-\item \href{#method-ConfMatrix-DetailWTau}{\code{ConfMatrix$DetailWTau()}}
-\item \href{#method-ConfMatrix-Ent}{\code{ConfMatrix$Ent()}}
-\item \href{#method-ConfMatrix-AvNormEnt}{\code{ConfMatrix$AvNormEnt()}}
-\item \href{#method-ConfMatrix-GeomAvNormEnt}{\code{ConfMatrix$GeomAvNormEnt()}}
-\item \href{#method-ConfMatrix-AvMaxNormEnt}{\code{ConfMatrix$AvMaxNormEnt()}}
-\item \href{#method-ConfMatrix-EntUser_i}{\code{ConfMatrix$EntUser_i()}}
-\item \href{#method-ConfMatrix-NormEntUser}{\code{ConfMatrix$NormEntUser()}}
-\item \href{#method-ConfMatrix-EntProd_i}{\code{ConfMatrix$EntProd_i()}}
-\item \href{#method-ConfMatrix-NormEntProd}{\code{ConfMatrix$NormEntProd()}}
-\item \href{#method-ConfMatrix-Sucess}{\code{ConfMatrix$Sucess()}}
-\item \href{#method-ConfMatrix-Sucess_i}{\code{ConfMatrix$Sucess_i()}}
-\item \href{#method-ConfMatrix-AvHellAcc}{\code{ConfMatrix$AvHellAcc()}}
-\item \href{#method-ConfMatrix-AvHellAcc_i}{\code{ConfMatrix$AvHellAcc_i()}}
-\item \href{#method-ConfMatrix-AvShortAcc}{\code{ConfMatrix$AvShortAcc()}}
-\item \href{#method-ConfMatrix-ShortAcc_i}{\code{ConfMatrix$ShortAcc_i()}}
-\item \href{#method-ConfMatrix-GroundTruth}{\code{ConfMatrix$GroundTruth()}}
-\item \href{#method-ConfMatrix-GroundTruth_i}{\code{ConfMatrix$GroundTruth_i()}}
-\item \href{#method-ConfMatrix-HellingerDist}{\code{ConfMatrix$HellingerDist()}}
-\item \href{#method-ConfMatrix-QES}{\code{ConfMatrix$QES()}}
-\item \href{#method-ConfMatrix-MTypify}{\code{ConfMatrix$MTypify()}}
-\item \href{#method-ConfMatrix-MBootStrap}{\code{ConfMatrix$MBootStrap()}}
-\item \href{#method-ConfMatrix-MNormalize}{\code{ConfMatrix$MNormalize()}}
-\item \href{#method-ConfMatrix-MPseudoZeroes}{\code{ConfMatrix$MPseudoZeroes()}}
-\item \href{#method-ConfMatrix-OverallAcc.test}{\code{ConfMatrix$OverallAcc.test()}}
-\item \href{#method-ConfMatrix-Kappa.test}{\code{ConfMatrix$Kappa.test()}}
-\item \href{#method-ConfMatrix-Tau.test}{\code{ConfMatrix$Tau.test()}}
-\item \href{#method-ConfMatrix-TSCM.test}{\code{ConfMatrix$TSCM.test()}}
-\item \href{#method-ConfMatrix-QIndep.test}{\code{ConfMatrix$QIndep.test()}}
-}
+  \itemize{
+    \item \href{#method-ConfMatrix-initialize}{\code{ConfMatrix$new()}}
+    \item \href{#method-ConfMatrix-plot.index}{\code{ConfMatrix$plot.index()}}
+    \item \href{#method-ConfMatrix-plot.UserProdAcc}{\code{ConfMatrix$plot.UserProdAcc()}}
+    \item \href{#method-ConfMatrix-print}{\code{ConfMatrix$print()}}
+    \item \href{#method-ConfMatrix-AllParameters}{\code{ConfMatrix$AllParameters()}}
+    \item \href{#method-ConfMatrix-UserAcc}{\code{ConfMatrix$UserAcc()}}
+    \item \href{#method-ConfMatrix-UserAcc_i}{\code{ConfMatrix$UserAcc_i()}}
+    \item \href{#method-ConfMatrix-AvUserAcc}{\code{ConfMatrix$AvUserAcc()}}
+    \item \href{#method-ConfMatrix-CombUserAcc}{\code{ConfMatrix$CombUserAcc()}}
+    \item \href{#method-ConfMatrix-ProdAcc}{\code{ConfMatrix$ProdAcc()}}
+    \item \href{#method-ConfMatrix-ProdAcc_i}{\code{ConfMatrix$ProdAcc_i()}}
+    \item \href{#method-ConfMatrix-AvProdAcc}{\code{ConfMatrix$AvProdAcc()}}
+    \item \href{#method-ConfMatrix-CombProdAcc}{\code{ConfMatrix$CombProdAcc()}}
+    \item \href{#method-ConfMatrix-UserProdAcc}{\code{ConfMatrix$UserProdAcc()}}
+    \item \href{#method-ConfMatrix-CombUserProdAcc}{\code{ConfMatrix$CombUserProdAcc()}}
+    \item \href{#method-ConfMatrix-AvUserProdAcc}{\code{ConfMatrix$AvUserProdAcc()}}
+    \item \href{#method-ConfMatrix-AvUserProdAcc_i}{\code{ConfMatrix$AvUserProdAcc_i()}}
+    \item \href{#method-ConfMatrix-UserProdAcc_W}{\code{ConfMatrix$UserProdAcc_W()}}
+    \item \href{#method-ConfMatrix-OverallAcc}{\code{ConfMatrix$OverallAcc()}}
+    \item \href{#method-ConfMatrix-Kappa}{\code{ConfMatrix$Kappa()}}
+    \item \href{#method-ConfMatrix-ModKappa}{\code{ConfMatrix$ModKappa()}}
+    \item \href{#method-ConfMatrix-UserKappa_i}{\code{ConfMatrix$UserKappa_i()}}
+    \item \href{#method-ConfMatrix-ModKappaUser_i}{\code{ConfMatrix$ModKappaUser_i()}}
+    \item \href{#method-ConfMatrix-ProdKappa_i}{\code{ConfMatrix$ProdKappa_i()}}
+    \item \href{#method-ConfMatrix-ModKappaProd_i}{\code{ConfMatrix$ModKappaProd_i()}}
+    \item \href{#method-ConfMatrix-DetailKappa}{\code{ConfMatrix$DetailKappa()}}
+    \item \href{#method-ConfMatrix-DetailCondKappa}{\code{ConfMatrix$DetailCondKappa()}}
+    \item \href{#method-ConfMatrix-DetailWKappa}{\code{ConfMatrix$DetailWKappa()}}
+    \item \href{#method-ConfMatrix-Tau}{\code{ConfMatrix$Tau()}}
+    \item \href{#method-ConfMatrix-DetailWTau}{\code{ConfMatrix$DetailWTau()}}
+    \item \href{#method-ConfMatrix-Ent}{\code{ConfMatrix$Ent()}}
+    \item \href{#method-ConfMatrix-AvNormEnt}{\code{ConfMatrix$AvNormEnt()}}
+    \item \href{#method-ConfMatrix-GeomAvNormEnt}{\code{ConfMatrix$GeomAvNormEnt()}}
+    \item \href{#method-ConfMatrix-AvMaxNormEnt}{\code{ConfMatrix$AvMaxNormEnt()}}
+    \item \href{#method-ConfMatrix-EntUser_i}{\code{ConfMatrix$EntUser_i()}}
+    \item \href{#method-ConfMatrix-NormEntUser}{\code{ConfMatrix$NormEntUser()}}
+    \item \href{#method-ConfMatrix-EntProd_i}{\code{ConfMatrix$EntProd_i()}}
+    \item \href{#method-ConfMatrix-NormEntProd}{\code{ConfMatrix$NormEntProd()}}
+    \item \href{#method-ConfMatrix-Sucess}{\code{ConfMatrix$Sucess()}}
+    \item \href{#method-ConfMatrix-Sucess_i}{\code{ConfMatrix$Sucess_i()}}
+    \item \href{#method-ConfMatrix-AvHellAcc}{\code{ConfMatrix$AvHellAcc()}}
+    \item \href{#method-ConfMatrix-AvHellAcc_i}{\code{ConfMatrix$AvHellAcc_i()}}
+    \item \href{#method-ConfMatrix-AvShortAcc}{\code{ConfMatrix$AvShortAcc()}}
+    \item \href{#method-ConfMatrix-ShortAcc_i}{\code{ConfMatrix$ShortAcc_i()}}
+    \item \href{#method-ConfMatrix-GroundTruth}{\code{ConfMatrix$GroundTruth()}}
+    \item \href{#method-ConfMatrix-GroundTruth_i}{\code{ConfMatrix$GroundTruth_i()}}
+    \item \href{#method-ConfMatrix-HellingerDist}{\code{ConfMatrix$HellingerDist()}}
+    \item \href{#method-ConfMatrix-QES}{\code{ConfMatrix$QES()}}
+    \item \href{#method-ConfMatrix-MTypify}{\code{ConfMatrix$MTypify()}}
+    \item \href{#method-ConfMatrix-MBootStrap}{\code{ConfMatrix$MBootStrap()}}
+    \item \href{#method-ConfMatrix-MNormalize}{\code{ConfMatrix$MNormalize()}}
+    \item \href{#method-ConfMatrix-MPseudoZeroes}{\code{ConfMatrix$MPseudoZeroes()}}
+    \item \href{#method-ConfMatrix-OverallAcc.test}{\code{ConfMatrix$OverallAcc.test()}}
+    \item \href{#method-ConfMatrix-Kappa.test}{\code{ConfMatrix$Kappa.test()}}
+    \item \href{#method-ConfMatrix-Tau.test}{\code{ConfMatrix$Tau.test()}}
+    \item \href{#method-ConfMatrix-TSCM.test}{\code{ConfMatrix$TSCM.test()}}
+    \item \href{#method-ConfMatrix-QIndep.test}{\code{ConfMatrix$QIndep.test()}}
+  }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ConfMatrix-new"></a>}}
-\if{latex}{\out{\hypertarget{method-ConfMatrix-new}{}}}
-\subsection{Method \code{new()}}{
-Public method to create an instance of the ConfMatrix class.
+\if{html}{\out{<a id="method-ConfMatrix-initialize"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfMatrix-initialize}{}}}
+\subsection{\code{ConfMatrix$new()}}{
+  Public method to create an instance of the ConfMatrix class.
 When creating it, values must be given to the matrix. The values
 of the matrix must be organized in such a way that the columns
 represent the classes in the reference and the rows represent
@@ -766,184 +766,175 @@ the classes in the product being evaluated. The creation of a
 ConfMatrix instance includes a series of checks on the data. If
 checks are not met, the system generates coded error messages.
 The optional possibility of adding metadata to the matrix is offered.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$new(
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$new(
   Values,
   ID = NULL,
   Date = NULL,
   ClassNames = NULL,
   Source = NULL
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{Values}}{\verb{
+)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{Values}}{\verb{
 Matrix of integer values. A matrix must be added.
 }}
-
-\item{\code{ID}}{\verb{
+      \item{\code{ID}}{\verb{
 Identifier. It is a character string with a maximum length of 50 characters.
 By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
 number of ConfMatrix instances already defined in the session.
 }}
-
-\item{\code{Date}}{\verb{
+      \item{\code{Date}}{\verb{
 Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
 By default the date provided by the system will be taken.
 
 }}
-
-\item{\code{ClassNames}}{\verb{
+      \item{\code{ClassNames}}{\verb{
 Name of the classes. It is given by a character strings vector whose elements
 are the name of the classes. Each element of the vector is a string of maximum
 20 characters. By default for the column elements they will be} \eqn{PC_i}
 (Producer class) \verb{and for the elements of row} \eqn{UC_i}\verb{ (User class), with} \eqn{i} \verb{being the correspond-
 ing row or column number.
 }}
-
-\item{\code{Source}}{\verb{
+      \item{\code{Source}}{\verb{
 Indicates where the matrix comes from (article, project, etc.). It is suggest-
 ed to enter a reference or a DOI. A character string with a maximum length of
 80 characters can be entered. By default, is NULL.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-Object of the ConfMatrix class, or an error message.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    Object of the ConfMatrix class, or an error message.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 cm<-ConfMatrix$new (A,ID="5",Date="27-10-2023",Source="Congalton and Green,
 2008")
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-plot.index"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-plot.index}{}}}
-\subsection{Method \code{plot.index()}}{
-Public method that provides a graph of the indices of
+\subsection{\code{ConfMatrix$plot.index()}}{
+  Public method that provides a graph of the indices of
 the functions ConfMatrix$OverallAcc, ConfMatrix$Kappa,
 ConfMatrix$Tau, ConfMatrix$AvHellAcc and ConfMatrix$AvShortAcc
 with their corresponding standard deviations.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$plot.index()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A graph of the indices of the functions OverallAcc, Kappa,
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$plot.index()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A graph of the indices of the functions OverallAcc, Kappa,
 Tau, AvHellAcc, AvShortAcc with their corresponding
 standard deviations.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$plot.index()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-plot.UserProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-plot.UserProdAcc}{}}}
-\subsection{Method \code{plot.UserProdAcc()}}{
-Public method that provides a graph for the user’s
+\subsection{\code{ConfMatrix$plot.UserProdAcc()}}{
+  Public method that provides a graph for the user’s
 and producer’s accuracies and standard deviations.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$plot.UserProdAcc()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-The graph of the accuracy index of users and producers
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$plot.UserProdAcc()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The graph of the accuracy index of users and producers
 with their corresponding standard desviation.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$plot.UserProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-print"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-print}{}}}
-\subsection{Method \code{print()}}{
-Public method that shows all the data entered
+\subsection{\code{ConfMatrix$print()}}{
+  Public method that shows all the data entered
 by the user for a instance.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$print()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-ConfMatrix object identifier, date, class name, data
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$print()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    ConfMatrix object identifier, date, class name, data
 source and confusion matrix.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,ClassNames=c("Deciduous","conifer","agriculture",
 "shrub"),Source="Congalton and Green 2008")
 p$print()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AllParameters"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AllParameters}{}}}
-\subsection{Method \code{AllParameters()}}{
-Public method in which multiple parameters are
+\subsection{\code{ConfMatrix$AllParameters()}}{
+  Public method in which multiple parameters are
 calculated for the given confusion matrix. This method is
 equivalent to ConfMatrix$OverallAcc,ConfMatrix$UserAcc,
 ConfMatrix$ProdAcc,ConfMatrix$Kappa and ConfMatrix$MPseudoZeroes.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AllParameters()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-The following list of elements: the confusion matrix,
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AllParameters()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    The following list of elements: the confusion matrix,
 dimension, total sum of cell values, overall accuracy, overall
 accuracy variance, global kappa index, global kappa simplified
 variance, producer accuracy by class, user accuracy by class,
 and pseudoceros matrix.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$AllParameters()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-UserAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserAcc}{}}}
-\subsection{Method \code{UserAcc()}}{
-Public method for deriving the index called user’s
+\subsection{\code{ConfMatrix$UserAcc()}}{
+  Public method for deriving the index called user’s
 accuracy for all the classes in a ConfMatrix object instance.
 The user's accuracy for the class \eqn{i} of a thematic product is
 calculated by dividing the value in the diagonal of class \eqn{i} by
@@ -957,41 +948,40 @@ UserAcc=\dfrac{x_{ii}}{x_{i+}}
 \deqn{
 \sigma^2_{UserAcc}=\dfrac{UserAcc \cdot (1-UserAcc)}{N_{i}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$UserAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of vectors, containing the user’s accuracy real values for
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of vectors, containing the user’s accuracy real values for
 all classes, their variances and confidence intervals for each class,
 respectively.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$UserAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-UserAcc_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserAcc_i}{}}}
-\subsection{Method \code{UserAcc_i()}}{
-Public method for deriving the index called
+\subsection{\code{ConfMatrix$UserAcc_i()}}{
+  Public method for deriving the index called
 user’s accuracy for a specific class \eqn{i} in a ConfMatrix object
 instance. The user’s accuracy for the class \eqn{i} of a thematic
 product is calculated by dividing the value in the diagonal of
@@ -1001,103 +991,100 @@ interval. The reference \insertCite{congalton2008;textual}{ConfMatrix}
 is followed for the computations.
 
 
-\deqn{
+  \deqn{
 UserAcc_{i}=\dfrac{x_{ii}}{x_{i+}}
 }
 \deqn{
 \sigma^2_{UserAcc_i}=\dfrac{UserAcc_i \cdot (1-UserAcc_i)}{N_{i}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$UserAcc_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserAcc_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the user’s accuracy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the user’s accuracy
 for class i, its variance, and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$UserAcc_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvUserAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvUserAcc}{}}}
-\subsection{Method \code{AvUserAcc()}}{
-Public method that provides the arithmetic average,
+\subsection{\code{ConfMatrix$AvUserAcc()}}{
+  Public method that provides the arithmetic average,
 without weighing, of all user’s accuracies of a ConfMatrix object
 instance. The method also offers the variance and confidence
 interval. The reference \insertCite{tung1988;textual}{ConfMatrix} is
 followed for the calculations.
 
 
-\deqn{
+  \deqn{
 AvUserAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { x_{i+}}
 }
 \deqn{
 \sigma^2_{AvUserAcc}=\dfrac{AvUserAcc \cdot (1-AvUserAcc)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvUserAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvUserAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average
 user’s accuracy, its variance, and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
 p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
 p$AvUserAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-CombUserAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-CombUserAcc}{}}}
-\subsection{Method \code{CombUserAcc()}}{
-Public method that provides the combined user's accuracy.
+\subsection{\code{ConfMatrix$CombUserAcc()}}{
+  Public method that provides the combined user's accuracy.
 Which is the average of the overall accuracy and the average user's
 accuracy. The method also offers the
 variance and confidence interval. The reference
 \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
 
 
-\deqn{
+  \deqn{
 CombUserAcc=\dfrac{OverallAcc+AvUserAcc}{2}
 }
 \deqn{
@@ -1108,41 +1095,40 @@ where:
 \enumerate{
 \item \eqn{OverallAcc}: overall accuracy.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$CombUserAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$CombUserAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the combined
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the combined
 accuracy from the user's perspective,
 its variation and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
 p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
 p$CombUserAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ProdAcc}{}}}
-\subsection{Method \code{ProdAcc()}}{
-Public method for deriving the index called
+\subsection{\code{ConfMatrix$ProdAcc()}}{
+  Public method for deriving the index called
 producer’s accuracy for all the classes in a ConfMatrix
 object instance. The producer’s accuracy for the class i
 of a thematic product is calculated by dividing the value
@@ -1153,47 +1139,46 @@ offers the variance and confidence interval. The reference
 computations.
 
 
-\deqn{
+  \deqn{
 ProdAcc=\dfrac{x_{ii}}{x_{+j}}
 }
 \deqn{
 \sigma^2_{ProdAcc}=\dfrac{ProdAcc \cdot (1-ProdAcc)}{N_{j}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ProdAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ProdAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of vectors each one containing the producer’s
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of vectors each one containing the producer’s
 accuracy real values for all classes, their variances and
 confidence intervals for each class, respectively.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$ProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ProdAcc_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ProdAcc_i}{}}}
-\subsection{Method \code{ProdAcc_i()}}{
-Public method for deriving the index called
+\subsection{\code{ConfMatrix$ProdAcc_i()}}{
+  Public method for deriving the index called
 producer’s accuracy for a specific class \eqn{i} in a ConfMatrix
 object instance. The user’s accuracy for the class \eqn{i} of a
 thematic product is calculated by dividing the value in the
@@ -1204,105 +1189,102 @@ the variance and confidence interval. The reference
 calculations.
 
 
-\deqn{
+  \deqn{
 ProdAcc_{i}=\dfrac{x_{ii}}{x_{+j}}
 }
 \deqn{
 \sigma^2_{ProdAcc_i}=\dfrac{ProdAcc_i \cdot (1-ProdAcc_i)}{N_{j}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ProdAcc_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ProdAcc_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Producer class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}.
 }}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the producer’s
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the producer’s
 accuracy for class i, its variance, and its confidence
 interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$ProdAcc_i(1)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvProdAcc}{}}}
-\subsection{Method \code{AvProdAcc()}}{
-Public method that provides the arithmetic
+\subsection{\code{ConfMatrix$AvProdAcc()}}{
+  Public method that provides the arithmetic
 average of all producer’s accuracies of a ConfMatrix object
 instance. The method also offers the variance and confidence
 interval. The reference \insertCite{tung1988;textual}{ConfMatrix}
 is followed for the calculations.
 
 
-\deqn{
+  \deqn{
 AvProdAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { x_{+j}}
 }
 \deqn{
 \sigma^2_{AvProdAcc}=\dfrac{AvProdAcc \cdot (1-AvProdAcc)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvProdAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvProdAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average producer’s
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average producer’s
 accuracy, its variance, and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
 p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
 p$AvProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-CombProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-CombProdAcc}{}}}
-\subsection{Method \code{CombProdAcc()}}{
-Public method that provides the combined producer's
+\subsection{\code{ConfMatrix$CombProdAcc()}}{
+  Public method that provides the combined producer's
 accuracy. Which is the average of the overall accuracy and the average
 producer accuracy. The method also offers the
 variance and confidence interval. The reference
 \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
 
 
-\deqn{
+  \deqn{
 CombProdAcc=\dfrac{OverallAcc+AvProdAcc}{2}
 }
 \deqn{
@@ -1314,67 +1296,65 @@ where:
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$CombProdAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$CombProdAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the combined accuracy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the combined accuracy
 from producer's perspective, its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(352,43,89,203),nrow=2,ncol=2)
 p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
 p$CombProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-UserProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserProdAcc}{}}}
-\subsection{Method \code{UserProdAcc()}}{
-Public method that calculates the user’s and the
+\subsection{\code{ConfMatrix$UserProdAcc()}}{
+  Public method that calculates the user’s and the
 producer’s indexes jointly. This method is equivalent to the methods
 ConfMatrix$UserAcc and ConfMatrix$ProdAcc.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$UserProdAcc()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list containing the producer's and user's accuracies and
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserProdAcc()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list containing the producer's and user's accuracies and
 their standard deviations, respectively.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$UserProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-CombUserProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-CombUserProdAcc}{}}}
-\subsection{Method \code{CombUserProdAcc()}}{
-Public method that provides the combined accuracy,
+\subsection{\code{ConfMatrix$CombUserProdAcc()}}{
+  Public method that provides the combined accuracy,
 defined by the average of the overall accuracy and the Hellden's
 average accuracy, which refers to the average user's and producer's
 accuracies. The method also offers the
@@ -1382,7 +1362,7 @@ variance and confidence interval. The reference
 \insertCite{liu2007;textual}{ConfMatrix} is followed for the calculations.
 
 
-\deqn{
+  \deqn{
 CombUserProdAcc=\dfrac{OverallAcc+AvHellAcc}{2}
 }
 \deqn{
@@ -1395,40 +1375,39 @@ where:
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{AvHellAcc}: average of Hellden's mean accuracy index.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$CombUserProdAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$CombUserProdAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the combined accuracy from both user's
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the combined accuracy from both user's
 and producer's perspectives, its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$CombUserProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvUserProdAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvUserProdAcc}{}}}
-\subsection{Method \code{AvUserProdAcc()}}{
-Public method that provides the arithmetic
+\subsection{\code{ConfMatrix$AvUserProdAcc()}}{
+  Public method that provides the arithmetic
 average of all user’s and producer’s accuracy indexes of
 a ConfMatrix object instance. The method also offers the
 variance and confidence interval. The reference
@@ -1436,7 +1415,7 @@ variance and confidence interval. The reference
 calculations.
 
 
-\deqn{
+  \deqn{
 AvUserProdAcc=\dfrac{AvUserAcc+AvProdAcc}{2}
 }
 \deqn{
@@ -1449,41 +1428,40 @@ where:
 \item \eqn{AvUserAcc}: average accuracy from user's perspective.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvUserProdAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvUserProdAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average mean
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average mean
 precision values from the user's and producer's perspective,
 their variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$AvUserProdAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvUserProdAcc_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvUserProdAcc_i}{}}}
-\subsection{Method \code{AvUserProdAcc_i()}}{
-Public method that provides the average of
+\subsection{\code{ConfMatrix$AvUserProdAcc_i()}}{
+  Public method that provides the average of
 user’s and producer’s accuracies for a specific class i.
 The method also offers the variance and confidence
 interval. The reference \insertCite{liu2007;textual}{ConfMatrix}
@@ -1501,44 +1479,42 @@ where:
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvUserProdAcc_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvUserProdAcc_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average of
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average of
 user’s and producer’s accuracies, its variance and
 confidence interval for class i.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$AvUserProdAcc_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-UserProdAcc_W"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserProdAcc_W}{}}}
-\subsection{Method \code{UserProdAcc_W()}}{
-Public method that calculates the weighted user's,
+\subsection{\code{ConfMatrix$UserProdAcc_W()}}{
+  Public method that calculates the weighted user's,
 producer’s and overall accuracies and their standard deviations.
 The reference \insertCite{congalton2008;textual}{ConfMatrix} is followed
 for the computations.
@@ -1564,40 +1540,39 @@ ProdAcc_W=\dfrac{p_{o_{+j}}}{p_{+j}}
 
 where \eqn{p_o=\sum^M_{i,j=1} w_{ij}p_{ij}} and \eqn{0 \leq w_{ij} \leq 1}
 for \eqn{i \neq j} and \eqn{w_{ii}=1} for \eqn{i = j}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$UserProdAcc_W(WM)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{WM}}{Weight matrix (as matrix)}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with the weight matrix, the product of the
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserProdAcc_W(WM)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{WM}}{Weight matrix (as matrix)}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with the weight matrix, the product of the
 confusion matrix and the weight matrix, overall, user and
 producer weighted accuracies and their standard deviations.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 WM<- t(matrix(c(1,0,0.67,1,0,1,0,0,1,0,1,1,0.91,0,0.61,1),nrow=4,ncol=4))
 p$UserProdAcc_W(WM)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-OverallAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-OverallAcc}{}}}
-\subsection{Method \code{OverallAcc()}}{
-Public method to calculate the global index called
+\subsection{\code{ConfMatrix$OverallAcc()}}{
+  Public method to calculate the global index called
 Overall Accuracy. The Overall Accuracy is calculated by dividing
 the sum of the entries that form the major diagonal (i.e., the
 number of correct classifications) by the total number of cases.
@@ -1612,40 +1587,39 @@ OverallAcc = \dfrac{\sum_{i=1}^{M} x_{ii}}{\sum_{i, j=1}^{M} x_{ij}}
 \deqn{
 \sigma^2_{OverallAcc}=\dfrac{OverallAcc \cdot (1-OverallAcc)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$OverallAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$OverallAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the overall accuracy,
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the overall accuracy,
 its variance, and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A)
 p$OverallAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Kappa"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Kappa}{}}}
-\subsection{Method \code{Kappa()}}{
-Public method that provides Kappa coefficient,
+\subsection{\code{ConfMatrix$Kappa()}}{
+  Public method that provides Kappa coefficient,
 which measures the relationship between the observed proportion
 of agreement and the proportion expected to occur by chance.
 The method also offers the variance and confidence interval.
@@ -1653,7 +1627,7 @@ The reference \insertCite{cohen1960;textual}{ConfMatrix} is followed
 for the calculations.
 
 
-\deqn{
+  \deqn{
 Kappa=\dfrac{OverallAcc-ExpAcc}{1-ExpAcc}
 }
 \deqn{
@@ -1670,40 +1644,39 @@ where:
 \item \eqn{ExpAcc}: expected accuracy of agreement if agreement
 were purely random.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Kappa(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Kappa(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing with kappa
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing with kappa
 coefficient, its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$Kappa()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ModKappa"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ModKappa}{}}}
-\subsection{Method \code{ModKappa()}}{
-Public method that provides the overall modified
+\subsection{\code{ConfMatrix$ModKappa()}}{
+  Public method that provides the overall modified
 kappa coefficient. The method also offers the
 variance and confidence interval. The references
 \insertCite{stehman1997;textual}{ConfMatrix} and \insertCite{foody1992;textual}{ConfMatrix}
@@ -1721,47 +1694,46 @@ where:
 \enumerate{
 \item \eqn{OverallAcc}: overall accuracy.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ModKappa(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ModKappa(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing modified coefficient
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing modified coefficient
 kappa, its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A <- matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A <- matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
 p <- ConfMatrix$new(A,Source="Foody 1992")
 p$ModKappa()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-UserKappa_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserKappa_i}{}}}
-\subsection{Method \code{UserKappa_i()}}{
-Public method derived by the kappa coefficient evaluated
+\subsection{\code{ConfMatrix$UserKappa_i()}}{
+  Public method derived by the kappa coefficient evaluated
 from the user's perspective, for a specific class i. The method
 also offers the variance and confidence interval. The reference
 \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
 for the calculations.
 
 
-\deqn{
+  \deqn{
 UserKappa_i=\dfrac{UserAcc_i-\dfrac{ x_{i + }}
 {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{i + }}
 {\sum^M_{i,j=1} x_{ij}}}
@@ -1777,44 +1749,42 @@ where:
 \enumerate{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$UserKappa_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserKappa_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the kappa coefficient
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the kappa coefficient
 (user’s perspective), its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35, 29,13,3,5,7,28,48,1,0,2,3,17),
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35, 29,13,3,5,7,28,48,1,0,2,3,17),
 nrow=5,ncol=5)
 p<-ConfMatrix$new(A,Source="Næsset 1996")
 p$UserKappa_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ModKappaUser_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ModKappaUser_i}{}}}
-\subsection{Method \code{ModKappaUser_i()}}{
-Public method, derived from the general modified
+\subsection{\code{ConfMatrix$ModKappaUser_i()}}{
+  Public method, derived from the general modified
 kappa coefficient, which provides the modified kappa coefficient
 from the user's perspective and for a specific class i. Equitable probabilities
 of belonging to each class are assumed. The method also offers
@@ -1834,51 +1804,49 @@ where:
 \enumerate{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ModKappaUser_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ModKappaUser_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the modified kappa
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the modified kappa
 coefficient from the user's perspective, its variance and
 confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Liu et al. 2007")
 p$ModKappaUser_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ProdKappa_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ProdKappa_i}{}}}
-\subsection{Method \code{ProdKappa_i()}}{
-Public method derived by the kappa coefficient evaluated
+\subsection{\code{ConfMatrix$ProdKappa_i()}}{
+  Public method derived by the kappa coefficient evaluated
 from the producer's perspective, for a specific class i. The method
 also offers the variance and confidence interval. The reference
 \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
 for the calculations.
 
 
-\deqn{
+  \deqn{
 ProdKappa_i=\dfrac{ProdAcc_i-\dfrac{ x_{ + i }}
 {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{+ i }}
 {\sum^M_{i,j=1} x_{ij}}}
@@ -1894,44 +1862,42 @@ where:
 \enumerate{
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ProdKappa_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ProdKappa_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the coefficient kappa
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the coefficient kappa
 (producer’s), its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A <- matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35,29,13,3,5,7,28,48,1,0,2,3,17),
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A <- matrix(c(73,13,5,1,0,21,32,13,3,0,16,39,35,29,13,3,5,7,28,48,1,0,2,3,17),
 nrow=5,ncol=5)
 p<-ConfMatrix$new(A,Source="Næsset 1996")
 p$ProdKappa_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ModKappaProd_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ModKappaProd_i}{}}}
-\subsection{Method \code{ModKappaProd_i()}}{
-Public method, derived from the general modified
+\subsection{\code{ConfMatrix$ModKappaProd_i()}}{
+  Public method, derived from the general modified
 kappa coefficient, which provides the modified kappa coefficient
 from the producer's perspective and for a specific class i. Equitable
 probabilities of belonging to each class are assumed. The method also
@@ -1940,7 +1906,7 @@ offers the variance and confidence interval. The references
 are followed for the calculations.
 
 
-\deqn{
+  \deqn{
 ModKappaProd_i=\dfrac{ProdAcc_i-\dfrac{1}{M}}
 {1-\dfrac{1}{M}}
 }
@@ -1953,43 +1919,41 @@ where:
 \enumerate{
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ModKappaProd_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ModKappaProd_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the modified kappa coefficient
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the modified kappa coefficient
 from the producer's perspective, its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(317,61,2,35,23,120,4,29,0,0,60,0,0,0,0,8),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Foody 1992")
 p$ModKappaProd_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-DetailKappa"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-DetailKappa}{}}}
-\subsection{Method \code{DetailKappa()}}{
-Public method that calculates the general Kappa
+\subsection{\code{ConfMatrix$DetailKappa()}}{
+  Public method that calculates the general Kappa
 agreement index, its standard deviation and the test statistic
 to test its significance. The delta method has been used to calculate
 the sample variance. The reference
@@ -2041,31 +2005,30 @@ were purely random.
 \item \eqn{\theta_1, \theta_2, \theta_3, \theta_4}: real values.
 \item \eqn{Z}: the test statistic.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$DetailKappa()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list of real values containing the kappa coefficient,
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$DetailKappa()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the kappa coefficient,
 its standard deviation, and the value of its test statistic.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$DetailKappa()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-DetailCondKappa"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-DetailCondKappa}{}}}
-\subsection{Method \code{DetailCondKappa()}}{
-Public method that calculates the Kappa class agreement
+\subsection{\code{ConfMatrix$DetailCondKappa()}}{
+  Public method that calculates the Kappa class agreement
 index (conditional Kappa) from the perspective of user (i) and
 producer (j) and its standard deviations. The reference
 \insertCite{congalton2008;textual}{ConfMatrix} is followed for the computations.
@@ -2086,32 +2049,31 @@ CondKappa_{producer}=\dfrac{\dfrac{x_{ii}}{x_{+j}}-x_{i+}}{1-x_{i+}}
 
 \eqn{\sigma^2_{CondKappa_{user}}} is done in an analogous way by exchanging
 \eqn{x_{i+}} to \eqn{x_{+j}}.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$DetailCondKappa()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list of real values containing conditional Kappa index of the user's and the
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$DetailCondKappa()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing conditional Kappa index of the user's and the
 producer's, and its corresponding standard deviation.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0.2361,0.0694,0.1389,0.0556,0.1667,0.0417,0.1111,0,0.1806),
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0.2361,0.0694,0.1389,0.0556,0.1667,0.0417,0.1111,0,0.1806),
 ncol=3,nrow=3)
 p<-ConfMatrix$new(A,Source="Czaplewski 1994")
 p$DetailCondKappa ()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-DetailWKappa"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-DetailWKappa}{}}}
-\subsection{Method \code{DetailWKappa()}}{
-Public method that calculates the general Kappa agreement
+\subsection{\code{ConfMatrix$DetailWKappa()}}{
+  Public method that calculates the general Kappa agreement
 index (weighted) and its standard deviation. The reference
 \insertCite{fleiss1969,naesset1996;textual}{ConfMatrix} and \insertCite{congalton2008;textual}{ConfMatrix}
 are followed for the computations.
@@ -2154,42 +2116,41 @@ Its statistic is given by:
 \deqn{
 Z=\dfrac{Kappa_W}{\sqrt{\sigma^2_{Kappa_W}}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$DetailWKappa(WM)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{WM}}{Weight matrix (as matrix).}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with the weight matrix, kappa index obtained from
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$DetailWKappa(WM)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{WM}}{Weight matrix (as matrix).}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with the weight matrix, kappa index obtained from
 the original matrix and the weight matrix, its standard deviations
 and the value of its test statistic.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A <- matrix(c(1,1,0,0,0,5,55,27,23,0,3,30,68,74,4,0,8,8,39,26,0,0,2,4,26),
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A <- matrix(c(1,1,0,0,0,5,55,27,23,0,3,30,68,74,4,0,8,8,39,26,0,0,2,4,26),
 nrow=5)
 WM <- matrix(c(1,0.75,0.5,0.25,0,0.75,1,0.75,0.5,0.25,0.5,0.75,1,0.75,0.5,
 0.25,0.5,0.75,1,0.75,0,0.25,0.5,0.75,1),nrow=5)
 p<-ConfMatrix$new(A, Source="Næsset 1996")
 p$DetailWKappa(WM)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Tau"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Tau}{}}}
-\subsection{Method \code{Tau()}}{
-Public method that calculates the Tau index and
+\subsection{\code{ConfMatrix$Tau()}}{
+  Public method that calculates the Tau index and
 its variance. Its value indicates how much the classification has
 improved compared to a random classification of the N elements into
 M groups. The method also offers the
@@ -2214,43 +2175,42 @@ Where:
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{PrAgCoef}: a priori random agreement coefficient.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Tau(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Tau(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the Tau index,
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the Tau index,
 its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
 51817,0,34,500,1867,325,17,0,0,5,11148,1618,78,0,0,0,0,48,4,834,2853,340,
 32,0,197,5,151,119,135,726,6774,75,1,553,0,105,601,110,174,155,8257,8,0,
 29,36,280,0,0,6,5,2993,0,115,2,0,4,124,595,0,0,4374),nrow=9,ncol=9)
 p<-ConfMatrix$new(A,Source="Muñoz 2016")
 p$Tau()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-DetailWTau"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-DetailWTau}{}}}
-\subsection{Method \code{DetailWTau()}}{
-Public method that calculates the general Tau
+\subsection{\code{ConfMatrix$DetailWTau()}}{
+  Public method that calculates the general Tau
 concordance index (weighted) and its standard deviation.
 
 Be \eqn{p_{ij}=\dfrac{x_{ij}}{\sum^M_{i,j} x_{ij}}} for each element \eqn{i,j} for the matrix
@@ -2299,41 +2259,40 @@ Where:
 \item \eqn{\theta_1, \theta_2, \theta_3, \theta_4}: real values.
 \item \eqn{Z}: the test statistic.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$DetailWTau(WV)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{WV}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$DetailWTau(WV)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{WV}}{\verb{
 Weights vector (as matrix)
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with the weighted Tau index, the weight matrix,
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with the weighted Tau index, the weight matrix,
 its standard deviation and its statistics.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 WV <-matrix(c(0.4, 0.1, 0.4, 0.1),ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$DetailWTau(WV)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Ent"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Ent}{}}}
-\subsection{Method \code{Ent()}}{
-Public method for calculating product entropy,which
+\subsection{\code{ConfMatrix$Ent()}}{
+  Public method for calculating product entropy,which
 refers to the lack of orden and predictability that the product
 presents. The method also offers the variance and confidence
 interval. The reference \insertCite{finn1993;textual}{ConfMatrix} is
@@ -2346,44 +2305,42 @@ Ent=\sum^M_{i,j=1} \left(\dfrac{x_{ij}}{\sum^M_{i,j=1} x_{ij}}
 \deqn{
 \sigma^2_{Ent}=\dfrac{Ent \cdot (1-Ent)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Ent(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Ent(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the entropy, its variance
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the entropy, its variance
 and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Finn 1993")
 p$Ent(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvNormEnt"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvNormEnt}{}}}
-\subsection{Method \code{AvNormEnt()}}{
-Public method that calculates normalized entropy using
+\subsection{\code{ConfMatrix$AvNormEnt()}}{
+  Public method that calculates normalized entropy using
 the arithmetic mean of the entropies on the product and the
 reference. The method also offers the variance and confidence interval. The reference
 \insertCite{strehl2002;textual}{ConfMatrix} is followed for the calculations.
@@ -2412,52 +2369,50 @@ where:
 of the product. A is a matrix.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvNormEnt(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvNormEnt(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the normalized
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the normalized
 entropy (arithmetic mean of the entropies on the product
 and reference), its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Liu et al. 2007")
 p$AvNormEnt(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-GeomAvNormEnt"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-GeomAvNormEnt}{}}}
-\subsection{Method \code{GeomAvNormEnt()}}{
-Public method that calculates the normalized entropy
+\subsection{\code{ConfMatrix$GeomAvNormEnt()}}{
+  Public method that calculates the normalized entropy
 using the geometric mean of the product and reference entropies.
 The method also offers the variance and confidence interval.
 The reference \insertCite{ghosh2002;textual}{ConfMatrix} is followed
 for the calculations.
 
 
-\deqn{
+  \deqn{
 GeomAvNormEnt=\dfrac{Ent}{\sqrt{Ent_i(A) \cdot Ent_i(B)}}
 }
 \deqn{
@@ -2482,52 +2437,50 @@ where:
 of the product. A is a matrix.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} of the reference. B is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$GeomAvNormEnt(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$GeomAvNormEnt(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the normalized
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the normalized
 entropy (geometric mean of the entropies on the product
 and reference), its variance and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0,12,0,0,12,0,0,0,0,0,0,12,0,0,12,0),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Liu et al. 2007")
 p$GeomAvNormEnt(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvMaxNormEnt"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvMaxNormEnt}{}}}
-\subsection{Method \code{AvMaxNormEnt()}}{
-Public method that provides normalized entropy using
+\subsection{\code{ConfMatrix$AvMaxNormEnt()}}{
+  Public method that provides normalized entropy using
 the arithmetic mean of the maximum entropies of the product and
 reference. The method also offers the variance and confidence interval.
 The reference \insertCite{strehl2002relationship;textual}{ConfMatrix} is
 followed for the calculations.
 
 
-\deqn{
+  \deqn{
 AvMaxNormEnt=\dfrac{2 Ent}{max(Ent_i(A))+max(Ent_i(B))}=
 \dfrac{Ent}{\log M}
 }
@@ -2553,52 +2506,50 @@ where:
 of the product. A is a matrix.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvMaxNormEnt(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvMaxNormEnt(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the normalized entropy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the normalized entropy
 (arithmetic mean of the maximum entropies of the product and of
 reference), its variance, and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(8,0,0,0,0,16,0,0,0,0,8,0,0,0,0,16),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(8,0,0,0,0,16,0,0,0,0,8,0,0,0,0,16),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Liu et al. 2007")
 p$AvMaxNormEnt(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-EntUser_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-EntUser_i}{}}}
-\subsection{Method \code{EntUser_i()}}{
-Public method that calculates relative change of
+\subsection{\code{ConfMatrix$EntUser_i()}}{
+  Public method that calculates relative change of
 entropy for a given class \eqn{i} of the product. The method also
 offers the variance and confidence interval.
 The reference \insertCite{finn1993;textual}{ConfMatrix} is followed for
 the calculations.
 
 
-\deqn{
+  \deqn{
 EntUser_i= \dfrac{Ent_i(A)-Ent_i(A|b_i)}{Ent_i(A)}
 }
 \deqn{
@@ -2624,55 +2575,52 @@ of the product. A is a matrix.
 location corresponding to reference B is in class \eqn{b_i}.
 B is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$EntUser_i(i, a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$EntUser_i(i, a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the relative change of entropy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the relative change of entropy
 for given class i, its variance, its confidence interval, producer's
 entropy, and producer's entropy knowing that the
 location corresponding to reference B is in class \eqn{b_i}.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Finn 1993")
 p$EntUser_i(1,v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-NormEntUser"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-NormEntUser}{}}}
-\subsection{Method \code{NormEntUser()}}{
-Public method that calculates normalized entropy
+\subsection{\code{ConfMatrix$NormEntUser()}}{
+  Public method that calculates normalized entropy
 of the product. The method also offers the variance and
 confidence interval. The reference
 \insertCite{finn1993;textual}{ConfMatrix} is followed for the calculations.
 
 
-\deqn{
+  \deqn{
 NormEntUser=\dfrac{Ent}{Ent_i(B)}
 }
 \deqn{
@@ -2689,45 +2637,43 @@ where:
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$NormEntUser(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$NormEntUser(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing with normalized entropy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing with normalized entropy
 of the product class i, conditioned to reference data, its variance
 and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Finn 1993")
 p$NormEntUser(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-EntProd_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-EntProd_i}{}}}
-\subsection{Method \code{EntProd_i()}}{
-Public method that calculates relative change of
+\subsection{\code{ConfMatrix$EntProd_i()}}{
+  Public method that calculates relative change of
 entropy for a given a class \eqn{i} of the reference from the producer's
 perspective. The method also offers the variance and confidence interval.
 The reference \insertCite{stehman1997;textual}{ConfMatrix} is followed for
@@ -2757,56 +2703,53 @@ where:
 \item \eqn{Ent_i(B|a_j)}: Entropy of reference B knowing that the
 location of product A is in the class \eqn{a_j}.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$EntProd_i(i, a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$EntProd_i(i, a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{ By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the relative change of entropy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the relative change of entropy
 for given class i, its variance, its confidence interval, entropy with
 respect to reference classes, and entropy with respect to reference
 classes knowing that the location corresponding to A is in class \eqn{a_j}.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Finn 1993")
 p$EntProd_i(3,v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-NormEntProd"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-NormEntProd}{}}}
-\subsection{Method \code{NormEntProd()}}{
-Public method that calculates normalized entropy of
+\subsection{\code{ConfMatrix$NormEntProd()}}{
+  Public method that calculates normalized entropy of
 the reference from the producer's perspective. The method also offers the variance and confidence
 interval. The reference \insertCite{finn1993;textual}{ConfMatrix} is
 followed for the calculations.
 
 
-\deqn{
+  \deqn{
 NormEntProd=\dfrac{Ent}{Ent_i(A)}
 }
 \deqn{
@@ -2824,45 +2767,43 @@ where:
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$NormEntProd(a = NULL, v = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$NormEntProd(a = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-
-\item{\code{v}}{\verb{
+      \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}.\verb{ By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the normalized entropy
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the normalized entropy
 of the reference class \eqn{i} from the producer's perspective, its variance
 and confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(35,4,12,2,14,11,9,5,11,3,38,12,1,0,4,2),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Finn 1993")
 p$NormEntProd(v=2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Sucess"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Sucess}{}}}
-\subsection{Method \code{Sucess()}}{
-Public method that provides the Classification
+\subsection{\code{ConfMatrix$Sucess()}}{
+  Public method that provides the Classification
 Success Index (CSI) which considers all classes and gives an
 overall estimation of classification effectiveness.
 The method also offers the variance and confidence interval.
@@ -2881,40 +2822,39 @@ where:
 \item \eqn{AvUserAcc}: average accuracy from user's perspective.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Sucess(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Sucess(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the ICSI, its variance
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the ICSI, its variance
 and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
 p<-ConfMatrix$new(A,Source="Labatut and Cherifi 2011")
 p$Sucess()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Sucess_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Sucess_i}{}}}
-\subsection{Method \code{Sucess_i()}}{
-Public method that provides the Individual
+\subsection{\code{ConfMatrix$Sucess_i()}}{
+  Public method that provides the Individual
 Classification Success Index (ICSI) which considers  the classification
 effectiveness for one particular class of interest.
 The method also offers the variance and confidence interval.
@@ -2934,43 +2874,41 @@ where:
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Sucess_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Sucess_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the ICSI,
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the ICSI,
 its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(0.3,0.02,0.01,0.12,0.19,0.03,0.02,0.01,0.3),nrow=3,ncol=3)
 p<-ConfMatrix$new(A,Source="Labatut and Cherifi 2011")
 p$Sucess_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvHellAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvHellAcc}{}}}
-\subsection{Method \code{AvHellAcc()}}{
-Public method that provides the average value of the
+\subsection{\code{ConfMatrix$AvHellAcc()}}{
+  Public method that provides the average value of the
 Hellden mean precision index. Denoted by the probability that a
 randomly chosen position or element assigned to a specific class on
 the product has a correspondence of the same class in the homologous
@@ -2983,55 +2921,54 @@ The reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
 the calculations.
 
 
-\deqn{
+  \deqn{
 AvHellAcc=\dfrac{1}{M} 2 \sum^M_{i=1} \dfrac{ x_{ii}}
 { x_{+i} + x_{i+}}
 }
 \deqn{
 \sigma^2_{AvHellAcc}=\dfrac{AvHellAcc \cdot (1-AvHellAcc)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvHellAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvHellAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average of
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average of
 Hellden's mean accuracy index, its variance and
 confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$AvHellAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvHellAcc_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvHellAcc_i}{}}}
-\subsection{Method \code{AvHellAcc_i()}}{
-Public method that provides the Hellden’ average
+\subsection{\code{ConfMatrix$AvHellAcc_i()}}{
+  Public method that provides the Hellden’ average
 accuracy for the specified class. The method also offers the variance and
 confidence interval. The references
 \insertCite{hellden1980;textual}{ConfMatrix} and \insertCite{rosenfield1986;textual}{ConfMatrix} are
 followed for the calculations.
 
 
-\deqn{
+  \deqn{
 AvHellAcc_i=\dfrac{2}{\dfrac{1}{UserAcc_i}+\dfrac{1}{ProdAcc_i}}=
 \dfrac{2 UserAcc_i \cdot ProdAcc_i}{UserAcc_i + ProdAcc_i}
 }
@@ -3044,44 +2981,42 @@ where:
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvHellAcc_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvHellAcc_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the Hellden’s mean
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the Hellden’s mean
 accuracy, its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
 ncol=5)
 p<-ConfMatrix$new(A,Source="Rosenfield and Fitzpatrick 1986")
 p$AvHellAcc_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-AvShortAcc"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-AvShortAcc}{}}}
-\subsection{Method \code{AvShortAcc()}}{
-Public method that provides the average of the Short's
+\subsection{\code{ConfMatrix$AvShortAcc()}}{
+  Public method that provides the average of the Short's
 mapping accuracy index. It is determined as the quotient between the
 well-classified elements (value on the diagonal) and the subtraction
 of that same value on the errors of omission and commission (rest of
@@ -3091,48 +3026,47 @@ reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
 the calculations.
 
 
-\deqn{
+  \deqn{
 AvShortAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { \overline{x}_{+ i}+ \overline{x}_{i +}-x_{ii}}
 }
 \deqn{
 \sigma^2_{AvShortAcc}=\dfrac{AvShortAcc \cdot (1-AvShortAcc)}{N_{Total}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$AvShortAcc(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvShortAcc(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the average of
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the average of
 Short's mapping accuracy index, its variance and
 confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$AvShortAcc()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-ShortAcc_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-ShortAcc_i}{}}}
-\subsection{Method \code{ShortAcc_i()}}{
-Public method that provides the Short's mapping
+\subsection{\code{ConfMatrix$ShortAcc_i()}}{
+  Public method that provides the Short's mapping
 accuracy for each class. The method also offers the
 variance and confidence interval. The references
 \insertCite{rosenfield1986;textual}{ConfMatrix} and \insertCite{short1982;textual}{ConfMatrix}
@@ -3144,44 +3078,42 @@ ShortAcc_i=\dfrac{x_{ii}}{ \overline{x}_{+ i}+
 \deqn{
 \sigma^2_{ShortAcc_i}=\dfrac{ShortAcc_i \cdot (1-ShortAcc_i)}{N_{ij}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$ShortAcc_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ShortAcc_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of real values containing the Short's
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of real values containing the Short's
 mapping accuracy, its variance and its confidence interval.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A <- matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
 ncol=5)
 p<-ConfMatrix$new(A,Source="Rosenfield and Fitzpatrick-Lins 1986")
 p$ShortAcc_i(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-GroundTruth"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-GroundTruth}{}}}
-\subsection{Method \code{GroundTruth()}}{
-Public method that calculates the Ground Truth index,
+\subsection{\code{ConfMatrix$GroundTruth()}}{
+  Public method that calculates the Ground Truth index,
 its variance and confidence interval.The reference \insertCite{turk1979gt;textual}{ConfMatrix}
 is followed for the computations.
 
@@ -3225,41 +3157,40 @@ Where:
 \item \eqn{R}: casual lucky guess.
 \item \eqn{ProdAcc}: producer accuracy.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$GroundTruth(a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{a}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$GroundTruth(a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with Ground Truth indexes, their variance, confidence
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with Ground Truth indexes, their variance, confidence
 intervals and the matrix with the expected frequencies.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
 ncol=5)
 p<-ConfMatrix$new(A,Source="Türk 1979")
 p$GroundTruth()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-GroundTruth_i"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-GroundTruth_i}{}}}
-\subsection{Method \code{GroundTruth_i()}}{
-Public method that calculates the Ground Truth index
+\subsection{\code{ConfMatrix$GroundTruth_i()}}{
+  Public method that calculates the Ground Truth index
 for class i, its variance and confidence interval.The reference
 \insertCite{turk1979gt;textual}{ConfMatrix} is followed for the computations.
 
@@ -3302,44 +3233,42 @@ Where:
 \item \eqn{R_i}: casual lucky guess for class \eqn{i}. Is a real value.
 \item \eqn{ProdAcc_i}: producer accuracy for class \eqn{i}.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$GroundTruth_i(i, a = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{i}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$GroundTruth_i(i, a = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{\verb{
 Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-
-\item{\code{a}}{\verb{
+      \item{\code{a}}{\verb{
 Significance level. By default 0.05.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with Ground Truth index for class \eqn{i}, its variance, confidence
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with Ground Truth index for class \eqn{i}, its variance, confidence
 interval and the matrix with the expected frequencies for all classes.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
 ncol=5)
 p<-ConfMatrix$new(A,Source="Türk 1979")
 p$GroundTruth_i(3)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-HellingerDist"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-HellingerDist}{}}}
-\subsection{Method \code{HellingerDist()}}{
-Public method that provides that Hellinger distance
+\subsection{\code{ConfMatrix$HellingerDist()}}{
+  Public method that provides that Hellinger distance
 between two confusion matrices.
 The reference \insertCite{garcia2018;textual}{ConfMatrix} is followed
 for the computations.
@@ -3355,51 +3284,48 @@ Where:
 \item \eqn{p_i}: probability that element \eqn{i \in [1, \cdots, MxM]} is well classified in matrix A.
 \item \eqn{q_i}: probability that element \eqn{i \in [1, \cdots, MxM]} is well classified in matrix B.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$HellingerDist(f, p = NULL, q = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{f}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$HellingerDist(f, p = NULL, q = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{f}}{\verb{
 Element of the ConfMatrix.
 }}
-
-\item{\code{p}}{\verb{
+      \item{\code{p}}{\verb{
 probability vector of matrix A. By default, relative frequencies observed
 for each cell is taken.
 }}
-
-\item{\code{q}}{\verb{
+      \item{\code{q}}{\verb{
 probability vector of matrix B. By default, relative frequencies observed
 for each cell is taken.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A real value for the Hellinger distance.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A real value for the Hellinger distance.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 r<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 B<-matrix(c(45,6,0,4,4,91,8,7,12,5,55,3,24,8,9,55),nrow=4,ncol=4)
 f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
 r$HellingerDist(f)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-QES"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-QES}{}}}
-\subsection{Method \code{QES()}}{
-Public method that calculates the values of quantity
+\subsection{\code{ConfMatrix$QES()}}{
+  Public method that calculates the values of quantity
 difference, exchange and shift. Quantity difference is the amount of
 difference between the product and the reference and is due to the
 less than maximum match in the proportions of the categories. Exchange
@@ -3439,32 +3365,31 @@ e_{j}=\dfrac{2 \left( \left( \sum^M_{i=1} min(x_{ij}, x_{ji})  \right) - x_{jj} 
 \deqn{
 s_{j}=d_{j}-q_{j}-e_{j}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$QES()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list of integer values with quantity, exchange, and shift.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$QES()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of integer values with quantity, exchange, and shift.
 In addition to the differences for classes of the components of
 quantity, exchange and turn.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(3,2,1,1,3,3,2,0,1),nrow=3,ncol=3)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(3,2,1,1,3,3,2,0,1),nrow=3,ncol=3)
 p<-ConfMatrix$new(A,Source="Pontius Jr. and Santacruz 2023")
 p$QES()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-MTypify"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-MTypify}{}}}
-\subsection{Method \code{MTypify()}}{
-Public method that typifies the confusion matrix.
+\subsection{\code{ConfMatrix$MTypify()}}{
+  Public method that typifies the confusion matrix.
 The total sum of the original matrix is used for typing. In a
 typed matrix the sum of all values is unity. The resulting
 values can be presented as real values (parameter RaR=1), or as
@@ -3473,77 +3398,75 @@ a percentage (parameter RaR !=1).
 \deqn{
 MTypify=\dfrac{x_{ij}}{\sum^M_{i,j=1} x_{ij}}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$MTypify(RaR = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{RaR}}{"1" indicates result as real, other values mean percentage
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$MTypify(RaR = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{RaR}}{"1" indicates result as real, other values mean percentage
 as integer. By default RaR=1.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list with two arrays, the first is the original array,
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list with two arrays, the first is the original array,
 the second the typed one.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A, Source="Congalton and Green 2008")
 p$MTypify(RaR=5)
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-MBootStrap"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-MBootStrap}{}}}
-\subsection{Method \code{MBootStrap()}}{
-Public method that provides B resamples, using a
+\subsection{\code{ConfMatrix$MBootStrap()}}{
+  Public method that provides B resamples, using a
 multinomial distribution, of the confusion matrix of a ConfMatrix
 object. As a result, a set of bootstrapped cases is offered. The
 reference \insertCite{fienberg1970;textual}{ConfMatrix} is
 followed for the computations.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$MBootStrap(B, pr = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{B}}{Number of resamples.}
-
-\item{\code{pr}}{Vector with resampling probabilities. By default, the
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$MBootStrap(B, pr = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{B}}{Number of resamples.}
+      \item{\code{pr}}{Vector with resampling probabilities. By default, the
 success probability of each cell will be taken.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of B + 1 arrays formed by the original confusion matrix
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of B + 1 arrays formed by the original confusion matrix
 and all the simulated cases.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A, Source="Congalton and Green 2008")
 p$MBootStrap(2)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-MNormalize"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-MNormalize}{}}}
-\subsection{Method \code{MNormalize()}}{
-Public method that carries out an iterative process in
+\subsection{\code{ConfMatrix$MNormalize()}}{
+  Public method that carries out an iterative process in
 order to equals one the sum of values by rows and columns.
 The references \insertCite{fienberg1970;textual}{ConfMatrix} and
 \insertCite{munoz2016;textual}{ConfMatrix} are followed for the computations.
@@ -3557,43 +3480,42 @@ Let \eqn{x_{ij}} be the elements of the instance. It defines:
 \deqn{x''_{ij}=\dfrac{x'_{ij}}{x'_{+j}}}
 
 Taking \eqn{x_{ij}=x''_{ij}} for the next iteration.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$MNormalize(iter = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{iter}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$MNormalize(iter = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{iter}}{\verb{
 Number of iteration. By default iter=1000.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list formed by the original confusion matrix and the
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list formed by the original confusion matrix and the
 normalized matrix.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
 51817,0,34,500,1867,325,17,0,0,5,11148,1618,78,0,0,0,0,48,4,834,2853,340,
 32,0,197,5,151,119,135,726,6774,75,1,553,0,105,601,110,174,155,8257,8,0,
 29,36,280,0,0,6,5,2993,0,115,2,0,4,124,595,0,0,4374),nrow=9,ncol=9)
 p<-ConfMatrix$new(A,Source="Muñoz 2016")
 p$MNormalize()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-MPseudoZeroes"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-MPseudoZeroes}{}}}
-\subsection{Method \code{MPseudoZeroes()}}{
-Public method that small values are calculated for empty
+\subsection{\code{ConfMatrix$MPseudoZeroes()}}{
+  Public method that small values are calculated for empty
 cells of the matrix. All non-empty cells of the matrix change their
 values. This function will not be applied if all the elements of the
 matrix are different from 0.
@@ -3614,34 +3536,33 @@ Finally, the elements of the pseudozero matrix \eqn{Z} will be given by:
 
 \deqn{z_{ij}=\left(\dfrac{\sum^M_{i,j=1} x_{ij}}{(\sum^M_{i,j=1} x_{ij})+v} \right)
 (p_{ij}+x_{ij})}
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$MPseudoZeroes()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list formed by the original confusion matrix and the
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$MPseudoZeroes()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list formed by the original confusion matrix and the
 Pseudozeroes matrix.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(238051,7,132,0,0,24,9,2,189,1,4086,188,0,4,16,45,1,0,939,5082,
 51817,0,34,500,1867,325,17,0,0,5,11148,1618,78,0,0,0,0,48,4,834,2853,340,
 32,0,197,5,151,119,135,726,6774,75,1,553,0,105,601,110,174,155,8257,8,0,
 29,36,280,0,0,6,5,2993,0,115,2,0,4,124,595,0,0,4374),nrow=9,ncol=9)
 p<-ConfMatrix$new(A,Source="Muñoz 2016")
 p$MPseudoZeroes()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-OverallAcc.test"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-OverallAcc.test}{}}}
-\subsection{Method \code{OverallAcc.test()}}{
-Public method that tests whether two independent
+\subsection{\code{ConfMatrix$OverallAcc.test()}}{
+  Public method that tests whether two independent
 confusion matrices (instances of the ConfMatrix class), are
 significantly different using their overall accuracy indexes.
 The reference \insertCite{congalton2008;textual}{ConfMatrix} and \insertCite{ma1995Tau;textual}{ConfMatrix} are followed
@@ -3658,41 +3579,40 @@ Where:
 \item \eqn{\sigma^2_{O_A}}: variance of \eqn{O_A}.
 \item \eqn{\sigma^2_{O_B}}: variance of \eqn{O_B}.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$OverallAcc.test(f)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{f}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$OverallAcc.test(f)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{f}}{\verb{
 Instance of ConfMatrix class.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of class "htest" containing the results of the hypothesis test.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of class "htest" containing the results of the hypothesis test.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 B<-matrix(c(45,6,0,4,4,91,8,7,12,5,55,3,24,8,9,55),nrow=4,ncol=4)
 f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
 p$OverallAcc.test(f)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Kappa.test"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Kappa.test}{}}}
-\subsection{Method \code{Kappa.test()}}{
-Public method that tests whether two independent
+\subsection{\code{ConfMatrix$Kappa.test()}}{
+  Public method that tests whether two independent
 confusion matrices (instances of the ConfMatrix class), are
 significantly different when using the kappa indexes.
 The reference \insertCite{congalton2008;textual}{ConfMatrix} is followed
@@ -3709,41 +3629,40 @@ Where:
 \item \eqn{\sigma^2_{k_A}}: variance of \eqn{k_A}.
 \item \eqn{\sigma^2_{k_B}}: variance of \eqn{k_B}.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Kappa.test(f)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{f}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Kappa.test(f)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{f}}{\verb{
 Element of the ConfMatrix class.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of class "htest" containing the results of the hypothesis test.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of class "htest" containing the results of the hypothesis test.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 B<-matrix(c(45,6,0,4,4,91,8,7,12,5,55,3,24,8,9,55),nrow=4,ncol=4)
 f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
 p$Kappa.test(f)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-Tau.test"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-Tau.test}{}}}
-\subsection{Method \code{Tau.test()}}{
-Public method that tests whether two independent
+\subsection{\code{ConfMatrix$Tau.test()}}{
+  Public method that tests whether two independent
 confusion matrices (instances of the ConfMatrix class), are
 significantly different using their Tau indexes.
 The reference \insertCite{congalton2008;textual}{ConfMatrix} and
@@ -3760,41 +3679,40 @@ Where:
 \item \eqn{\sigma^2_{\tau_A}}: variance of \eqn{\tau_A}.
 \item \eqn{\sigma^2_{\tau_B}}: variance of \eqn{\tau_B}.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$Tau.test(f)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{f}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Tau.test(f)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{f}}{\verb{
 Element of the ConfMatrix class.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of class "htest" containing the results of the hypothesis test.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of class "htest" containing the results of the hypothesis test.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 B<-matrix(c(45,6,0,4,4,91,8,7,12,5,55,3,24,8,9,55),nrow=4,ncol=4)
 f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
 p$Tau.test(f)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-TSCM.test"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-TSCM.test}{}}}
-\subsection{Method \code{TSCM.test()}}{
-Public method that performs a homogeneity test
+\subsection{\code{ConfMatrix$TSCM.test()}}{
+  Public method that performs a homogeneity test
 based on the Hellinger distance between two confusion matrices
 (instances of the ConfMatrix class).
 The test considers the individual cell values in the matrices.
@@ -3810,45 +3728,43 @@ again to these simulations and we will obtain the statistics
 \deqn{
 \hat{p}=\dfrac{Card(T^*_{n,m} \geq T^*_{n,m})}{B}
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$TSCM.test(f, B = NULL)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{f}}{\verb{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$TSCM.test(f, B = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{f}}{\verb{
 Element of the ConfMatrix class.
 }}
-
-\item{\code{B}}{\verb{
+      \item{\code{B}}{\verb{
 Number of bootstraps that you want to generate. By default B=1000.
 }}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Returns}{
-A list of class "htest" containing the results of the hypothesis test.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of class "htest" containing the results of the hypothesis test.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 C<-matrix(c(45,6,0,4,4,91,8,7,12,5,55,3,24,8,9,55),nrow=4,ncol=4)
 f<-ConfMatrix$new(C,Source="Congalton and Green 2008")
 p$TSCM.test(f)
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-ConfMatrix-QIndep.test"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-QIndep.test}{}}}
-\subsection{Method \code{QIndep.test()}}{
-Public method that performs the
+\subsection{\code{ConfMatrix$QIndep.test()}}{
+  Public method that performs the
 quasi-independence test for the elements of a confusion matrix.
 The reference
 \insertCite{turk1979gt;textual}{ConfMatrix} and \insertCite{goodman1968analysis;textual}{ConfMatrix}
@@ -3874,24 +3790,23 @@ Where:
 \item \eqn{x_{ij}}: matrix element. Observed frequency.
 \item \eqn{E_{ij}}: expected frequency.
 }
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ConfMatrix$QIndep.test()}\if{html}{\out{</div>}}
-}
-
-\subsection{Returns}{
-A list of class "htest" containing the results of the hypothesis test.
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$QIndep.test()}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Returns}{
+    A list of class "htest" containing the results of the hypothesis test.
+  }
+  \subsection{Examples}{
+    \if{html}{\out{<div class="r example copy">}}
+    \preformatted{A<-matrix(c(148,1,8,2,0,0,50,15,3,0,1,6,39,7,1,1,0,6,25,1,1,0,0,1,6),nrow=5,
 ncol=5)
 p<-ConfMatrix$new(A,Source= "Türk 1979")
 p$QIndep.test()
-
 }
-\if{html}{\out{</div>}}
-
+    \if{html}{\out{</div>}}
+  }
 }
 
-}
 }

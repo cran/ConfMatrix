@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="ConfMatrix Team" />
+
+<meta name="date" content="2026-05-13" />
+
+<title>BIM Quality Audit: Technical Case Study</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">BIM Quality Audit: Technical Case
+Study</h1>
+<h4 class="author">ConfMatrix Team</h4>
+<h4 class="date">2026-05-13</h4>
+
+
+
+<div id="introduction" class="section level2">
+<h2>1. Introduction</h2>
+<p>In BIM projects, checking the quality of the model is a daily task.
+We need to verify if the data in our models matches the requirements
+defined in the <strong>BIM Execution Plan (BEP)</strong>.</p>
+<p>The <code>ConfMatrix</code> package uses the <code>QCCS</code> class
+to manage these audits, providing statistical tests to determine if the
+model compliance is acceptable or if it deviates significantly from the
+targets.</p>
+</div>
+<div id="methodology-priority-and-vector-ordering" class="section level2">
+<h2>2. Methodology: Priority and Vector Ordering</h2>
+<p>In <code>ConfMatrix</code>, the priority or severity of the
+categories is strictly defined by their <strong>positional
+index</strong> within the vectors. The first element represents the
+highest quality (Priority 1), and the last element represents the lowest
+compliance or highest deviation (Priority K).</p>
+<div id="flexible-categorization" class="section level3">
+<h3>Flexible Categorization</h3>
+<p>Users can name these categories freely (e.g., in any language or
+using numeric codes). The statistical engine ignores the names and
+performs all calculations based on the vector’s internal order.</p>
+<p>However, we suggest a nomenclature where the initials follow a
+natural lexicographical order (<strong>A-B-D-I</strong>) so that R’s
+default sorting in plots and tables automatically aligns with the
+intended priority:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Position 1 (High Quality):</strong> e.g.,
+<strong>A</strong>ccepted (Full compliance).</li>
+<li><strong>Position 2:</strong> e.g., <strong>B</strong>elow Standard
+(Minor deviations).</li>
+<li><strong>Position 3:</strong> e.g., <strong>D</strong>iscrepant
+(Significant issues).</li>
+<li><strong>Position 4 (Low Quality):</strong> e.g.,
+<strong>I</strong>ncompatible (Critical failures).</li>
+</ol>
+</div>
+</div>
+<div id="statistical-background" class="section level2">
+<h2>3. Statistical Background</h2>
+<p>We test two fundamental ideas:</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_{0}\)</span>):</strong> The observed data
+follows the target quality distribution.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_{1}\)</span>):</strong> The data deviates
+significantly from the targets.</li>
+</ul>
+<div id="why-use-the-exact-test" class="section level3">
+<h3>Why use the Exact Test?</h3>
+<p>Standard asymptotic tests (like Chi-squared) fail when you have very
+few elements in a category. For example, if you expect only 1
+“Incompatible” element, the standard test is unreliable. In these cases,
+<code>Exact.test()</code> provides the mathematically correct
+p-value.</p>
+</div>
+</div>
+<div id="example-auditing-a-single-discipline" class="section level2">
+<h2>4. Example: Auditing a Single Discipline</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(ConfMatrix)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># 1. Setup audit data (The position in the vector marks the priority)</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># Pos 1: Accepted, Pos 2: Below Std, Pos 3: Discrepant, Pos 4: Incompatible</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>observed_counts <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">1</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>target_probs    <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="fl">0.75</span>, <span class="fl">0.15</span>, <span class="fl">0.08</span>, <span class="fl">0.02</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>compliance_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Accepted&quot;</span>, <span class="st">&quot;Below_Standard&quot;</span>, <span class="st">&quot;Discrepant&quot;</span>, <span class="st">&quot;Incompatible&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co"># 2. Create the audit object</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>audit_single <span class="ot">&lt;-</span> QCCS<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>  <span class="at">Vectors =</span> observed_counts, </span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a>  <span class="at">Prob =</span> target_probs,</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>  <span class="at">ClassNames =</span> compliance_labels,</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a>  <span class="at">Source =</span> <span class="st">&quot;Structural Model Audit&quot;</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a>  <span class="at">ID =</span> <span class="st">&quot;STR-001&quot;</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a>)</span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co"># 3. Run the Exact Test</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a>exact_result <span class="ot">&lt;-</span> audit_single<span class="sc">$</span><span class="fu">Exact.test</span>(<span class="at">a =</span> <span class="fl">0.05</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="fu">print</span>(exact_result)</span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt;  Exact Test with Bonferroni Correction</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="co">#&gt; data:  Vectors and Probabilities</span></span>
+<span id="cb1-25"><a href="#cb1-25" tabindex="-1"></a><span class="co">#&gt; p-value = 0.303</span></span></code></pre></div>
+</div>
+<div id="global-audit-multi-discipline-analysis" class="section level2">
+<h2>5. Global Audit: Multi-Discipline Analysis</h2>
+<p>In large projects, we can audit several disciplines simultaneously
+(Architecture, Structural, MEP) to evaluate the overall project
+stability.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Data for three different disciplines</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>obs_arch   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">1</span>) </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>obs_struct <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">42</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">1</span>) </span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>obs_mep    <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">12</span>, <span class="dv">6</span>, <span class="dv">2</span>) </span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># Shared quality targets for all disciplines</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>project_targets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.12</span>, <span class="fl">0.06</span>, <span class="fl">0.02</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co"># Create a multi-audit object</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>multi_audit <span class="ot">&lt;-</span> QCCS<span class="sc">$</span><span class="fu">new</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>  <span class="at">Vectors =</span> <span class="fu">list</span>(obs_arch, obs_struct, obs_mep),</span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>  <span class="at">Prob =</span> <span class="fu">list</span>(project_targets, project_targets, project_targets),</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>  <span class="at">ClassNames =</span> compliance_labels,</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>  <span class="at">ID =</span> <span class="st">&quot;BIM_GLOBAL_PROJECT&quot;</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>)</span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co"># Individual Chi-squared tests (with Bonferroni correction)</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a>individual_results <span class="ot">&lt;-</span> multi_audit<span class="sc">$</span><span class="fu">Ji.test</span>()</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="fu">print</span>(individual_results) <span class="co"># Results for MEP</span></span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt;  Chi-squared test with Bonferroni method</span></span>
+<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt; data:  Vectors and Probabilities</span></span>
+<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt; p-value = 0.005853</span></span>
+<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co"># Global Stability Test for the entire project</span></span>
+<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a>global_result <span class="ot">&lt;-</span> multi_audit<span class="sc">$</span><span class="fu">JiGlobal.test</span>()</span>
+<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="fu">print</span>(global_result)</span>
+<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt;  Global Chi-squared test</span></span>
+<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt; data:  Vectors and Probabilities</span></span>
+<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt; X2 = 13.1, df = 9, p-value = 0.1581</span></span></code></pre></div>
+</div>
+<div id="visual-interpretation" class="section level2">
+<h2>6. Visual Interpretation</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Extract proportions for the chart</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>proportions <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, <span class="fu">lapply</span>(multi_audit<span class="sc">$</span>Vectors, <span class="cf">function</span>(x) x<span class="sc">/</span><span class="fu">sum</span>(x)))</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">rownames</span>(proportions) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Architecture&quot;</span>, <span class="st">&quot;Structural&quot;</span>, <span class="st">&quot;MEP&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="fu">colnames</span>(proportions) <span class="ot">&lt;-</span> multi_audit<span class="sc">$</span>ClassNames</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co"># Grouped barplot (Order is preserved by vector position)</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(proportions), <span class="at">beside =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;#2c3e50&quot;</span>, <span class="st">&quot;#18bc9c&quot;</span>, <span class="st">&quot;#f39c12&quot;</span>, <span class="st">&quot;#e74c3c&quot;</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Technical Compliance by Discipline&quot;</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Proportion&quot;</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a>        <span class="at">args.legend =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">&quot;topright&quot;</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">cex =</span> <span class="fl">0.8</span>))</span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co"># Red dashed line shows the 80% target for &#39;Accepted&#39; elements</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.80</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="conclusion" class="section level2">
+<h2>7. Conclusion</h2>
+<p>The p-value of the global analysis is <strong>0.1581</strong>. Since
+it is above 0.05, we conclude that the project as a whole is
+statistically compliant with the BEP, even if minor deviations exist in
+specific disciplines.</p>
+</div>
+<div id="references" class="section level2">
+<h2>8. References</h2>
+
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

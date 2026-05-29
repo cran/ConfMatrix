@@ -1,6 +1,10 @@
-#' @title Confusion matrix
+#' @title Confusion matrix Class
+#' @name ConfMatrix
+#' @rdname ConfMatrix
+#' @aliases ConfMatrix 
+#' 
 #' @description
-#' The ConfMatrix class works with confusion matrices, thus providing
+#' The \code{ConfMatrix} class works with confusion matrices, thus providing
 #' the possibility of calculating several indices with their
 #' corresponding variances and confidence intervals. A confusion matrix
 #' is constructed by comparing a sample of a set of common positions in
@@ -15,7 +19,7 @@
 #' those that provide combinations start with "Comb". Methods related
 #' to a specific thematics class end with the ending "_i".
 #'
-#' @note Error Messages: List of possible errors:
+#' @section Error Messages: List of possible errors:
 #' \itemize{
 #'  \item \code{Error type 1}: Non-square matrix.
 #'  \item \code{Error type 2}: Single element matrix.
@@ -25,7 +29,6 @@
 #'  \item \code{Error type 6}: Sum of columns 0.
 #'  \item \code{Error type 7}: It is not a matrix.
 #'}
-#' @export ConfMatrix
 #' @importFrom R6 R6Class
 #' @importFrom Rdpack reprompt
 #' @importFrom gridExtra grid.arrange
@@ -110,100 +113,51 @@
 #'}
 #'
 #'
-#' @aliases ConfMatrix
 
-
-
-
+#' @export
 ConfMatrix <- R6Class("ConfMatrix",
   cloneable=FALSE,
    public = list(
-    #' @field Values
-    #'\verb{
-    #'Matrix of integer values. An matrix must be added.
-    #'}
+    #' @field Values `matrix`. Matrix of integer values.
     Values = NULL,
-    #' @field ID
-    #'\verb{
-    #' Identifier. It is a character string with a maximum length of 50 characters.
-    #' By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
-    #' number of ConfMatrix instances already defined in the session.
-    #' }
+    #' @field ID `character`. Identifier (maximum 50 characters).
     ID = NULL,
-    #' @field Date
-    #' \verb{
-    #' Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-    #' By default the date provided by the system will be taken.
-    #'
-    #'}
+    #' @field Date `Date`.  Reference date.
     Date = NULL,
-    #' @field ClassNames
-    #'\verb{
-    #' Name of the classes. It is given by a character strings vector whose elements
-    #' are the name of the classes. Each element of the vector is a string of maximum
-    #' 20 characters. By default for the column elements they will be} \eqn{PC_i}
-    #' (Producer class) \verb{and for the elements of row} \eqn{UC_i}\verb{ (User class), with} \eqn{i} \verb{being the correspond-
-    #' ing row or column number.
-    #' }
+    #' @field ClassNames `character`. Name of the classes (maximum 20 characters). 
     ClassNames=NULL,
-    #' @field Source
-    #'  \verb{
-    #' Indicates where the matrix comes from (article, project, etc.). It is suggest-
-    #' ed to enter a reference or a DOI. A character string with a maximum length of
-    #' 80 characters can be entered. By default, is NULL.
-    #' }
+    #' @field Source Source `character` | NULL. Indicates where the matrix comes from.
     Source=NULL,
 
 
     #' @description
-    #' Public method to create an instance of the ConfMatrix class.
+    #' Public method to create an instance of the \code{ConfMatrix} class.
     #' When creating it, values must be given to the matrix. The values
     #' of the matrix must be organized in such a way that the columns
     #' represent the classes in the reference and the rows represent
     #' the classes in the product being evaluated. The creation of a
-    #' ConfMatrix instance includes a series of checks on the data. If
+    #' \code{ConfMatrix} instance includes a series of checks on the data. If
     #' checks are not met, the system generates coded error messages.
     #' The optional possibility of adding metadata to the matrix is offered.
-    #' @param Values
-    #'\verb{
-    #' Matrix of integer values. A matrix must be added.
-    #'}
-    #'
-    #' @param ID
-    #'\verb{
-    #' Identifier. It is a character string with a maximum length of 50 characters.
-    #' By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
-    #' number of ConfMatrix instances already defined in the session.
-    #'}
-    #' @param Date
-    #'\verb{
-    #' Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-    #' By default the date provided by the system will be taken.
-    #'
-    #'}
-    #' @param ClassNames
-    #' \verb{
-    #' Name of the classes. It is given by a character strings vector whose elements
+    
+    #' @param Values Matrix of integer values. A matrix must be added.
+    #' @param ID Unique identifier (Optional). It is a character string with a maximum length of 50 characters.
+    #' By default, CM_i will be taken as identification. Where i will be the number of \code{ConfMatrix} instances already defined in the session.
+    #' @param Date Date provided by the user in format "YYYY-MM-DD" (Optional). By defaults `Sys.Date()`.
+    #' @param ClassNames Name of the classes  (Optional). It is given by a character strings vector whose elements
     #' are the name of the classes. Each element of the vector is a string of maximum
-    #' 20 characters. By default for the column elements they will be} \eqn{PC_i}
-    #' (Producer class) \verb{and for the elements of row} \eqn{UC_i}\verb{ (User class), with} \eqn{i} \verb{being the correspond-
-    #' ing row or column number.
-    #' }
-    #' @param Source
-    #' \verb{
-    #' Indicates where the matrix comes from (article, project, etc.). It is suggest-
-    #' ed to enter a reference or a DOI. A character string with a maximum length of
-    #' 80 characters can be entered. By default, is NULL.
-    #' }
+    #' 20 characters. By default for the column elements they will be PC_i
+    #' (Producer class) and for the elements of row UC_i (User class), with i being the corresponding row or column number.
+    #' @param Source (Optional) Indicates where the matrix comes from (article, project, etc.). It is suggested 
+    #' to enter a reference or a DOI. A character string with a maximum length of 80 characters can be entered. By default, is NULL.
     #'
-    #' @return Object of the ConfMatrix class, or an error message.
+    #' @return Object of the \code{ConfMatrix} class, or an error message.
     #'
     #' @examples
     #' A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90),nrow=4,ncol=4)
     #' cm<-ConfMatrix$new (A,ID="5",Date="27-10-2023",Source="Congalton and Green,
     #' 2008")
     #'
-    #' @aliases NULL
 
 initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
 
@@ -221,7 +175,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
   }
 
   if(!is.null(Date)){
-    self$Date<-Date
+    self$Date<-as.Date(Date)
   }else{self$Date <- Sys.Date()}
 
   colname<-c()
@@ -303,8 +257,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$plot.index()
-      #'
-      #' @aliases NULL
+
 
     plot.index=function(){
       index1<-c(self$OverallAcc()[[1]],self$Tau()[[1]],self$Kappa()[[1]],
@@ -336,7 +289,6 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$plot.UserProdAcc()
       #'
-      #' @aliases NULL
 
     plot.UserProdAcc=function(){
 
@@ -377,7 +329,6 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' "shrub"),Source="Congalton and Green 2008")
       #' p$print()
       #'
-      #' @aliases NULL
 
     print=function(){
       cat("Identifier (ID)\n", self$ID, "\n")
@@ -410,7 +361,6 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$AllParameters()
       #'
-      #' @aliases NULL
 
      AllParameters=function(){
       OverallAcc<-self$OverallAcc()
@@ -437,10 +387,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
 
 
       #' @description Public method for deriving the index called user’s
-      #' accuracy for all the classes in a ConfMatrix object instance.
-      #' The user's accuracy for the class \eqn{i} of a thematic product is
-      #' calculated by dividing the value in the diagonal of class \eqn{i} by
-      #' the sum of all values in the row of the class \eqn{i} (row marginal).
+      #' accuracy for all the classes in a \code{ConfMatrix} object instance.
+      #' The user's accuracy for the class i of a thematic product is
+      #' calculated by dividing the value in the diagonal of class i by
+      #' the sum of all values in the row of the class i (row marginal).
+      #' 
+      #' 
       #' The method also offers the variance and confidence interval.
       #' The reference \insertCite{congalton2008;textual}{ConfMatrix} is followed
       #' for the computations.
@@ -450,9 +402,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'  \deqn{
       #' \sigma^2_{UserAcc}=\dfrac{UserAcc \cdot (1-UserAcc)}{N_{i}}
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #'
       #' @return A list of vectors, containing the user’s accuracy real values for
       #' all classes, their variances and confidence intervals for each class,
       #' respectively.
@@ -462,11 +413,11 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$UserAcc()
       #'
-      #' @aliases NULL
 
 
 
-     UserAcc = function(a=NULL){
+
+     UserAcc = function(alpha=NULL){
      n <- sqrt(length(self$Values))
      UserAcc <- rep(0,n)
      VarUserAcc<-rep(0,n)
@@ -474,8 +425,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
        for (i in 1:n){
          UserAcc[i] <- self$Values[i,i] / private$sumfil(self$Values)[i]
          VarUserAcc[i]<-abs((UserAcc[i]*(1-UserAcc[i]))/private$sumfil(self$Values)[i])
-         ConfInt[[i]]<-c(private$ConfInt(UserAcc[i],VarUserAcc[i],a)$ConfInt_inf,
-                         private$ConfInt(UserAcc[i],VarUserAcc[i])$ConfInt_sup,a)
+         ConfInt[[i]]<-c(private$ConfInt(UserAcc[i],VarUserAcc[i],alpha)$ConfInt_inf,
+                         private$ConfInt(UserAcc[i],VarUserAcc[i])$ConfInt_sup,alpha)
        }
      return(list(UserAcc=UserAcc,VarUserAcc=VarUserAcc,Conf_Int=ConfInt))
      },
@@ -491,7 +442,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' (row marginal). The method also offers the variance and confidence
       #' interval. The reference \insertCite{congalton2008;textual}{ConfMatrix}
       #' is followed for the computations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' UserAcc_{i}=\dfrac{x_{ii}}{x_{i+}}
       #' }
@@ -499,12 +450,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{UserAcc_i}=\dfrac{UserAcc_i \cdot (1-UserAcc_i)}{N_{i}}
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #'}
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the user’s accuracy
       #' for class i, its variance, and its confidence interval.
       #'
@@ -513,16 +460,15 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$UserAcc_i(2)
       #'
-      #' @aliases NULL
 
-     UserAcc_i=function(i,a=NULL){
+
+     UserAcc_i=function(i,alpha=NULL){
       UserAcc_i <- self$Values[i,i] / private$sumfil(self$Values)[i]
       VarUserAcc_i <- abs((UserAcc_i*(1-UserAcc_i))/private$sumfil(self$Values)[i])
-      ConfInt <- private$ConfInt(UserAcc_i,VarUserAcc_i,a)
+      ConfInt <- private$ConfInt(UserAcc_i,VarUserAcc_i,alpha)
      return(list(UserAcc_i=UserAcc_i,VarUserAcc_i=VarUserAcc_i,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
-
 
 
       #' @description Public method that provides the arithmetic average,
@@ -530,7 +476,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' instance. The method also offers the variance and confidence
       #' interval. The reference \insertCite{tung1988;textual}{ConfMatrix} is
       #' followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvUserAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
       #' { x_{i+}}
@@ -538,9 +484,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'\deqn{
       #' \sigma^2_{AvUserAcc}=\dfrac{AvUserAcc \cdot (1-AvUserAcc)}{N_{Total}}
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return
       #' A list of real values containing the average
       #' user’s accuracy, its variance, and its confidence interval.
@@ -550,9 +494,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
       #' p$AvUserAcc()
       #'
-      #' @aliases NULL
 
-     AvUserAcc = function(a=NULL){
+
+     AvUserAcc = function(alpha=NULL){
        for (i in 1:length(private$sumfil(self$Values))) {
           if (private$sumfil(self$Values)[i] == 0) {
             stop ("/ by 0")
@@ -561,7 +505,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       AvUserAcc <- 1/sqrt(length(self$Values)) *
         sum (diag(self$Values)/private$sumfil(self$Values))
       VarAvUserAcc <- abs((AvUserAcc*(1-AvUserAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(AvUserAcc,VarAvUserAcc,a)
+      ConfInt <- private$ConfInt(AvUserAcc,VarAvUserAcc,alpha)
      return(list(AvUserAcc=AvUserAcc,VarAvUserAcc=VarAvUserAcc,
             Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -572,7 +516,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' accuracy. The method also offers the
       #' variance and confidence interval. The reference
       #' \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' CombUserAcc=\dfrac{OverallAcc+AvUserAcc}{2}
       #' }
@@ -581,12 +525,10 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #'   }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the combined
       #' accuracy from the user's perspective,
       #' its variation and confidence interval.
@@ -596,12 +538,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
       #' p$CombUserAcc()
       #'
-      #' @aliases NULL
 
-     CombUserAcc = function(a=NULL){
+
+     CombUserAcc = function(alpha=NULL){
       CombUserAcc <- (self$OverallAcc()[[1]] + self$AvUserAcc()[[1]]) / 2
       VarCombUserAcc <- abs((CombUserAcc*(1-CombUserAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(CombUserAcc,VarCombUserAcc,a)
+      ConfInt <- private$ConfInt(CombUserAcc,VarCombUserAcc,alpha)
      return(list(CombUserAcc=CombUserAcc,VarCombUserAcc=VarCombUserAcc,
             Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -619,16 +561,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' offers the variance and confidence interval. The reference
       #' \insertCite{congalton2008;textual}{ConfMatrix} if followed for the
       #' computations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' ProdAcc=\dfrac{x_{ii}}{x_{+j}}
       #' }
       #'\deqn{
       #' \sigma^2_{ProdAcc}=\dfrac{ProdAcc \cdot (1-ProdAcc)}{N_{j}}
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of vectors each one containing the producer’s
       #' accuracy real values for all classes, their variances and
       #' confidence intervals for each class, respectively.
@@ -638,9 +578,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$ProdAcc()
       #'
-      #' @aliases NULL
 
-     ProdAcc = function (a=NULL){
+
+     ProdAcc = function (alpha=NULL){
       n <- sqrt(length(self$Values))
       ProdAcc <- rep(0,n)
       VarProdAcc<-rep(0,n)
@@ -648,8 +588,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
         for(i in 1:n){
           ProdAcc[i] <- self$Values[i,i] / private$sumcol(self$Values)[i]
           VarProdAcc[i]<-abs((ProdAcc[i]*(1-ProdAcc[i]))/private$sumcol(self$Values)[i])
-          ConfInt[[i]]<-c(private$ConfInt(ProdAcc[i],VarProdAcc[i],a)$ConfInt_inf,
-                          private$ConfInt(ProdAcc[i],VarProdAcc[i])$ConfInt_sup,a)
+          ConfInt[[i]]<-c(private$ConfInt(ProdAcc[i],VarProdAcc[i],alpha)$ConfInt_inf,
+                          private$ConfInt(ProdAcc[i],VarProdAcc[i])$ConfInt_sup,alpha)
         }
      return(list(ProdAcc=ProdAcc,VarProdAcc=VarProdAcc,Conf_Int=ConfInt))
      },
@@ -666,7 +606,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' the variance and confidence interval. The reference
       #' \insertCite{congalton2008;textual}{ConfMatrix} is followed for the
       #' calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' ProdAcc_{i}=\dfrac{x_{ii}}{x_{+j}}
       #' }
@@ -674,13 +614,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{ProdAcc_i}=\dfrac{ProdAcc_i \cdot (1-ProdAcc_i)}{N_{j}}
       #' }
       #'
-      #' @param i \verb{
-      #' Producer class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}.
-      #' }
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Producer class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}.}
+      #' @param alpha Significance level. By default 0.05.
       #'
       #' @return A list of real values containing the producer’s
       #' accuracy for class i, its variance, and its confidence
@@ -691,12 +626,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$ProdAcc_i(1)
       #'
-      #' @aliases NULL
 
-     ProdAcc_i = function(i,a=NULL){
+
+     ProdAcc_i = function(i,alpha=NULL){
       ProdAcc_i <- self$Values[i,i] / private$sumcol(self$Values)[i]
       VarProdAcc_i <- abs((ProdAcc_i*(1-ProdAcc_i))/private$sumcol(self$Values)[i])
-      ConfInt <- private$ConfInt(ProdAcc_i,VarProdAcc_i,a)
+      ConfInt <- private$ConfInt(ProdAcc_i,VarProdAcc_i,alpha)
      return(list(ProdAcc_i=ProdAcc_i,VarProdAcc_i=VarProdAcc_i,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -709,7 +644,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' instance. The method also offers the variance and confidence
       #' interval. The reference \insertCite{tung1988;textual}{ConfMatrix}
       #' is followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvProdAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
       #' { x_{+j}}
@@ -718,9 +653,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{AvProdAcc}=\dfrac{AvProdAcc \cdot (1-AvProdAcc)}{N_{Total}}
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the average producer’s
       #' accuracy, its variance, and its confidence interval.
       #'
@@ -729,13 +662,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
       #' p$AvProdAcc()
       #'
-      #' @aliases NULL
 
-     AvProdAcc = function(a=NULL){
+
+     AvProdAcc = function(alpha=NULL){
       AvProdAcc <- 1/sqrt(length(self$Values)) *
         sum (diag(self$Values)/private$sumcol(self$Values))
       VarAvProdAcc <- abs((AvProdAcc*(1-AvProdAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(AvProdAcc,VarAvProdAcc,a)
+      ConfInt <- private$ConfInt(AvProdAcc,VarAvProdAcc,alpha)
      return(list(AvProdAcc=AvProdAcc,VarAvProdAcc=VarAvProdAcc,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -748,7 +681,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' producer accuracy. The method also offers the
       #' variance and confidence interval. The reference
       #' \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' CombProdAcc=\dfrac{OverallAcc+AvProdAcc}{2}
       #' }
@@ -757,13 +690,11 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #'   \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the combined accuracy
       #' from producer's perspective, its variance and confidence interval.
       #'
@@ -772,12 +703,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Tung and LeDrew 1988")
       #' p$CombProdAcc()
       #'
-      #' @aliases NULL
 
-     CombProdAcc = function(a=NULL){
+
+     CombProdAcc = function(alpha=NULL){
       CombProdAcc <- (self$OverallAcc()[[1]] + self$AvProdAcc()[[1]]) / 2
       VarCombProdAcc <- abs((CombProdAcc*(1-CombProdAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(CombProdAcc,VarCombProdAcc,a)
+      ConfInt <- private$ConfInt(CombProdAcc,VarCombProdAcc,alpha)
      return(list(CombProdAcc=CombProdAcc,VarCombProdAcc=VarCombProdAcc,
             Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -798,7 +729,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$UserProdAcc()
       #'
-      #' @aliases NULL
+
 
      UserProdAcc =function(){
       nc <- nrow(self$Values)
@@ -820,7 +751,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' accuracies. The method also offers the
       #' variance and confidence interval. The reference
       #' \insertCite{liu2007;textual}{ConfMatrix} is followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' CombUserProdAcc=\dfrac{OverallAcc+AvHellAcc}{2}
       #' }
@@ -830,7 +761,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #'   \item \eqn{AvHellAcc}: average of Hellden's mean accuracy index.
       #' }
@@ -845,7 +776,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$CombUserProdAcc()
       #'
-      #' @aliases NULL
+
 
      CombUserProdAcc = function(a=NULL){
       CombUserProdAcc <- (self$OverallAcc()[[1]]+self$AvHellAcc()[[1]])/2
@@ -865,7 +796,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' variance and confidence interval. The reference
       #' \insertCite{liu2007;textual}{ConfMatrix} is followed for the
       #' calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvUserProdAcc=\dfrac{AvUserAcc+AvProdAcc}{2}
       #' }
@@ -875,13 +806,11 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{AvUserAcc}: average accuracy from user's perspective.
       #'   \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the average mean
       #' precision values from the user's and producer's perspective,
       #' their variance and confidence interval.
@@ -891,12 +820,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$AvUserProdAcc()
       #'
-      #' @aliases NULL
 
-     AvUserProdAcc = function(a=NULL){
+
+     AvUserProdAcc = function(alpha=NULL){
       AvUserProdAcc <- (self$AvUserAcc()[[1]] + self$AvProdAcc()[[1]]) / 2
       VarAvUserProdAcc <- abs((AvUserProdAcc*(1-AvUserProdAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(AvUserProdAcc,VarAvUserProdAcc,a)
+      ConfInt <- private$ConfInt(AvUserProdAcc,VarAvUserProdAcc,alpha)
      return(list(AvUserProdAcc=AvUserProdAcc,VarAvUserProdAcc=VarAvUserProdAcc,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -917,17 +846,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{UserAcc_i}: user accuracy index for class i.
       #'   \item \eqn{ProdAcc_i}: producer accuracy index for class i.
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
       #'
       #' @return A list of real values containing the average of
       #' user’s and producer’s accuracies, its variance and
@@ -938,13 +863,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$AvUserProdAcc_i(2)
       #'
-      #' @aliases NULL
 
-     AvUserProdAcc_i = function(i,a=NULL){
+
+     AvUserProdAcc_i = function(i,alpha=NULL){
       AvUserProdAcc_i <- (self$UserAcc_i(i)[[1]] + self$ProdAcc_i(i)[[1]])/2
       VarAvUserProdAcc_i <- abs((AvUserProdAcc_i*
                           (1-AvUserProdAcc_i))/(private$sumcol(self$Values)[i]+private$sumfil(self$Values)[i]-self$Values[i,i]))
-      ConfInt <- private$ConfInt(AvUserProdAcc_i,VarAvUserProdAcc_i,a)
+      ConfInt <- private$ConfInt(AvUserProdAcc_i,VarAvUserProdAcc_i,alpha)
      return(list(AvUserProdAcc_i=AvUserProdAcc_i,
                  VarAvUserProdAcc_i=VarAvUserProdAcc_i,
                  ConfInt=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -993,7 +918,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' WM<- t(matrix(c(1,0,0.67,1,0,1,0,0,1,0,1,1,0.91,0,0.61,1),nrow=4,ncol=4))
       #' p$UserProdAcc_W(WM)
       #'
-      #' @aliases NULL
+
 
      UserProdAcc_W =function(WM){
         ncol <- private$sumcol(self$Values)
@@ -1053,9 +978,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{OverallAcc}=\dfrac{OverallAcc \cdot (1-OverallAcc)}{N_{Total}}
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the overall accuracy,
       #' its variance, and its confidence interval.
       #'
@@ -1066,12 +989,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A)
       #' p$OverallAcc()
       #'
-      #' @aliases NULL
 
-     OverallAcc = function(a=NULL) {
+
+     OverallAcc = function(alpha=NULL) {
      index <- sum(diag(self$Values))/sum(self$Values)
      VarIndex<-abs((index*(1-index))/sum(self$Values))
-     ConfInt<-private$ConfInt(index,VarIndex,a)
+     ConfInt<-private$ConfInt(index,VarIndex,alpha)
      return(list(OverallAcc=index,VarOverallAcc=VarIndex,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -1087,7 +1010,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' The method also offers the variance and confidence interval.
       #' The reference \insertCite{cohen1960;textual}{ConfMatrix} is followed
       #' for the calculations.
-      #' @description
+      #' @details
       #' \deqn{
       #' Kappa=\dfrac{OverallAcc-ExpAcc}{1-ExpAcc}
       #' }
@@ -1102,14 +1025,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #'   \item \eqn{ExpAcc}: expected accuracy of agreement if agreement
       #'   were purely random.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing with kappa
       #' coefficient, its variance and confidence interval.
       #'
@@ -1118,9 +1039,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$Kappa()
       #'
-      #' @aliases NULL
 
-     Kappa = function(a=NULL){
+
+     Kappa = function(alpha=NULL){
       ExpAcc <- (sum (private$sumfil(self$Values) * private$sumcol(self$Values)))/sum(self$Values)^2
       if (1-ExpAcc == 0){
        stop ("/ by 0")
@@ -1128,7 +1049,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
         kappa <- (self$OverallAcc()[[1]]- ExpAcc) / (1 - ExpAcc)
         VarKappa <- abs((self$OverallAcc()[[1]]*(1-self$OverallAcc()[[1]]))
                     /(sum(self$Values)*(1-ExpAcc)^2))
-        ConfInt <- private$ConfInt(kappa,VarKappa,a)
+        ConfInt <- private$ConfInt(kappa,VarKappa,alpha)
       }
      return(list(Kappa=kappa,VarKappa=VarKappa,
             Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -1150,12 +1071,10 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing modified coefficient
       #' kappa, its variance and its confidence interval.
       #' @examples
@@ -1163,15 +1082,15 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p <- ConfMatrix$new(A,Source="Foody 1992")
       #' p$ModKappa()
       #'
-      #' @aliases NULL
 
-     ModKappa = function(a=NULL){
+
+     ModKappa = function(alpha=NULL){
        ModKappa <- (self$OverallAcc()[[1]] -
                    1/sqrt(length(self$Values)))/(1 -
                    1/sqrt(length(self$Values)))
        VarModKappa <- (self$OverallAcc()[[1]]*(1-self$OverallAcc()[[1]]))/
          (((1 - 1/sqrt(length(self$Values)))^2)*sum(self$Values))
-       ConfInt <- private$ConfInt(ModKappa,VarModKappa,a)
+       ConfInt <- private$ConfInt(ModKappa,VarModKappa,alpha)
      return(list(ModKappa=ModKappa,VarModKappa=VarModKappa,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -1183,7 +1102,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' also offers the variance and confidence interval. The reference
       #' \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
       #' for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' UserKappa_i=\dfrac{UserAcc_i-\dfrac{ x_{i + }}
       #' {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{i + }}
@@ -1197,16 +1116,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{UserAcc_i}: user accuracy index for class i.
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
       #' @return A list of real values containing the kappa coefficient
       #' (user’s perspective), its variance and its confidence interval.
       #'
@@ -1216,9 +1131,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Næsset 1996")
       #' p$UserKappa_i(2)
       #'
-      #' @aliases NULL
 
-     UserKappa_i = function(i,a=NULL){
+
+     UserKappa_i = function(i,alpha=NULL){
       if (1 - private$sumcol(self$Values)[i]/sum(self$Values) == 0) {
        stop ("/ by 0")
       }else{
@@ -1227,7 +1142,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
                         (1 - private$sumcol(self$Values)[i]/sum(self$Values))
         VarUserKappa_i <- (self$UserAcc_i(i)[[1]]*(1-self$UserAcc_i(i)[[1]])) /
           (((1 - private$sumcol(self$Values)[i]/sum(self$Values))^2)*private$sumfil(self$Values)[i])
-        ConfInt <- private$ConfInt(UserKappa_i,VarUserKappa_i,a)
+        ConfInt <- private$ConfInt(UserKappa_i,VarUserKappa_i,alpha)
         }
 
      return(list(UserKappa_i=UserKappa_i,VarUserKappa_i=VarUserKappa_i,
@@ -1253,15 +1168,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{UserAcc_i}: user accuracy index for class i.
       #' }
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the modified kappa
       #' coefficient from the user's perspective, its variance and
       #' confidence interval.
@@ -1271,15 +1183,15 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Liu et al. 2007")
       #' p$ModKappaUser_i(2)
       #'
-      #' @aliases NULL
 
-     ModKappaUser_i = function(i,a=NULL){
+
+     ModKappaUser_i = function(i,alpha=NULL){
        ModKappaUser_i <- (self$UserAcc_i(i)[[1]] -
                          1/sqrt(length(self$Values)))/(1 -
                          1/sqrt(length(self$Values)))
        VarModKappaUser_i <- (self$UserAcc_i(i)[[1]]*(1-self$UserAcc_i(i)[[1]]))/
          (((1 - 1/sqrt(length(self$Values)))^2)*(private$sumfil(self$Values)[i]))
-       ConfInt <- private$ConfInt(ModKappaUser_i,VarModKappaUser_i,a)
+       ConfInt <- private$ConfInt(ModKappaUser_i,VarModKappaUser_i,alpha)
      return(list(ModKappaUser_i=ModKappaUser_i,
                  VarModKappaUser_i=VarModKappaUser_i,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -1292,7 +1204,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' also offers the variance and confidence interval. The reference
       #' \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
       #' for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' ProdKappa_i=\dfrac{ProdAcc_i-\dfrac{ x_{ + i }}
       #' {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{+ i }}
@@ -1306,16 +1218,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{ProdAcc_i}: producer accuracy index for class i.
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the coefficient kappa
       #' (producer’s), its variance and its confidence interval.
       #' @examples
@@ -1324,16 +1233,16 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Næsset 1996")
       #' p$ProdKappa_i(2)
       #'
-      #' @aliases NULL
 
-      ProdKappa_i = function(i,a=NULL){
+
+      ProdKappa_i = function(i,alpha=NULL){
       if (1 - private$sumfil(self$Values)[i]/sum(self$Values) == 0) {
        stop ("/ by 0")
       }else{
         ProdKappa_i <- (self$ProdAcc_i(i)[[1]] - private$sumfil(self$Values)[i]/sum(self$Values)) / (1 - private$sumfil(self$Values)[i]/sum(self$Values))
         VarProdKappa_i <-(self$ProdAcc_i(i)[[1]]*(1-self$ProdAcc_i(i)[[1]])) /
           (((1 - private$sumfil(self$Values)[i]/sum(self$Values))^2)*private$sumcol(self$Values)[i])
-        ConfInt <- private$ConfInt(ProdKappa_i,VarProdKappa_i,a)
+        ConfInt <- private$ConfInt(ProdKappa_i,VarProdKappa_i,alpha)
         }
      return(list(ProdKappa_i=ProdKappa_i,VarProdKappa_i=VarProdKappa_i,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -1348,7 +1257,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' offers the variance and confidence interval. The references
       #' \insertCite{stehman1997;textual}{ConfMatrix} and \insertCite{foody1992;textual}{ConfMatrix}
       #' are followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' ModKappaProd_i=\dfrac{ProdAcc_i-\dfrac{1}{M}}
       #' {1-\dfrac{1}{M}}
@@ -1359,15 +1268,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{ProdAcc_i}: producer accuracy index for class i.
       #' }
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return
       #' A list of real values containing the modified kappa coefficient
       #' from the producer's perspective, its variance and confidence interval.
@@ -1377,13 +1284,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Foody 1992")
       #' p$ModKappaProd_i(2)
       #'
-      #' @aliases NULL
 
-     ModKappaProd_i = function(i,a=NULL){
+
+     ModKappaProd_i = function(i,alpha=NULL){
       ModKappaProd_i <- (self$ProdAcc_i(i)[[1]] - 1/sqrt(length(self$Values))) / (1 - 1/sqrt(length(self$Values)))
       VarModKappaProd_i <- (self$ProdAcc_i(i)[[1]]*(1-self$ProdAcc_i(i)[[1]]))/
         (((1 - 1/sqrt(length(self$Values)))^2)*(private$sumcol(self$Values)[i]))
-      ConfInt <- private$ConfInt(ModKappaProd_i,VarModKappaProd_i,a)
+      ConfInt <- private$ConfInt(ModKappaProd_i,VarModKappaProd_i,alpha)
      return(list(ModKappaProd_i=ModKappaProd_i,
                  VarModKappaProd_i=VarModKappaProd_i,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -1439,7 +1346,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{ExpAcc}: expected accuracy of agreement if agreement
       #'   were purely random.
       #'   \item \eqn{OverallAcc}: overall accuracy.
@@ -1456,7 +1363,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$DetailKappa()
       #'
-      #' @aliases NULL
+
 
      DetailKappa=function (){
        nc <- nrow(self$Values)
@@ -1514,7 +1421,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Czaplewski 1994")
       #' p$DetailCondKappa ()
       #'
-      #' @aliases NULL
+
 
 
      DetailCondKappa = function(){
@@ -1602,7 +1509,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A, Source="Næsset 1996")
       #' p$DetailWKappa(WM)
       #'
-      #' @aliases NULL
+
 
      DetailWKappa = function(WM){
        nc <- nrow(self$Values)
@@ -1663,13 +1570,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{OverallAcc}: overall accuracy.
       #'   \item \eqn{PrAgCoef}: a priori random agreement coefficient.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the Tau index,
       #' its variance and confidence interval.
       #'
@@ -1681,13 +1587,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Muñoz 2016")
       #' p$Tau()
       #'
-      #' @aliases NULL
 
-     Tau = function(a=NULL){
+
+     Tau = function(alpha=NULL){
         Ca<-1/nrow(self$Values)
         Tau <- ((self$OverallAcc()[[1]]-Ca)/(1-Ca))
         VarTau <- ((self$OverallAcc()[[1]]*(1-self$OverallAcc()[[1]]))/(sum(self$Values)*(1-Ca)^2))
-        ConfInt <- private$ConfInt(Tau,VarTau,a)
+        ConfInt <- private$ConfInt(Tau,VarTau,alpha)
      return(list(Tau=Tau,VarTau=VarTau,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -1741,7 +1647,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{\theta_1, \theta_2, \theta_3, \theta_4}: real values.
       #'   \item \eqn{Z}: the test statistic.
       #' }
@@ -1757,7 +1663,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$DetailWTau(WV)
       #'
-      #' @aliases NULL
+
 
      DetailWTau = function(WV){
        nc <- nrow(self$Values)
@@ -1802,9 +1708,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{Ent}=\dfrac{Ent \cdot (1-Ent)}{N_{Total}}
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #'
       #' @param v \verb{
       #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
@@ -1816,9 +1721,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Finn 1993")
       #' p$Ent(v=2)
       #'
-      #' @aliases NULL
 
-     Ent = function(a=NULL,v=NULL){
+
+     Ent = function(alpha=NULL,v=NULL){
       if(!is.null(v)){
         v<-v
       }else{v<-10}
@@ -1841,7 +1746,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
        Ent<-sum(s)
 
        VarEnt <- abs((Ent*(1-Ent))/sum(self$Values))
-       ConfInt <- private$ConfInt(Ent,VarEnt,a)
+       ConfInt <- private$ConfInt(Ent,VarEnt,alpha)
      return(list(Entropy=Ent,VarEnt=VarEnt,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -1872,15 +1777,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{Ent}: product entropy.
       #'   \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
       #'   of the product. A is a matrix.
       #'   \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @param v \verb{
       #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
       #' v=2(units bits), v=e(units nats).}
@@ -1892,9 +1796,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Liu et al. 2007")
       #' p$AvNormEnt(v=2)
       #'
-      #' @aliases NULL
 
-     AvNormEnt = function(a=NULL,v=NULL){
+
+     AvNormEnt = function(alpha=NULL,v=NULL){
       if(!is.null(v)){
         v<-v
       }else{v<-10}
@@ -1908,7 +1812,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
         }else{
           AvNormEnt <- 2 * self$Ent(v=v)[[1]] / (Ent_iA + Ent_iB)
           VarAvNormEnt <- abs((AvNormEnt*(1-AvNormEnt))/sum(self$Values))
-          ConfInt <- private$ConfInt(AvNormEnt,VarAvNormEnt,a)
+          ConfInt <- private$ConfInt(AvNormEnt,VarAvNormEnt,alpha)
         }
 
      return(list(AvNormEntrop=AvNormEnt,VarAvNormEntrop=VarAvNormEnt,
@@ -1922,7 +1826,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' The method also offers the variance and confidence interval.
       #' The reference \insertCite{ghosh2002;textual}{ConfMatrix} is followed
       #' for the calculations.
-      #' @description
+      #' @details
       #'
       #' \deqn{
       #' GeomAvNormEnt=\dfrac{Ent}{\sqrt{Ent_i(A) \cdot Ent_i(B)}}
@@ -1943,17 +1847,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{Ent}: product entropy.
       #'   \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
       #'   of the product. A is a matrix.
       #'   \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} of the reference. B is a matrix.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
-      #' @param v \verb{
-      #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+      #' @param alpha Significance level. By default 0.05.
+      #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
       #' v=2(units bits), v=e(units nats).}
       #' @return A list of real values containing the normalized
       #' entropy (geometric mean of the entropies on the product
@@ -1964,9 +1865,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Liu et al. 2007")
       #' p$GeomAvNormEnt(v=2)
       #'
-      #' @aliases NULL
 
-     GeomAvNormEnt = function(a=NULL,v=NULL){
+
+     GeomAvNormEnt = function(alpha=NULL,v=NULL){
       if(!is.null(v)){
         v<-v
       }else{v<-10}
@@ -1977,7 +1878,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
        }else{
          GeomAvNormEnt <- self$Ent(v=v)[[1]] / sqrt(Ent_iA * Ent_iB)
          VarGeomAvNormEnt <- abs((GeomAvNormEnt*(1-GeomAvNormEnt))/sum(self$Values))
-         ConfInt<-private$ConfInt(GeomAvNormEnt,VarGeomAvNormEnt,a)
+         ConfInt<-private$ConfInt(GeomAvNormEnt,VarGeomAvNormEnt,alpha)
          }
      return(list(GeomAvNormEntrop=GeomAvNormEnt,
                  VarGeoAvNormEntrop=VarGeomAvNormEnt,
@@ -1991,7 +1892,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' reference. The method also offers the variance and confidence interval.
       #' The reference \insertCite{strehl2002relationship;textual}{ConfMatrix} is
       #' followed for the calculations.
-      #' @description
+      #' @details
       #' \deqn{
       #' AvMaxNormEnt=\dfrac{2 Ent}{max(Ent_i(A))+max(Ent_i(B))}=
       #' \dfrac{Ent}{\log M}
@@ -2012,17 +1913,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{Ent}: product entropy.
       #'   \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
       #'   of the product. A is a matrix.
       #'   \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
-      #' @param v \verb{
-      #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+      #' @param alpha Significance level. By default 0.05.
+      #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
       #' v=2(units bits), v=e(units nats).}
       #' @return A list of real values containing the normalized entropy
       #' (arithmetic mean of the maximum entropies of the product and of
@@ -2033,16 +1931,16 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Liu et al. 2007")
       #' p$AvMaxNormEnt(v=2)
       #'
-      #' @aliases NULL
 
-     AvMaxNormEnt = function(a=NULL,v=NULL){
+
+     AvMaxNormEnt = function(alpha=NULL,v=NULL){
        if(!is.null(v)){
          v<-v
        }else{v<-10}
 
         AvMaxNormEnt <- self$Ent(v=v)[[1]] / log(sqrt(length(self$Values)),base=v)
         VarAvMaxNormEnt <- abs((AvMaxNormEnt*(1-AvMaxNormEnt))/sum(self$Values))
-        ConfInt <- private$ConfInt(AvMaxNormEnt,VarAvMaxNormEnt,a)
+        ConfInt <- private$ConfInt(AvMaxNormEnt,VarAvMaxNormEnt,alpha)
 
      return (list(AvMaxNormEnt=AvMaxNormEnt,Var=VarAvMaxNormEnt,
                   Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -2055,7 +1953,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
      #' offers the variance and confidence interval.
      #' The reference \insertCite{finn1993;textual}{ConfMatrix} is followed for
      #' the calculations.
-     #' @description
+     #' @details
      #' \deqn{
      #' EntUser_i= \dfrac{Ent_i(A)-Ent_i(A|b_i)}{Ent_i(A)}
      #' }
@@ -2075,21 +1973,16 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
      #'
      #' where:
      #'
-     #' \enumerate{
+     #' \itemize{
      #'   \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
      #'   of the product. A is a matrix.
      #'   \item \eqn{Ent_i(A|b_i)}: Producer entropy knowing that the
      #'   location corresponding to reference B is in class \eqn{b_i}.
      #'   B is a matrix.
      #' }
-     #' @param i \verb{
-     #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-     #'
-     #' @param a \verb{
-     #' Significance level. By default 0.05.
-     #' }
-     #' @param v \verb{
-     #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+     #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+     #' @param alpha Significance level. By default 0.05.
+     #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
      #' v=2(units bits), v=e(units nats).}
      #'
      #' @return  A list of real values containing the relative change of entropy
@@ -2102,9 +1995,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
      #' p<-ConfMatrix$new(A,Source="Finn 1993")
      #' p$EntUser_i(1,v=2)
      #'
-     #' @aliases NULL
 
-    EntUser_i = function(i,a=NULL,v=NULL){
+
+    EntUser_i = function(i,alpha=NULL,v=NULL){
       if(!is.null(v)){
        v<-v
       }else{v<-10}
@@ -2119,7 +2012,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       }else {
         EntUser_i <- (Ent_iA - Ent_iAbi) / Ent_iA
         VarEntUser_i <- abs((EntUser_i*(1-EntUser_i))/sum(self$Values))
-        ConfInt <- private$ConfInt(EntUser_i,VarEntUser_i,a)
+        ConfInt <- private$ConfInt(EntUser_i,VarEntUser_i,alpha)
       }
       return(list(EntUser_i=EntUser_i,VarEntUser_i=VarEntUser_i,
                   Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup),
@@ -2132,7 +2025,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' of the product. The method also offers the variance and
       #' confidence interval. The reference
       #' \insertCite{finn1993;textual}{ConfMatrix} is followed for the calculations.
-      #' @description
+      #' @details
       #'
       #' \deqn{
       #' NormEntUser=\dfrac{Ent}{Ent_i(B)}
@@ -2147,17 +2040,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{Ent}: product entropy.
       #'   \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
-      #'
-      #' @param v \verb{
-      #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+      #' @param alpha Significance level. By default 0.05.
+      #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
       #' v=2(units bits), v=e(units nats).}
       #' @return A list of real values containing with normalized entropy
       #' of the product class i, conditioned to reference data, its variance
@@ -2168,9 +2057,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Finn 1993")
       #' p$NormEntUser(v=2)
       #'
-      #' @aliases NULL
 
-     NormEntUser = function(a=NULL,v=NULL){
+
+     NormEntUser = function(alpha=NULL,v=NULL){
       if(!is.null(v)){
         v<-v
       }else{v<-10}
@@ -2183,7 +2072,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
        }
        NormEntUser <- self$Ent(v=v)[[1]]/Ent_iB
        VarNormEntUser <- abs((NormEntUser*(1-NormEntUser))/sum(self$Values))
-       ConfInt <- private$ConfInt(NormEntUser,VarNormEntUser,a)
+       ConfInt <- private$ConfInt(NormEntUser,VarNormEntUser,alpha)
      return(list(NormEntropUser=NormEntUser,
                  VarNormEntropUser=VarNormEntUser,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -2217,20 +2106,15 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
      #' }
      #' where:
      #'
-     #' \enumerate{
+     #' \itemize{
      #'   \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
      #'   \item \eqn{Ent_i(B|a_j)}: Entropy of reference B knowing that the
      #'   location of product A is in the class \eqn{a_j}.
      #' }
      #'
-     #' @param i \verb{
-     #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-     #'
-     #' @param a \verb{
-     #' Significance level. By default 0.05.
-     #' }
-     #' @param v \verb{
-     #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{ By default v=10(units Hartleys),
+     #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+     #' @param alpha Significance level. By default 0.05.
+     #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{ By default v=10(units Hartleys),
      #' v=2(units bits), v=e(units nats).
      #' }
      #' @return
@@ -2243,9 +2127,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
      #' p<-ConfMatrix$new(A,Source="Finn 1993")
      #' p$EntProd_i(3,v=2)
      #'
-     #' @aliases NULL
 
-    EntProd_i = function(i,a=NULL,v=NULL){
+
+    EntProd_i = function(i,alpha=NULL,v=NULL){
      if(!is.null(v)){
       v<-v
      }else{v<-10}
@@ -2259,7 +2143,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       }else {
         EntProd_i <- (Ent_iB - Ent_iBaj) / Ent_iB
         VarEntProd_i <- abs((EntProd_i*(1-EntProd_i))/sum(self$Values))
-        ConfInt <- private$ConfInt(EntProd_i,VarEntProd_i,a)
+        ConfInt <- private$ConfInt(EntProd_i,VarEntProd_i,alpha)
         }
     return(list(EntProd_i=EntProd_i,VarEntProd_i=VarEntProd_i,
                 Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup),
@@ -2272,7 +2156,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' the reference from the producer's perspective. The method also offers the variance and confidence
       #' interval. The reference \insertCite{finn1993;textual}{ConfMatrix} is
       #' followed for the calculations.
-      #' @description
+      #' @details
       #' \deqn{
       #' NormEntProd=\dfrac{Ent}{Ent_i(A)}
       #' }
@@ -2286,18 +2170,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{Ent}: product entropy.
       #'   \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
       #'   of the product. A is a matrix.
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
-      #'
-      #' @param v \verb{
-      #' Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}.\verb{ By default v=10(units Hartleys),
+      #' @param alpha Significance level. By default 0.05.
+      #' @param v Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}.\verb{ By default v=10(units Hartleys),
       #' v=2(units bits), v=e(units nats).}
       #' @return A list of real values containing the normalized entropy
       #' of the reference class \eqn{i} from the producer's perspective, its variance
@@ -2308,9 +2188,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Finn 1993")
       #' p$NormEntProd(v=2)
       #'
-      #' @aliases NULL
 
-     NormEntProd = function(a=NULL,v=NULL){
+
+     NormEntProd = function(alpha=NULL,v=NULL){
       if(!is.null(v)){
         v<-v
       }else{v<-10}
@@ -2322,7 +2202,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
        }else{
          NormEntProd <- self$Ent(v=v)[[1]]/Ent_iA
          VarNormEntProd <- abs((NormEntProd*(1-NormEntProd))/sum(self$Values))
-         ConfInt <- private$ConfInt(NormEntProd,VarNormEntProd,a)
+         ConfInt <- private$ConfInt(NormEntProd,VarNormEntProd,alpha)
          }
      return(list(NormEntropProd=NormEntProd,
             VarNormEntropProd=VarNormEntProd,
@@ -2348,13 +2228,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{AvUserAcc}: average accuracy from user's perspective.
       #'   \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
       #' }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #'
       #' @return A list of real values containing the ICSI, its variance
       #' and its confidence interval.
       #' @examples
@@ -2362,12 +2241,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Labatut and Cherifi 2011")
       #' p$Sucess()
       #'
-      #' @aliases NULL
 
-     Sucess = function(a=NULL){
+
+     Sucess = function(alpha=NULL){
       Sucess <- self$AvUserAcc()[[1]] + self$AvProdAcc()[[1]] - 1
        VarSucess <- abs((Sucess*(1-Sucess))/sum(self$Values))
-       ConfInt <- private$ConfInt(Sucess,VarSucess,a)
+       ConfInt <- private$ConfInt(Sucess,VarSucess,alpha)
      return(list(Sucess=Sucess,VarSucess=VarSucess,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -2390,17 +2269,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' where:
       #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{UserAcc_i}: user accuracy index for class i.
       #'   \item \eqn{ProdAcc_i}: producer accuracy index for class i.
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the ICSI,
       #' its variance and its confidence interval.
       #'
@@ -2409,12 +2285,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Labatut and Cherifi 2011")
       #' p$Sucess_i(2)
       #'
-      #' @aliases NULL
 
-     Sucess_i = function(i,a=NULL){
+
+     Sucess_i = function(i,alpha=NULL){
       Sucess_i <- self$UserAcc_i(i)[[1]] + self$ProdAcc_i(i)[[1]] - 1
       VarSucess_i <- abs((Sucess_i*(1-Sucess_i))/(private$sumcol(self$Values)[i]+private$sumfil(self$Values)[i]-self$Values[i,i]))
-      ConfInt <- private$ConfInt(Sucess_i,VarSucess_i,a)
+      ConfInt <- private$ConfInt(Sucess_i,VarSucess_i,alpha)
      return (list(Sucess_i=Sucess_i,VarSucess_i=VarSucess_i,
                   Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -2432,7 +2308,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' variance and confidence interval.
       #' The reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
       #' the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvHellAcc=\dfrac{1}{M} 2 \sum^M_{i=1} \dfrac{ x_{ii}}
       #' { x_{+i} + x_{i+}}
@@ -2441,9 +2317,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{AvHellAcc}=\dfrac{AvHellAcc \cdot (1-AvHellAcc)}{N_{Total}}
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the average of
       #' Hellden's mean accuracy index, its variance and
       #' confidence interval.
@@ -2453,13 +2328,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$AvHellAcc()
       #'
-      #' @aliases NULL
 
-     AvHellAcc = function(a=NULL){
+
+     AvHellAcc = function(alpha=NULL){
       AvHellAcc <- 1/sqrt(length(self$Values)) *
         sum ((2*diag(self$Values)) / (private$sumfil(self$Values) + private$sumcol(self$Values)))
       VarAvHellAcc <- abs((AvHellAcc*(1-AvHellAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(AvHellAcc,VarAvHellAcc,a)
+      ConfInt <- private$ConfInt(AvHellAcc,VarAvHellAcc,alpha)
      return(list(AvHellAcc=AvHellAcc,VarAvHellAcc=VarAvHellAcc,
                  Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
      },
@@ -2471,7 +2346,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' confidence interval. The references
       #' \insertCite{hellden1980;textual}{ConfMatrix} and \insertCite{rosenfield1986;textual}{ConfMatrix} are
       #' followed for the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvHellAcc_i=\dfrac{2}{\dfrac{1}{UserAcc_i}+\dfrac{1}{ProdAcc_i}}=
       #' \dfrac{2 UserAcc_i \cdot ProdAcc_i}{UserAcc_i + ProdAcc_i}
@@ -2480,17 +2355,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{AvHellAcc_i}=\dfrac{AvHellAcc_i \cdot (1-AvHellAcc_i)}{N_{ij}}
       #' }
       #' where:
-      #'
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{UserAcc_i}: user accuracy index for class i.
       #'   \item \eqn{ProdAcc_i}: producer accuracy index for class i.
       #' }
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the Hellden’s mean
       #' accuracy, its variance and its confidence interval.
       #'
@@ -2500,9 +2371,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Rosenfield and Fitzpatrick 1986")
       #' p$AvHellAcc_i(2)
       #'
-      #' @aliases NULL
 
-     AvHellAcc_i = function(i,a=NULL){
+
+     AvHellAcc_i = function(i,alpha=NULL){
        if (self$UserAcc_i(i)[[1]] == 0 || self$ProdAcc_i(i)[[1]] == 0) {
         stop ("/ by 0")
        }else{
@@ -2510,7 +2381,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
                                 1/self$ProdAcc_i(i)[[1]])
          VarAvHellAcc_i <- abs((AvHellAcc_i*(1-AvHellAcc_i))/
                                     (private$sumcol(self$Values)[i]+private$sumfil(self$Values)[i]-self$Values[i,i]))
-         ConfInt <- private$ConfInt(AvHellAcc_i,VarAvHellAcc_i,a)
+         ConfInt <- private$ConfInt(AvHellAcc_i,VarAvHellAcc_i,alpha)
          }
 
      return(list(AvHellAcc_i=AvHellAcc_i,
@@ -2528,7 +2399,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' also offers the variance and confidence interval. The
       #' reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
       #' the calculations.
-      #' @description
+      #' @details
       #'  \deqn{
       #' AvShortAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
       #' { \overline{x}_{+ i}+ \overline{x}_{i +}-x_{ii}}
@@ -2537,9 +2408,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{AvShortAcc}=\dfrac{AvShortAcc \cdot (1-AvShortAcc)}{N_{Total}}
       #' }
       #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the average of
       #' Short's mapping accuracy index, its variance and
       #' confidence interval.
@@ -2549,9 +2419,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
       #' p$AvShortAcc()
       #'
-      #' @aliases NULL
 
-     AvShortAcc = function(a=NULL){
+     AvShortAcc = function(alpha=NULL){
       sum1 <- private$sumfil(self$Values)+private$sumcol(self$Values)- diag(self$Values)
        for (i in 1:length(sum1)) {
           if (sum1[i] == 0) {
@@ -2561,7 +2430,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       AvShortAcc = 1/sqrt(length(self$Values)) *
         sum (diag(self$Values) / (private$sumfil(self$Values) + private$sumcol(self$Values) - diag(self$Values)))
       VarAvShortAcc=abs((AvShortAcc*(1-AvShortAcc))/sum(self$Values))
-      ConfInt <- private$ConfInt(AvShortAcc,VarAvShortAcc,a)
+      ConfInt <- private$ConfInt(AvShortAcc,VarAvShortAcc,alpha)
 
      return(list(AvShortAcc=AvShortAcc,VarAvShortAcc=VarAvShortAcc,
             Conf_Int=c(ConfInt$ConfInt_inf,ConfInt$ConfInt_sup)))
@@ -2582,12 +2451,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \sigma^2_{ShortAcc_i}=\dfrac{ShortAcc_i \cdot (1-ShortAcc_i)}{N_{ij}}
       #' }
       #'
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list of real values containing the Short's
       #' mapping accuracy, its variance and its confidence interval.
       #'
@@ -2597,9 +2463,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Rosenfield and Fitzpatrick-Lins 1986")
       #' p$ShortAcc_i(2)
       #'
-      #' @aliases NULL
 
-     ShortAcc_i = function(i,a=NULL){
+
+     ShortAcc_i = function(i,alpha=NULL){
       if (private$sumfil(self$Values)[i] + private$sumcol(self$Values)[i] - self$Values[i,i] == 0) {
       stop ("/ by 0")
       }else{
@@ -2607,7 +2473,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
                      - self$Values[i,i])
         VarShortAcc_i=abs((ShortAcc_i*(1-ShortAcc_i))/
                       (private$sumcol(self$Values)[i]+private$sumfil(self$Values)[i]-self$Values[i,i]))
-        ConfInt <- private$ConfInt(ShortAcc_i,VarShortAcc_i,a)
+        ConfInt <- private$ConfInt(ShortAcc_i,VarShortAcc_i,alpha)
         }
 
      return(list(ShortAcc_i=ShortAcc_i,VarShortAcc_i=VarShortAcc_i,
@@ -2657,13 +2523,12 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{R}: casual lucky guess.
       #'   \item \eqn{ProdAcc}: producer accuracy.
       #'   }
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list with Ground Truth indexes, their variance, confidence
       #' intervals and the matrix with the expected frequencies.
       #'
@@ -2673,10 +2538,10 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Türk 1979")
       #' p$GroundTruth()
       #'
-      #' @aliases NULL
 
 
-    GroundTruth=function(a=NULL){
+
+    GroundTruth=function(alpha=NULL){
       M<-self$Values
       M_0<-M-diag(diag(M),nrow(M),nrow(M))
       fi<-apply(M_0,1,sum)/sum(M_0)
@@ -2721,8 +2586,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       ConfInt<-list()
       for (i in 1:length(GroundTruth)) {
         ConfInt[[i]]<-c(private$ConfInt(GroundTruth[i],VarGroundTruth[i],
-        a)$ConfInt_inf,private$ConfInt(GroundTruth[i],VarGroundTruth[i],
-        a)$ConfInt_sup)
+        alpha)$ConfInt_inf,private$ConfInt(GroundTruth[i],VarGroundTruth[i],
+        alpha)$ConfInt_sup)
       }
 
     return(list(GroundTruth=GroundTruth,VarGroundTruth=VarGroundTruth,
@@ -2770,16 +2635,13 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{R_i}: casual lucky guess for class \eqn{i}. Is a real value.
       #'   \item \eqn{ProdAcc_i}: producer accuracy for class \eqn{i}.
       #'   }
-      #' @param i \verb{
-      #' Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.
-      #'
-      #' @param a \verb{
-      #' Significance level. By default 0.05.
-      #' }
+      #' @param i Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.
+      #' @param alpha Significance level. By default 0.05.
+      #' 
       #' @return A list with Ground Truth index for class \eqn{i}, its variance, confidence
       #' interval and the matrix with the expected frequencies for all classes.
       #'
@@ -2789,14 +2651,15 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Türk 1979")
       #' p$GroundTruth_i(3)
       #'
-      #' @aliases NULL
 
 
-    GroundTruth_i=function(i,a=NULL){
-     GroundTruth<-self$GroundTruth()[[1]][i]
-     VarGroundTruth<-self$GroundTruth()[[2]][i]
-     ConfInt<-self$GroundTruth()[[3]][[i]]
-     Expfij<-self$GroundTruth()[[4]]
+
+    GroundTruth_i=function(i,alpha=NULL){
+     aux <- self$GroundTruth(alpha= alpha)
+     GroundTruth<-aux[[1]][i]
+     VarGroundTruth<-aux[[2]][i]
+     ConfInt<-aux[[3]][[i]]
+     Expfij<-aux[[4]]
     return(list(GroundTruth=GroundTruth,VarGroundTruth=VarGroundTruth,
                 Conf_Int=ConfInt,ExpFrec=Expfij))
     },
@@ -2813,23 +2676,17 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{n_{A}}: sum of elements of the matrix A.
       #'   \item \eqn{m_{B}}: sum of elements of the matrix B.
       #'   \item \eqn{p_i}: probability that element \eqn{i \in [1, \cdots, MxM]} is well classified in matrix A.
       #'   \item \eqn{q_i}: probability that element \eqn{i \in [1, \cdots, MxM]} is well classified in matrix B.
       #' }
-      #' @param f \verb{
-      #' Element of the ConfMatrix.
-      #' }
-      #' @param p \verb{
-      #' probability vector of matrix A. By default, relative frequencies observed
+      #' @param f Element of the ConfMatrix.
+      #' @param p probability vector of matrix A. By default, relative frequencies observed
       #' for each cell is taken.
-      #' }
-      #' @param q \verb{
-      #' probability vector of matrix B. By default, relative frequencies observed
+      #' @param q probability vector of matrix B. By default, relative frequencies observed
       #' for each cell is taken.
-      #' }
       #'
       #' @return A real value for the Hellinger distance.
       #' @examples
@@ -2839,7 +2696,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
       #' r$HellingerDist(f)
       #'
-      #' @aliases NULL
+
 
     HellingerDist = function(f,p=NULL,q=NULL){
       if(class(f)[1]!="ConfMatrix"){
@@ -2917,7 +2774,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Pontius Jr. and Santacruz 2023")
       #' p$QES()
       #'
-      #' @aliases NULL
+
 
      QES = function(){
       nc <- nrow(self$Values)
@@ -3011,7 +2868,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A, Source="Congalton and Green 2008")
       #' p$MBootStrap(2)
       #'
-      #' @aliases NULL
+
 
      MBootStrap=function(B,pr=NULL){
       nc<-ncol(self$Values)
@@ -3046,9 +2903,8 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #' Taking \eqn{x_{ij}=x''_{ij}} for the next iteration.
       #'
-      #' @param iter \verb{
-      #' Number of iteration. By default iter=1000.
-      #' }
+      #' @param iter Number of iteration. By default iter=1000.
+      #' 
       #' @return A list formed by the original confusion matrix and the
       #' normalized matrix.
       #'
@@ -3060,7 +2916,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Muñoz 2016")
       #' p$MNormalize()
       #'
-      #' @aliases NULL
+
 
      MNormalize=function(iter=NULL){
 
@@ -3118,7 +2974,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source="Muñoz 2016")
       #' p$MPseudoZeroes()
       #'
-      #' @aliases NULL
+
 
      MPseudoZeroes = function(){
        k=0
@@ -3160,15 +3016,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{O_A}: overall index of matrix A.
       #'   \item \eqn{O_B}: overall index of matrix B.
       #'   \item \eqn{\sigma^2_{O_A}}: variance of \eqn{O_A}.
       #'   \item \eqn{\sigma^2_{O_B}}: variance of \eqn{O_B}.
       #' }
-      #' @param f \verb{
-      #' Instance of ConfMatrix class.
-      #' }
+      #' @param f Instance of ConfMatrix class.
+      #' 
       #' @return A list of class "htest" containing the results of the hypothesis test.
       #'
       #' @examples
@@ -3178,7 +3033,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
       #' p$OverallAcc.test(f)
       #'
-      #' @aliases NULL
+
 
     OverallAcc.test=function(f){
       if(class(f)[1]!="ConfMatrix"){
@@ -3215,15 +3070,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{k_A}: kappa index of matrix A.
       #'   \item \eqn{k_B}: kappa index of matrix B.
       #'   \item \eqn{\sigma^2_{k_A}}: variance of \eqn{k_A}.
       #'   \item \eqn{\sigma^2_{k_B}}: variance of \eqn{k_B}.
       #' }
-      #' @param f \verb{
-      #' Element of the ConfMatrix class.
-      #' }
+      #' @param f Element of the ConfMatrix class.
+      #' 
       #' @return A list of class "htest" containing the results of the hypothesis test.
       #'
       #' @examples
@@ -3233,7 +3087,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
       #' p$Kappa.test(f)
       #'
-      #' @aliases NULL
+
 
       Kappa.test=function(f){
         if(class(f)[1]!="ConfMatrix"){
@@ -3271,15 +3125,14 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' }
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{\tau_A}: Tau index of matrix A.
       #'   \item \eqn{\tau_B}: Tau index of matrix B.
       #'   \item \eqn{\sigma^2_{\tau_A}}: variance of \eqn{\tau_A}.
       #'   \item \eqn{\sigma^2_{\tau_B}}: variance of \eqn{\tau_B}.
       #' }
-      #' @param f \verb{
-      #' Element of the ConfMatrix class.
-      #' }
+      #' @param f Element of the ConfMatrix class.
+      #' 
       #' @return A list of class "htest" containing the results of the hypothesis test.
       #'
       #' @examples
@@ -3289,7 +3142,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' f<-ConfMatrix$new(B,Source="Congalton and Green 2008")
       #' p$Tau.test(f)
       #'
-      #' @aliases NULL
+
 
     Tau.test=function(f){
       if(class(f)[1]!="ConfMatrix"){
@@ -3332,12 +3185,9 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' \deqn{
       #' \hat{p}=\dfrac{Card(T^*_{n,m} \geq T^*_{n,m})}{B}
       #' }
-      #' @param B \verb{
-      #' Number of bootstraps that you want to generate. By default B=1000.
-      #' }
-      #' @param f \verb{
-      #' Element of the ConfMatrix class.
-      #' }
+      #' @param B Number of bootstraps that you want to generate. By default B=1000.
+      #' @param f Element of the ConfMatrix class.
+      #' 
       #' @return A list of class "htest" containing the results of the hypothesis test.
       #'
       #' @examples
@@ -3347,7 +3197,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' f<-ConfMatrix$new(C,Source="Congalton and Green 2008")
       #' p$TSCM.test(f)
       #'
-      #' @aliases NULL
+
 
     TSCM.test=function(f,B=NULL){
       if(class(f)[1]!="ConfMatrix"){
@@ -3424,7 +3274,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #'
       #'
       #' Where:
-      #' \enumerate{
+      #' \itemize{
       #'   \item \eqn{x_{ij}}: matrix element. Observed frequency.
       #'   \item \eqn{E_{ij}}: expected frequency.
       #' }
@@ -3436,7 +3286,7 @@ initialize = function(Values,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
       #' p<-ConfMatrix$new(A,Source= "Türk 1979")
       #' p$QIndep.test()
       #'
-      #' @aliases NULL
+
 
 
     QIndep.test=function(){

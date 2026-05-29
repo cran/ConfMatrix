@@ -2,9 +2,9 @@
 % Please edit documentation in R/ConfMatrix.R
 \name{ConfMatrix}
 \alias{ConfMatrix}
-\title{Confusion matrix}
+\title{Confusion matrix Class}
 \description{
-The ConfMatrix class works with confusion matrices, thus providing
+The \code{ConfMatrix} class works with confusion matrices, thus providing
 the possibility of calculating several indices with their
 corresponding variances and confidence intervals. A confusion matrix
 is constructed by comparing a sample of a set of common positions in
@@ -19,8 +19,8 @@ long, for example methods that provide averages start with "AV" and
 those that provide combinations start with "Comb". Methods related
 to a specific thematics class end with the ending "_i".
 }
-\note{
-Error Messages: List of possible errors:
+\section{Error Messages}{
+ List of possible errors:
 \itemize{
 \item \code{Error type 1}: Non-square matrix.
 \item \code{Error type 2}: Single element matrix.
@@ -31,6 +31,7 @@ Error Messages: List of possible errors:
 \item \code{Error type 7}: It is not a matrix.
 }
 }
+
 \section{Mathematical elements}{
 
 \itemize{
@@ -69,7 +70,6 @@ cm<-ConfMatrix$new (A,ID="5",Date="27-10-2023",Source="Congalton and Green,
 A<-matrix(c(65,6,0,4,4,81,11,7,22,5,85,3,24,8,19,90), nrow=4,ncol=4)
 p<-ConfMatrix$new(A,Source="Congalton and Green 2008")
 p$plot.index()
-
 
 ## ------------------------------------------------
 ## Method `ConfMatrix$plot.UserProdAcc()`
@@ -660,35 +660,15 @@ p$QIndep.test()
 \section{Public fields}{
   \if{html}{\out{<div class="r6-fields">}}
   \describe{
-    \item{\code{Values}}{\verb{
-Matrix of integer values. An matrix must be added.
-}}
+    \item{\code{Values}}{\code{matrix}. Matrix of integer values.}
 
-    \item{\code{ID}}{\verb{
-Identifier. It is a character string with a maximum length of 50 characters.
-By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
-number of ConfMatrix instances already defined in the session.
-}}
+    \item{\code{ID}}{\code{character}. Identifier (maximum 50 characters).}
 
-    \item{\code{Date}}{\verb{
-Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-By default the date provided by the system will be taken.
+    \item{\code{Date}}{\code{Date}.  Reference date.}
 
-}}
+    \item{\code{ClassNames}}{\code{character}. Name of the classes (maximum 20 characters).}
 
-    \item{\code{ClassNames}}{\verb{
-Name of the classes. It is given by a character strings vector whose elements
-are the name of the classes. Each element of the vector is a string of maximum
-20 characters. By default for the column elements they will be} \eqn{PC_i}
-(Producer class) \verb{and for the elements of row} \eqn{UC_i}\verb{ (User class), with} \eqn{i} \verb{being the correspond-
-ing row or column number.
-}}
-
-    \item{\code{Source}}{\verb{
-Indicates where the matrix comes from (article, project, etc.). It is suggest-
-ed to enter a reference or a DOI. A character string with a maximum length of
-80 characters can be entered. By default, is NULL.
-}}
+    \item{\code{Source}}{Source \code{character} | NULL. Indicates where the matrix comes from.}
   }
   \if{html}{\out{</div>}}
 }
@@ -758,12 +738,12 @@ ed to enter a reference or a DOI. A character string with a maximum length of
 \if{html}{\out{<a id="method-ConfMatrix-initialize"></a>}}
 \if{latex}{\out{\hypertarget{method-ConfMatrix-initialize}{}}}
 \subsection{\code{ConfMatrix$new()}}{
-  Public method to create an instance of the ConfMatrix class.
+  Public method to create an instance of the \code{ConfMatrix} class.
 When creating it, values must be given to the matrix. The values
 of the matrix must be organized in such a way that the columns
 represent the classes in the reference and the rows represent
 the classes in the product being evaluated. The creation of a
-ConfMatrix instance includes a series of checks on the data. If
+\code{ConfMatrix} instance includes a series of checks on the data. If
 checks are not met, the system generates coded error messages.
 The optional possibility of adding metadata to the matrix is offered.
   \subsection{Usage}{
@@ -780,36 +760,21 @@ The optional possibility of adding metadata to the matrix is offered.
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{Values}}{\verb{
-Matrix of integer values. A matrix must be added.
-}}
-      \item{\code{ID}}{\verb{
-Identifier. It is a character string with a maximum length of 50 characters.
-By default,} \eqn{CM_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be the
-number of ConfMatrix instances already defined in the session.
-}}
-      \item{\code{Date}}{\verb{
-Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-By default the date provided by the system will be taken.
-
-}}
-      \item{\code{ClassNames}}{\verb{
-Name of the classes. It is given by a character strings vector whose elements
+      \item{\code{Values}}{Matrix of integer values. A matrix must be added.}
+      \item{\code{ID}}{Unique identifier (Optional). It is a character string with a maximum length of 50 characters.
+By default, CM_i will be taken as identification. Where i will be the number of \code{ConfMatrix} instances already defined in the session.}
+      \item{\code{Date}}{Date provided by the user in format "YYYY-MM-DD" (Optional). By defaults \code{Sys.Date()}.}
+      \item{\code{ClassNames}}{Name of the classes  (Optional). It is given by a character strings vector whose elements
 are the name of the classes. Each element of the vector is a string of maximum
-20 characters. By default for the column elements they will be} \eqn{PC_i}
-(Producer class) \verb{and for the elements of row} \eqn{UC_i}\verb{ (User class), with} \eqn{i} \verb{being the correspond-
-ing row or column number.
-}}
-      \item{\code{Source}}{\verb{
-Indicates where the matrix comes from (article, project, etc.). It is suggest-
-ed to enter a reference or a DOI. A character string with a maximum length of
-80 characters can be entered. By default, is NULL.
-}}
+20 characters. By default for the column elements they will be PC_i
+(Producer class) and for the elements of row UC_i (User class), with i being the corresponding row or column number.}
+      \item{\code{Source}}{(Optional) Indicates where the matrix comes from (article, project, etc.). It is suggested
+to enter a reference or a DOI. A character string with a maximum length of 80 characters can be entered. By default, is NULL.}
     }
     \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
-    Object of the ConfMatrix class, or an error message.
+    Object of the \code{ConfMatrix} class, or an error message.
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
@@ -935,10 +900,11 @@ p$AllParameters()
 \if{latex}{\out{\hypertarget{method-ConfMatrix-UserAcc}{}}}
 \subsection{\code{ConfMatrix$UserAcc()}}{
   Public method for deriving the index called user’s
-accuracy for all the classes in a ConfMatrix object instance.
-The user's accuracy for the class \eqn{i} of a thematic product is
-calculated by dividing the value in the diagonal of class \eqn{i} by
-the sum of all values in the row of the class \eqn{i} (row marginal).
+accuracy for all the classes in a \code{ConfMatrix} object instance.
+The user's accuracy for the class i of a thematic product is
+calculated by dividing the value in the diagonal of class i by
+the sum of all values in the row of the class i (row marginal).
+
 The method also offers the variance and confidence interval.
 The reference \insertCite{congalton2008;textual}{ConfMatrix} is followed
 for the computations.
@@ -950,15 +916,13 @@ UserAcc=\dfrac{x_{ii}}{x_{i+}}
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$UserAcc(a = NULL)}
+    \preformatted{ConfMatrix$UserAcc(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -989,29 +953,26 @@ class \eqn{i} by the sum of all values in the row of the class i
 (row marginal). The method also offers the variance and confidence
 interval. The reference \insertCite{congalton2008;textual}{ConfMatrix}
 is followed for the computations.
-
-
-  \deqn{
-UserAcc_{i}=\dfrac{x_{ii}}{x_{i+}}
-}
-\deqn{
-\sigma^2_{UserAcc_i}=\dfrac{UserAcc_i \cdot (1-UserAcc_i)}{N_{i}}
-}
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$UserAcc_i(i, a = NULL)}
+    \preformatted{ConfMatrix$UserAcc_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
+UserAcc_{i}=\dfrac{x_{ii}}{x_{i+}}
+}
+\deqn{
+\sigma^2_{UserAcc_i}=\dfrac{UserAcc_i \cdot (1-UserAcc_i)}{N_{i}}
+}
   }
   \subsection{Returns}{
     A list of real values containing the user’s accuracy
@@ -1036,28 +997,26 @@ without weighing, of all user’s accuracies of a ConfMatrix object
 instance. The method also offers the variance and confidence
 interval. The reference \insertCite{tung1988;textual}{ConfMatrix} is
 followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvUserAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvUserAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { x_{i+}}
 }
 \deqn{
 \sigma^2_{AvUserAcc}=\dfrac{AvUserAcc \cdot (1-AvUserAcc)}{N_{Total}}
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvUserAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the average
@@ -1082,9 +1041,20 @@ Which is the average of the overall accuracy and the average user's
 accuracy. The method also offers the
 variance and confidence interval. The reference
 \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$CombUserAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 CombUserAcc=\dfrac{OverallAcc+AvUserAcc}{2}
 }
 \deqn{
@@ -1092,22 +1062,9 @@ CombUserAcc=\dfrac{OverallAcc+AvUserAcc}{2}
 }
 
 where:
-\enumerate{
+\itemize{
 \item \eqn{OverallAcc}: overall accuracy.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$CombUserAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the combined
@@ -1137,27 +1094,25 @@ row of the class \eqn{i} (column marginal). The method also
 offers the variance and confidence interval. The reference
 \insertCite{congalton2008;textual}{ConfMatrix} if followed for the
 computations.
-
-
-  \deqn{
-ProdAcc=\dfrac{x_{ii}}{x_{+j}}
-}
-\deqn{
-\sigma^2_{ProdAcc}=\dfrac{ProdAcc \cdot (1-ProdAcc)}{N_{j}}
-}
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ProdAcc(a = NULL)}
+    \preformatted{ConfMatrix$ProdAcc(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
+ProdAcc=\dfrac{x_{ii}}{x_{+j}}
+}
+\deqn{
+\sigma^2_{ProdAcc}=\dfrac{ProdAcc \cdot (1-ProdAcc)}{N_{j}}
+}
   }
   \subsection{Returns}{
     A list of vectors each one containing the producer’s
@@ -1187,30 +1142,26 @@ of the class \eqn{i} (column marginal). The method also offers
 the variance and confidence interval. The reference
 \insertCite{congalton2008;textual}{ConfMatrix} is followed for the
 calculations.
-
-
-  \deqn{
-ProdAcc_{i}=\dfrac{x_{ii}}{x_{+j}}
-}
-\deqn{
-\sigma^2_{ProdAcc_i}=\dfrac{ProdAcc_i \cdot (1-ProdAcc_i)}{N_{j}}
-}
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ProdAcc_i(i, a = NULL)}
+    \preformatted{ConfMatrix$ProdAcc_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Producer class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}.
-}}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Producer class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}.}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
+ProdAcc_{i}=\dfrac{x_{ii}}{x_{+j}}
+}
+\deqn{
+\sigma^2_{ProdAcc_i}=\dfrac{ProdAcc_i \cdot (1-ProdAcc_i)}{N_{j}}
+}
   }
   \subsection{Returns}{
     A list of real values containing the producer’s
@@ -1236,28 +1187,26 @@ average of all producer’s accuracies of a ConfMatrix object
 instance. The method also offers the variance and confidence
 interval. The reference \insertCite{tung1988;textual}{ConfMatrix}
 is followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvProdAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvProdAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { x_{+j}}
 }
 \deqn{
 \sigma^2_{AvProdAcc}=\dfrac{AvProdAcc \cdot (1-AvProdAcc)}{N_{Total}}
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvProdAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the average producer’s
@@ -1282,9 +1231,20 @@ accuracy. Which is the average of the overall accuracy and the average
 producer accuracy. The method also offers the
 variance and confidence interval. The reference
 \insertCite{tung1988;textual}{ConfMatrix} is followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$CombProdAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 CombProdAcc=\dfrac{OverallAcc+AvProdAcc}{2}
 }
 \deqn{
@@ -1292,23 +1252,10 @@ CombProdAcc=\dfrac{OverallAcc+AvProdAcc}{2}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$CombProdAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the combined accuracy
@@ -1360,21 +1307,6 @@ average accuracy, which refers to the average user's and producer's
 accuracies. The method also offers the
 variance and confidence interval. The reference
 \insertCite{liu2007;textual}{ConfMatrix} is followed for the calculations.
-
-
-  \deqn{
-CombUserProdAcc=\dfrac{OverallAcc+AvHellAcc}{2}
-}
-\deqn{
-\sigma^2_{CombUserProdAcc}=\dfrac{CombUserProdAcc \cdot
-(1-CombUserProdAcc)}{N_{Total}}
-}
-where:
-
-\enumerate{
-\item \eqn{OverallAcc}: overall accuracy.
-\item \eqn{AvHellAcc}: average of Hellden's mean accuracy index.
-}
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
     \preformatted{ConfMatrix$CombUserProdAcc(a = NULL)}
@@ -1388,6 +1320,21 @@ Significance level. By default 0.05.
 }}
     }
     \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
+CombUserProdAcc=\dfrac{OverallAcc+AvHellAcc}{2}
+}
+\deqn{
+\sigma^2_{CombUserProdAcc}=\dfrac{CombUserProdAcc \cdot
+(1-CombUserProdAcc)}{N_{Total}}
+}
+where:
+
+\itemize{
+\item \eqn{OverallAcc}: overall accuracy.
+\item \eqn{AvHellAcc}: average of Hellden's mean accuracy index.
+}
   }
   \subsection{Returns}{
     A list of real values containing the combined accuracy from both user's
@@ -1413,9 +1360,20 @@ a ConfMatrix object instance. The method also offers the
 variance and confidence interval. The reference
 \insertCite{liu2007;textual}{ConfMatrix} is followed for the
 calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvUserProdAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvUserProdAcc=\dfrac{AvUserAcc+AvProdAcc}{2}
 }
 \deqn{
@@ -1424,23 +1382,10 @@ AvUserProdAcc=\dfrac{AvUserAcc+AvProdAcc}{2}
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{AvUserAcc}: average accuracy from user's perspective.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvUserProdAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the average mean
@@ -1475,23 +1420,20 @@ AvUserProdAcc_i=\dfrac{UserAcc_i+ProdAcc_i}{2}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvUserProdAcc_i(i, a = NULL)}
+    \preformatted{ConfMatrix$AvUserProdAcc_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -1589,15 +1531,13 @@ OverallAcc = \dfrac{\sum_{i=1}^{M} x_{ii}}{\sum_{i, j=1}^{M} x_{ij}}
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$OverallAcc(a = NULL)}
+    \preformatted{ConfMatrix$OverallAcc(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -1625,9 +1565,20 @@ of agreement and the proportion expected to occur by chance.
 The method also offers the variance and confidence interval.
 The reference \insertCite{cohen1960;textual}{ConfMatrix} is followed
 for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$Kappa(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 Kappa=\dfrac{OverallAcc-ExpAcc}{1-ExpAcc}
 }
 \deqn{
@@ -1639,24 +1590,11 @@ ExpAcc= \dfrac{x_{+ i}x_{i +}}{ ( \sum_{i,j=1}^M x_{ij} )^{2} }
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{ExpAcc}: expected accuracy of agreement if agreement
 were purely random.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$Kappa(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing with kappa
@@ -1691,20 +1629,18 @@ ModKappa=\dfrac{OverallAcc-\dfrac{1}{M}}{1-\dfrac{1}{M}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{OverallAcc}: overall accuracy.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ModKappa(a = NULL)}
+    \preformatted{ConfMatrix$ModKappa(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -1731,9 +1667,21 @@ from the user's perspective, for a specific class i. The method
 also offers the variance and confidence interval. The reference
 \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
 for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$UserKappa_i(i, alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 UserKappa_i=\dfrac{UserAcc_i-\dfrac{ x_{i + }}
 {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{i + }}
 {\sum^M_{i,j=1} x_{ij}}}
@@ -1746,24 +1694,9 @@ UserKappa_i=\dfrac{UserAcc_i-\dfrac{ x_{i + }}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$UserKappa_i(i, a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the kappa coefficient
@@ -1801,22 +1734,19 @@ ModKappaUser_i=\dfrac{UserAcc_i-\dfrac{1}{M}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ModKappaUser_i(i, a = NULL)}
+    \preformatted{ConfMatrix$ModKappaUser_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -1844,9 +1774,21 @@ from the producer's perspective, for a specific class i. The method
 also offers the variance and confidence interval. The reference
 \insertCite{rosenfield1986;textual}{ConfMatrix} is followed
 for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ProdKappa_i(i, alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 ProdKappa_i=\dfrac{ProdAcc_i-\dfrac{ x_{ + i }}
 {\sum^M_{i,j=1} x_{ij}}}{1-\dfrac{ x_{+ i }}
 {\sum^M_{i,j=1} x_{ij}}}
@@ -1859,24 +1801,9 @@ ProdKappa_i=\dfrac{ProdAcc_i-\dfrac{ x_{ + i }}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ProdKappa_i(i, a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the coefficient kappa
@@ -1904,9 +1831,21 @@ probabilities of belonging to each class are assumed. The method also
 offers the variance and confidence interval. The references
 \insertCite{stehman1997;textual}{ConfMatrix} and \insertCite{foody1992;textual}{ConfMatrix}
 are followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$ModKappaProd_i(i, alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 ModKappaProd_i=\dfrac{ProdAcc_i-\dfrac{1}{M}}
 {1-\dfrac{1}{M}}
 }
@@ -1916,24 +1855,9 @@ ModKappaProd_i=\dfrac{ProdAcc_i-\dfrac{1}{M}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ModKappaProd_i(i, a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the modified kappa coefficient
@@ -1998,7 +1922,7 @@ Z=\dfrac{Kappa}{\sqrt{\sigma^2_{Kappa}}}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{ExpAcc}: expected accuracy of agreement if agreement
 were purely random.
 \item \eqn{OverallAcc}: overall accuracy.
@@ -2171,21 +2095,19 @@ PrAgCoef=\dfrac{1}{M}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{OverallAcc}: overall accuracy.
 \item \eqn{PrAgCoef}: a priori random agreement coefficient.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$Tau(a = NULL)}
+    \preformatted{ConfMatrix$Tau(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -2255,7 +2177,7 @@ Z=\dfrac{Tau_W}{\sqrt{\sigma^2_{Tau_W}}}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{\theta_1, \theta_2, \theta_3, \theta_4}: real values.
 \item \eqn{Z}: the test statistic.
 }
@@ -2307,15 +2229,13 @@ Ent=\sum^M_{i,j=1} \left(\dfrac{x_{ij}}{\sum^M_{i,j=1} x_{ij}}
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$Ent(a = NULL, v = NULL)}
+    \preformatted{ConfMatrix$Ent(alpha = NULL, v = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
       \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
@@ -2363,7 +2283,7 @@ Ent_i(B)=-\sum^M_{i=1}\left( \left(\dfrac{ x_{i+}}
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
@@ -2371,15 +2291,13 @@ of the product. A is a matrix.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvNormEnt(a = NULL, v = NULL)}
+    \preformatted{ConfMatrix$AvNormEnt(alpha = NULL, v = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
       \item{\code{v}}{\verb{
 Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).}}
@@ -2410,9 +2328,22 @@ using the geometric mean of the product and reference entropies.
 The method also offers the variance and confidence interval.
 The reference \insertCite{ghosh2002;textual}{ConfMatrix} is followed
 for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$GeomAvNormEnt(alpha = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+v=2(units bits), v=e(units nats).}}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 GeomAvNormEnt=\dfrac{Ent}{\sqrt{Ent_i(A) \cdot Ent_i(B)}}
 }
 \deqn{
@@ -2431,28 +2362,12 @@ Ent_i(B)=-\sum^M_{i=1}\left( \left(\dfrac{ x_{i+}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} of the reference. B is a matrix.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$GeomAvNormEnt(a = NULL, v = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
-v=2(units bits), v=e(units nats).}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the normalized
@@ -2478,9 +2393,22 @@ the arithmetic mean of the maximum entropies of the product and
 reference. The method also offers the variance and confidence interval.
 The reference \insertCite{strehl2002relationship;textual}{ConfMatrix} is
 followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvMaxNormEnt(alpha = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+v=2(units bits), v=e(units nats).}}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvMaxNormEnt=\dfrac{2 Ent}{max(Ent_i(A))+max(Ent_i(B))}=
 \dfrac{Ent}{\log M}
 }
@@ -2500,28 +2428,12 @@ Ent_i(B)=-\sum^M_{i=1}\left( \left(\dfrac{ x_{i+}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvMaxNormEnt(a = NULL, v = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
-v=2(units bits), v=e(units nats).}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the normalized entropy
@@ -2547,9 +2459,23 @@ entropy for a given class \eqn{i} of the product. The method also
 offers the variance and confidence interval.
 The reference \insertCite{finn1993;textual}{ConfMatrix} is followed for
 the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$EntUser_i(i, alpha = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+v=2(units bits), v=e(units nats).}}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 EntUser_i= \dfrac{Ent_i(A)-Ent_i(A|b_i)}{Ent_i(A)}
 }
 \deqn{
@@ -2568,31 +2494,13 @@ Ent_i(A|b_i)=-\sum^M_{j=1} \left( \left(\dfrac{ x_{ij}}
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
 \item \eqn{Ent_i(A|b_i)}: Producer entropy knowing that the
 location corresponding to reference B is in class \eqn{b_i}.
 B is a matrix.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$EntUser_i(i, a = NULL, v = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
-v=2(units bits), v=e(units nats).}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the relative change of entropy
@@ -2618,9 +2526,22 @@ p$EntUser_i(1,v=2)
 of the product. The method also offers the variance and
 confidence interval. The reference
 \insertCite{finn1993;textual}{ConfMatrix} is followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$NormEntUser(alpha = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
+v=2(units bits), v=e(units nats).}}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 NormEntUser=\dfrac{Ent}{Ent_i(B)}
 }
 \deqn{
@@ -2633,26 +2554,10 @@ Ent_i(B)=-\sum^M_{i=1} \left( \left(  \dfrac {x_{i+}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$NormEntUser(a = NULL, v = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{By default v=10(units Hartleys),
-v=2(units bits), v=e(units nats).}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing with normalized entropy
@@ -2698,26 +2603,22 @@ Ent_i(B|a_j)=-\sum^M_{i=1}\left( \left(\dfrac{ x_{ij}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent_i(B)}: entropy with respect to the class \emph{i} on the reference. B is a matrix.
 \item \eqn{Ent_i(B|a_j)}: Entropy of reference B knowing that the
 location of product A is in the class \eqn{a_j}.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$EntProd_i(i, a = NULL, v = NULL)}
+    \preformatted{ConfMatrix$EntProd_i(i, alpha = NULL, v = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{ By default v=10(units Hartleys),
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}. \verb{ By default v=10(units Hartleys),
 v=2(units bits), v=e(units nats).
 }}
     }
@@ -2747,9 +2648,22 @@ p$EntProd_i(3,v=2)
 the reference from the producer's perspective. The method also offers the variance and confidence
 interval. The reference \insertCite{finn1993;textual}{ConfMatrix} is
 followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$NormEntProd(alpha = NULL, v = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+      \item{\code{v}}{Base of the logarithm, where \eqn{v \in \mathbb{R}^{+}-\{1\}}.\verb{ By default v=10(units Hartleys),
+v=2(units bits), v=e(units nats).}}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 NormEntProd=\dfrac{Ent}{Ent_i(A)}
 }
 \deqn{
@@ -2762,27 +2676,11 @@ Ent_i(A)=-\sum^M_{j=1}\left( \left(\dfrac{ x_{+j}}
 }
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{Ent}: product entropy.
 \item \eqn{Ent_i(A)}: entropy with respect to the classes \emph{i}
 of the product. A is a matrix.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$NormEntProd(a = NULL, v = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-      \item{\code{v}}{\verb{
-Base of the logarithm, where} \eqn{v \in \mathbb{R}^{+}-\{1\}}.\verb{ By default v=10(units Hartleys),
-v=2(units bits), v=e(units nats).}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the normalized entropy
@@ -2818,21 +2716,19 @@ Sucess=1-(1-AvUserAcc+1-AvProdAcc)=AvUserAcc+AvProdAcc-1
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{AvUserAcc}: average accuracy from user's perspective.
 \item \eqn{AvProdAcc}: average accuracy from producer's perspective.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$Sucess(a = NULL)}
+    \preformatted{ConfMatrix$Sucess(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -2870,23 +2766,20 @@ Sucess_i=1-(1-UserAcc_i+1-ProdAcc_i)=UserAcc_i+ProdAcc_i-1
 
 where:
 
-\enumerate{
+\itemize{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$Sucess_i(i, a = NULL)}
+    \preformatted{ConfMatrix$Sucess_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -2919,28 +2812,26 @@ element in the product. The method also offers the
 variance and confidence interval.
 The reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
 the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvHellAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvHellAcc=\dfrac{1}{M} 2 \sum^M_{i=1} \dfrac{ x_{ii}}
 { x_{+i} + x_{i+}}
 }
 \deqn{
 \sigma^2_{AvHellAcc}=\dfrac{AvHellAcc \cdot (1-AvHellAcc)}{N_{Total}}
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvHellAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the average of
@@ -2966,9 +2857,21 @@ accuracy for the specified class. The method also offers the variance and
 confidence interval. The references
 \insertCite{hellden1980;textual}{ConfMatrix} and \insertCite{rosenfield1986;textual}{ConfMatrix} are
 followed for the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvHellAcc_i(i, alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvHellAcc_i=\dfrac{2}{\dfrac{1}{UserAcc_i}+\dfrac{1}{ProdAcc_i}}=
 \dfrac{2 UserAcc_i \cdot ProdAcc_i}{UserAcc_i + ProdAcc_i}
 }
@@ -2976,26 +2879,10 @@ AvHellAcc_i=\dfrac{2}{\dfrac{1}{UserAcc_i}+\dfrac{1}{ProdAcc_i}}=
 \sigma^2_{AvHellAcc_i}=\dfrac{AvHellAcc_i \cdot (1-AvHellAcc_i)}{N_{ij}}
 }
 where:
-
-\enumerate{
+\itemize{
 \item \eqn{UserAcc_i}: user accuracy index for class i.
 \item \eqn{ProdAcc_i}: producer accuracy index for class i.
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvHellAcc_i(i, a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the Hellden’s mean
@@ -3024,28 +2911,26 @@ values in the column and row) corresponding to each class. The method
 also offers the variance and confidence interval. The
 reference \insertCite{liu2007;textual}{ConfMatrix} is followed for
 the calculations.
-
-
-  \deqn{
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{ConfMatrix$AvShortAcc(alpha = NULL)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{alpha}}{Significance level. By default 0.05.}
+    }
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Details}{
+    \deqn{
 AvShortAcc=\dfrac{1}{M} \sum^M_{i=1} \dfrac{x_{ii}}
 { \overline{x}_{+ i}+ \overline{x}_{i +}-x_{ii}}
 }
 \deqn{
 \sigma^2_{AvShortAcc}=\dfrac{AvShortAcc \cdot (1-AvShortAcc)}{N_{Total}}
 }
-  \subsection{Usage}{
-    \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$AvShortAcc(a = NULL)}
-    \if{html}{\out{</div>}}
-  }
-  \subsection{Arguments}{
-    \if{html}{\out{<div class="arguments">}}
-    \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
-    }
-    \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
     A list of real values containing the average of
@@ -3080,17 +2965,14 @@ ShortAcc_i=\dfrac{x_{ii}}{ \overline{x}_{+ i}+
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$ShortAcc_i(i, a = NULL)}
+    \preformatted{ConfMatrix$ShortAcc_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3153,21 +3035,19 @@ GroundTruth = \dfrac{ProdAcc-R}{1-R}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{R}: casual lucky guess.
 \item \eqn{ProdAcc}: producer accuracy.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$GroundTruth(a = NULL)}
+    \preformatted{ConfMatrix$GroundTruth(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3229,23 +3109,20 @@ GroundTruth_i = \dfrac{ProdAcc_i-R_i}{1-R_i}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{R_i}: casual lucky guess for class \eqn{i}. Is a real value.
 \item \eqn{ProdAcc_i}: producer accuracy for class \eqn{i}.
 }
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{ConfMatrix$GroundTruth_i(i, a = NULL)}
+    \preformatted{ConfMatrix$GroundTruth_i(i, alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{i}}{\verb{
-Class to evaluate, where} \eqn{i \in \mathbb{Z}-\{0\}}.}
-      \item{\code{a}}{\verb{
-Significance level. By default 0.05.
-}}
+      \item{\code{i}}{Class to evaluate, where \eqn{i \in \mathbb{Z}-\{0\}}.}
+      \item{\code{alpha}}{Significance level. By default 0.05.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3278,7 +3155,7 @@ HellingerDist = \dfrac{4n_{A}m_{B}}{n_{A}+m_{B}} \sum^{M}_{i=1} (\sqrt{p_i}-\sqr
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{n_{A}}: sum of elements of the matrix A.
 \item \eqn{m_{B}}: sum of elements of the matrix B.
 \item \eqn{p_i}: probability that element \eqn{i \in [1, \cdots, MxM]} is well classified in matrix A.
@@ -3292,17 +3169,11 @@ Where:
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{f}}{\verb{
-Element of the ConfMatrix.
-}}
-      \item{\code{p}}{\verb{
-probability vector of matrix A. By default, relative frequencies observed
-for each cell is taken.
-}}
-      \item{\code{q}}{\verb{
-probability vector of matrix B. By default, relative frequencies observed
-for each cell is taken.
-}}
+      \item{\code{f}}{Element of the ConfMatrix.}
+      \item{\code{p}}{probability vector of matrix A. By default, relative frequencies observed
+for each cell is taken.}
+      \item{\code{q}}{probability vector of matrix B. By default, relative frequencies observed
+for each cell is taken.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3488,9 +3359,7 @@ Taking \eqn{x_{ij}=x''_{ij}} for the next iteration.
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{iter}}{\verb{
-Number of iteration. By default iter=1000.
-}}
+      \item{\code{iter}}{Number of iteration. By default iter=1000.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3573,7 +3442,7 @@ Z = \dfrac{|O_A-O_B|}{\sqrt{(\sigma^2_{O_A}+\sigma^2_{O_B})}}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{O_A}: overall index of matrix A.
 \item \eqn{O_B}: overall index of matrix B.
 \item \eqn{\sigma^2_{O_A}}: variance of \eqn{O_A}.
@@ -3587,9 +3456,7 @@ Where:
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{f}}{\verb{
-Instance of ConfMatrix class.
-}}
+      \item{\code{f}}{Instance of ConfMatrix class.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3623,7 +3490,7 @@ Z = \dfrac{|k_A-k_B|}{\sqrt{(\sigma^2_{k_A}+\sigma^2_{k_B})}}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{k_A}: kappa index of matrix A.
 \item \eqn{k_B}: kappa index of matrix B.
 \item \eqn{\sigma^2_{k_A}}: variance of \eqn{k_A}.
@@ -3637,9 +3504,7 @@ Where:
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{f}}{\verb{
-Element of the ConfMatrix class.
-}}
+      \item{\code{f}}{Element of the ConfMatrix class.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3673,7 +3538,7 @@ Z = \dfrac{|\tau_A-\tau_B|}{\sqrt{(\sigma^2_{\tau_A}+\sigma^2_{\tau_B})}}
 }
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{\tau_A}: Tau index of matrix A.
 \item \eqn{\tau_B}: Tau index of matrix B.
 \item \eqn{\sigma^2_{\tau_A}}: variance of \eqn{\tau_A}.
@@ -3687,9 +3552,7 @@ Where:
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{f}}{\verb{
-Element of the ConfMatrix class.
-}}
+      \item{\code{f}}{Element of the ConfMatrix class.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3736,12 +3599,8 @@ again to these simulations and we will obtain the statistics
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{f}}{\verb{
-Element of the ConfMatrix class.
-}}
-      \item{\code{B}}{\verb{
-Number of bootstraps that you want to generate. By default B=1000.
-}}
+      \item{\code{f}}{Element of the ConfMatrix class.}
+      \item{\code{B}}{Number of bootstraps that you want to generate. By default B=1000.}
     }
     \if{html}{\out{</div>}}
   }
@@ -3786,7 +3645,7 @@ where the elements of \eqn{M^0} are \eqn{m_{ij}^0}
 \deqn{E_{ij}=f_{ij}^0 \sum^M_{i,j=1} m_{ij}^{0}}
 
 Where:
-\enumerate{
+\itemize{
 \item \eqn{x_{ij}}: matrix element. Observed frequency.
 \item \eqn{E_{ij}}: expected frequency.
 }

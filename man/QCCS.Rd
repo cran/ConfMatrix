@@ -2,7 +2,7 @@
 % Please edit documentation in R/QCCS.R
 \name{QCCS}
 \alias{QCCS}
-\title{Quality Control Columns Set}
+\title{Quality Control Columns Set Class}
 \description{
 The difference between a QCCS and a confusion matrix is
 that while forming a confusion matrix requires that the reference and
@@ -27,8 +27,8 @@ a multinomial. First, an object of this class of object must be
 created (instantiated) and then the methods that offer the index
 calculations will be invoked.
 }
-\note{
-Error Messages: List of possible errors:
+\section{Error Messages}{
+ List of possible errors:
 \itemize{
 \item \code{Error type 1}: Different number of data vectors and probability.
 \item \code{Error type 2}: Different number of elements in the pair of data
@@ -40,6 +40,7 @@ vectors and probabilities.
 negative.
 }
 }
+
 \examples{
 
 ## ------------------------------------------------
@@ -73,7 +74,6 @@ A<-QCCS$new(Vectors,Prob,
 Source="Ariza-Lopez et al. 2019")
 A$Exact.test()
 
-
 ## ------------------------------------------------
 ## Method `QCCS$Ji.test()`
 ## ------------------------------------------------
@@ -83,7 +83,6 @@ Prob<-list(c(0.85,0.1,0.03,0.02),c(0.8,0.2))
 A <- QCCS$new(Vectors,Prob,
 Source="Alba-Fernández et al. 2020")
 A$Ji.test()
-
 
 ## ------------------------------------------------
 ## Method `QCCS$JiGlobal.test()`
@@ -98,42 +97,22 @@ A$JiGlobal.test()
 }
 \references{
 \insertRef{alba2020}{ConfMatrix}
-
 \insertRef{QCCS}{ConfMatrix}
 }
 \section{Public fields}{
   \if{html}{\out{<div class="r6-fields">}}
   \describe{
-    \item{\code{Vectors}}{\verb{
-List of integer values data for the vectors.
-}}
+    \item{\code{Vectors}}{\code{list}. Integer data for the column vectors.}
 
-    \item{\code{Prob}}{\verb{
-List of probability values corresponding to each of the vectors.
-}}
+    \item{\code{Prob}}{\code{list}. Probability specifications for each of the vectors.}
 
-    \item{\code{ID}}{\verb{
-Identifier. It is a character string with a maximum length of 50 characters.
-By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
-number of QCCS instances already defined in the session.
-}}
+    \item{\code{ID}}{\code{character}. Identifier (maximum 50 characters).}
 
-    \item{\code{Date}}{\verb{
-Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-By default the date provided by the system will be taken.
-}}
+    \item{\code{Date}}{\code{Date}. Date of the quality control.}
 
-    \item{\code{ClassNames}}{\verb{
-Name of the classes. It is given by a character strings vector whose elements
-are the name of the classes. Each element of the vector is a string of maximum
-20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
-class).}}
+    \item{\code{ClassNames}}{\code{character}. Name of the classes (maximum 20 characters).}
 
-    \item{\code{Source}}{\verb{
-Indicates where the "vectors" and "prob" parameters come from (article, project,
-etc.). It is suggested to enter a reference or a DOI. A character string with
-a maximum length of 80 characters can be entered. By default, is NULL.
-}}
+    \item{\code{Source}}{\code{character} | NULL.}
   }
   \if{html}{\out{</div>}}
 }
@@ -173,31 +152,17 @@ The values of the data vectors represent the classes of ground truth.
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{Vectors}}{\verb{
-List of integer values data for the vectors.
-}}
-      \item{\code{Prob}}{\verb{
-List of probability values corresponding to each of the vectors.
-}}
-      \item{\code{ID}}{\verb{
-Identifier. It is a character string with a maximum length of 50 characters.
-By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
-the number of QCCS instances already defined in the session.
-}}
-      \item{\code{Date}}{\verb{
-Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-By default the date provided by the system will be taken.
-}}
-      \item{\code{ClassNames}}{\verb{
-Name of the classes. It is given by a character strings vector whose elements
+      \item{\code{Vectors}}{List of integer values data for the vectors.}
+      \item{\code{Prob}}{List of probability values corresponding to each of the vectors.}
+      \item{\code{ID}}{Unique identifier (Optional). It is a character string with a maximum length of 50 characters.
+By default, QCCS_i will be taken as identification. Where i will be the number of QCCS instances already defined in the session.}
+      \item{\code{Date}}{Date of the quality control (Optional). Formatted as "YYYY-MM-DD". By defaults \code{Sys.Date()}.}
+      \item{\code{ClassNames}}{Name of the classes (Optional). It is given by a character strings vector whose elements
 are the name of the classes. Each element of the vector is a string of maximum
-20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
-class).}}
-      \item{\code{Source}}{\verb{
-Indicates where the "vectors" and "prob" parameters come from (article, proj-
+20 characters. By default for the column elements they will be PC_i (Producer class).}
+      \item{\code{Source}}{(Optional) Indicates where the "vectors" and "prob" parameters come from (article, proj-
 ect, etc.). It is suggested to enter a reference or a DOI. A character string
-with a maximum length of 80 characters can be entered. By default, is NULL.
-}}
+with a maximum length of 80 characters can be entered. By default, is NULL.}
     }
     \if{html}{\out{</div>}}
   }
@@ -252,24 +217,22 @@ The references \insertCite{QCCS}{ConfMatrix} and \insertCite{alba2020}{ConfMatri
 are followed for the computations.
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{QCCS$Exact.test(a = NULL)}
+    \preformatted{QCCS$Exact.test(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-significance level. By default a=0.05.
-}}
+      \item{\code{alpha}}{Significance level numeric (Optional). By default a=0.05.}
     }
     \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
-    A list of the "htest" class containing the results of the hypothesis test.
+    A list of the \code{htest} class containing the results of the hypothesis test.
 The p-value returned is the lowest of those obtained for the data analyzed.
 In addition, the Bonferroni criterion value, the p-values obtained for each column,
 the original data vectors and the probability vectors are also returned as
-parameters of the htest class.
+parameters of the \code{htest} class.
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
@@ -294,24 +257,22 @@ The references \insertCite{QCCS}{ConfMatrix} and \insertCite{alba2020}{ConfMatri
 are followed for the computations.
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{QCCS$Ji.test(a = NULL)}
+    \preformatted{QCCS$Ji.test(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-significance level. By default a=0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default a=0.05.}
     }
     \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
-    A list of the "htest" class containing the results of the hypothesis test.
+    A list of the \code{htest} class containing the results of the hypothesis test.
 The p-value returned is the lowest of those obtained for the data analyzed.
 In addition, the Bonferroni criterion value, the obtained p-values, the degrees of
 freedom and the statistics obtained for each column, the original data vectors
-and the probability vectors are also returned as parameters of the htest class.
+and the probability vectors are also returned as parameters of the \code{htest} class.
   }
   \subsection{Examples}{
     \if{html}{\out{<div class="r example copy">}}
@@ -337,20 +298,18 @@ The references
 are followed for the computations.
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{QCCS$JiGlobal.test(a = NULL)}
+    \preformatted{QCCS$JiGlobal.test(alpha = NULL)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
     \if{html}{\out{<div class="arguments">}}
     \describe{
-      \item{\code{a}}{\verb{
-significance level. By default a=0.05.
-}}
+      \item{\code{alpha}}{Significance level. By default a=0.05.}
     }
     \if{html}{\out{</div>}}
   }
   \subsection{Returns}{
-    A list of class "htest" containing the results of the hypothesis test.
+    A list of class \code{htest} containing the results of the hypothesis test.
 In addition, the original data vectors and the probability vectors are also
 returned.
   }

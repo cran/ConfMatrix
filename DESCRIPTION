@@ -1,7 +1,7 @@
 Package: ConfMatrix
 Type: Package
 Title: Confusion Matrix
-Version: 0.2.0
+Version: 0.2.1
 Author: Francisco Javier Ariza-Lopez [aut],
   Paola Barba-Ceballos [aut],
   Silverio Vilchez-Lopez [aut, cre],
@@ -41,6 +41,6 @@ VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0
 NeedsCompilation: no
-Packaged: 2026-05-13 15:47:23 UTC; svilc_000
+Packaged: 2026-05-29 18:40:20 UTC; svilc_000
 Repository: CRAN
-Date/Publication: 2026-05-13 16:20:07 UTC
+Date/Publication: 2026-05-29 22:50:02 UTC

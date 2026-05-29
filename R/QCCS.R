@@ -1,4 +1,7 @@
-#' @title Quality Control Columns Set
+#' @title Quality Control Columns Set Class
+#' @name QCCS
+#' @rdname QCCS
+#' @aliases QCCS
 #' @description The difference between a QCCS and a confusion matrix is
 #' that while forming a confusion matrix requires that the reference and
 #' the product be more or less equivalent, for the QCCS it is required
@@ -21,8 +24,8 @@
 #' a multinomial. First, an object of this class of object must be
 #' created (instantiated) and then the methods that offer the index
 #' calculations will be invoked.
-#' @export QCCS
-#' @note  Error Messages: List of possible errors:
+
+#' @section Error Messages: List of possible errors:
 #' \itemize{
 #'  \item \code{Error type 1}: Different number of data vectors and probability.
 #'  \item \code{Error type 2}: Different number of elements in the pair of data
@@ -35,105 +38,58 @@
 #'}
 #' @references
 #' \insertRef{alba2020}{ConfMatrix}
-#'
 #' \insertRef{QCCS}{ConfMatrix}
+#' 
+#' 
 #' @importFrom R6 R6Class
 #' @importFrom stats dmultinom pchisq
 #' @importFrom Rdpack reprompt
 #'
 #'
-#' @aliases QCCS
-
-
+#' @export 
 QCCS <- R6Class("QCCS",
-  cloneable=FALSE,
-   public = list(
-     #' @field Vectors
-     #'\verb{
-     #'List of integer values data for the vectors.
-     #'}
-     Vectors = NULL,
-     #' @field Prob
-     #'\verb{
-     #'List of probability values corresponding to each of the vectors.
-     #'}
-     Prob = NULL,
-     #' @field ID
-     #'\verb{
-     #'Identifier. It is a character string with a maximum length of 50 characters.
-     #'By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
-     #'number of QCCS instances already defined in the session.
-     #'}
-     ID = NULL,
-     #' @field Date
-     #'\verb{
-     #'Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-     #'By default the date provided by the system will be taken.
-     #'}
-     Date = NULL,
-     #' @field ClassNames
-     #'\verb{
-     #' Name of the classes. It is given by a character strings vector whose elements
-     #' are the name of the classes. Each element of the vector is a string of maximum
-     #' 20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
-     #' class).}
-     #'
-     ClassNames = NULL,
-     #' @field Source
-     #'\verb{
-     #' Indicates where the "vectors" and "prob" parameters come from (article, project,
-     #' etc.). It is suggested to enter a reference or a DOI. A character string with
-     #' a maximum length of 80 characters can be entered. By default, is NULL.
-     #'}
-     Source = NULL,
-
-
-    #' @description Public method to create an instance of the QCCS class.
-    #' At the time of creation, column set data and specification values
-    #' must be provided. The same number of data and as specification values
-    #' must be entered, and the pairs of data-specifications vectors must
-    #' have the same size, otherwise an error will be provided.
-    #' The optional possibility of adding metadata to the matrix is offered.
-    #' The values of the data vectors represent the classes of ground truth.
-    #' @param Vectors
-    #' \verb{
-    #' List of integer values data for the vectors.
-    #' }
-    #' @param Prob
-    #' \verb{
-    #' List of probability values corresponding to each of the vectors.
-    #' }
-    #' @param ID
-    #' \verb{
-    #' Identifier. It is a character string with a maximum length of 50 characters.
-    #' By default,} \eqn{QCCS_i} \verb{will be taken as identification. Where} \eqn{i \in [1,999]} \verb{will be
-    #'the number of QCCS instances already defined in the session.
-    #' }
-    #' @param Date
-    #'\verb{
-    #' Date provided by the user in format DDMMYYYY, "DD-MM-YYYY", "DD/MM/YYYY".
-    #' By default the date provided by the system will be taken.
-    #'}
-    #' @param ClassNames
-    #' \verb{
-    #' Name of the classes. It is given by a character strings vector whose elements
-    #' are the name of the classes. Each element of the vector is a string of maximum
-    #' 20 characters. By default for the column elements they will be} \eqn{PC_i'} \verb{ (Producer
-    #' class).}
-    #'
-    #' @param Source
-    #' \verb{
-    #' Indicates where the "vectors" and "prob" parameters come from (article, proj-
-    #' ect, etc.). It is suggested to enter a reference or a DOI. A character string
-    #' with a maximum length of 80 characters can be entered. By default, is NULL.
-    #' }
-    #' @examples
-    #' Vectors<-list(c(47,4,0),c(44,5,3))
-    #' Prob<-list(c(0.95,0.04,0.01),c(0.88,0.1,0.02))
-    #' A<-QCCS$new(Vectors,Prob,
-    #' Source="Ariza-Lopez et al. 2019")
-    #'
-    #' @aliases NULL
+    cloneable=FALSE,
+    public = list(
+      #' @field Vectors \code{list}. Integer data for the column vectors.
+      Vectors = NULL,
+      #' @field Prob \code{list}. Probability specifications for each of the vectors.
+      Prob = NULL,
+      #' @field ID \code{character}. Identifier (maximum 50 characters).
+      ID = NULL,
+      #' @field Date \code{Date}. Date of the quality control.
+      Date = NULL,
+      #' @field ClassNames \code{character}. Name of the classes (maximum 20 characters). 
+      ClassNames = NULL,
+      #' @field Source \code{character} | NULL.
+      Source = NULL,
+      
+      
+      #' @description Public method to create an instance of the QCCS class.
+      #' At the time of creation, column set data and specification values
+      #' must be provided. The same number of data and as specification values
+      #' must be entered, and the pairs of data-specifications vectors must
+      #' have the same size, otherwise an error will be provided.
+      #' The optional possibility of adding metadata to the matrix is offered.
+      #' The values of the data vectors represent the classes of ground truth.
+      #' @param Vectors List of integer values data for the vectors.
+      #' @param Prob List of probability values corresponding to each of the vectors.
+      #' @param ID Unique identifier (Optional). It is a character string with a maximum length of 50 characters.
+      #' By default, QCCS_i will be taken as identification. Where i will be the number of QCCS instances already defined in the session.
+      #' @param Date Date of the quality control (Optional). Formatted as "YYYY-MM-DD". By defaults \code{Sys.Date()}.
+      #' @param ClassNames Name of the classes (Optional). It is given by a character strings vector whose elements
+      #' are the name of the classes. Each element of the vector is a string of maximum
+      #' 20 characters. By default for the column elements they will be PC_i (Producer class).
+      #' @param Source (Optional) Indicates where the "vectors" and "prob" parameters come from (article, proj-
+      #' ect, etc.). It is suggested to enter a reference or a DOI. A character string 
+      #' with a maximum length of 80 characters can be entered. By default, is NULL.
+      
+      #' @examples
+      #' Vectors<-list(c(47,4,0),c(44,5,3))
+      #' Prob<-list(c(0.95,0.04,0.01),c(0.88,0.1,0.02))
+      #' A<-QCCS$new(Vectors,Prob,
+      #' Source="Ariza-Lopez et al. 2019")
+      #'
+                  
 
   initialize = function(Vectors,Prob,ID=NULL,Date=NULL,ClassNames=NULL,Source=NULL) {
 
@@ -151,7 +107,7 @@ QCCS <- R6Class("QCCS",
       self$ID<-substr(ID,1,50)
     }
     if(!is.null(Date)){
-      self$Date<-Date
+      self$Date<-as.Date(Date)
     }else{self$Date <- Sys.Date()}
 
     colname<-c()
@@ -231,7 +187,6 @@ QCCS <- R6Class("QCCS",
       #' Source="Alba-Fernández et al. 2020")
       #' A$print()
       #'
-      #' @aliases NULL
 
     print=function(){
       cat("Identifier (ID)\n", self$ID, "\n")
@@ -260,28 +215,25 @@ QCCS <- R6Class("QCCS",
       #' The Bonferroni method is used.
       #' The references \insertCite{QCCS}{ConfMatrix} and \insertCite{alba2020}{ConfMatrix}
       #' are followed for the computations.
-      #' @param a \verb{
-      #' significance level. By default a=0.05.
-      #' }
-      #' @return A list of the "htest" class containing the results of the hypothesis test.
+      #' @param alpha Significance level numeric (Optional). By default a=0.05.
+      #' @return A list of the \code{htest} class containing the results of the hypothesis test.
       #' The p-value returned is the lowest of those obtained for the data analyzed.
       #' In addition, the Bonferroni criterion value, the p-values obtained for each column,
       #' the original data vectors and the probability vectors are also returned as
-      #' parameters of the htest class.
+      #' parameters of the \code{htest} class.
       #' @examples
       #' Vectors<-list(c(47,4,0),c(40,5,3))
       #' Prob<-list(c(0.95,0.04,0.01),c(0.88,0.1,0.02))
       #' A<-QCCS$new(Vectors,Prob,
       #' Source="Ariza-Lopez et al. 2019")
       #' A$Exact.test()
-      #'
-      #' @aliases NULL
+    
 
 
-    Exact.test = function(a=NULL) {
-      if(is.null(a)){
+    Exact.test = function(alpha=NULL) {
+      if(is.null(alpha)){
         a<-0.05
-      }else{a<-a}
+      }else{a<-alpha}
 
       n <- length(self$Vectors)
       m <- length(self$Prob)
@@ -315,33 +267,30 @@ QCCS <- R6Class("QCCS",
       #' The Chi square test is used. The Bonferroni method is used.
       #' The references \insertCite{QCCS}{ConfMatrix} and \insertCite{alba2020}{ConfMatrix}
       #' are followed for the computations.
-      #' @param a \verb{
-      #' significance level. By default a=0.05.
-      #' }
-      #' @return A list of the "htest" class containing the results of the hypothesis test.
+      #' @param alpha Significance level. By default a=0.05.
+      #' @return A list of the \code{htest} class containing the results of the hypothesis test.
       #' The p-value returned is the lowest of those obtained for the data analyzed.
       #' In addition, the Bonferroni criterion value, the obtained p-values, the degrees of
       #' freedom and the statistics obtained for each column, the original data vectors
-      #' and the probability vectors are also returned as parameters of the htest class.
+      #' and the probability vectors are also returned as parameters of the \code{htest} class.
       #' @examples
       #' Vectors<-list(c(18,0,3,0),c(27,19))
       #' Prob<-list(c(0.85,0.1,0.03,0.02),c(0.8,0.2))
       #' A <- QCCS$new(Vectors,Prob,
       #' Source="Alba-Fernández et al. 2020")
       #' A$Ji.test()
-      #'
-      #' @aliases NULL
 
-    Ji.test=function(a=NULL){
+
+    Ji.test=function(alpha=NULL){
       
       p0 <- any(sapply(self$Prob, function(p) any(p == 0)))
       
       if (p0) {
         stop("Error: Ji.test cannot be performed when probabilities contain zeros (division by zero). Please use Exact.test().")
       }
-      if(is.null(a)){
+      if(is.null(alpha)){
       a<-0.05
-      }else{a<-a}
+      }else{a<-alpha}
 
       n <- length(self$Vectors)
       m <- length(self$Prob)
@@ -391,10 +340,8 @@ QCCS <- R6Class("QCCS",
       #' The references
       #' \insertCite{QCCS}{ConfMatrix} and \insertCite{alba2020}{ConfMatrix}
       #' are followed for the computations.
-      #' @param a \verb{
-      #' significance level. By default a=0.05.
-      #' }
-      #' @return A list of class "htest" containing the results of the hypothesis test.
+      #' @param alpha Significance level. By default a=0.05.
+      #' @return A list of class \code{htest} containing the results of the hypothesis test.
       #' In addition, the original data vectors and the probability vectors are also
       #' returned.
       #' @examples
@@ -404,12 +351,12 @@ QCCS <- R6Class("QCCS",
       #' Source="Alba-Fernández et al. 2020")
       #' A$JiGlobal.test()
       #'
-      #' @aliases NULL
 
-    JiGlobal.test=function(a=NULL){
-      if(is.null(a)){
+
+    JiGlobal.test=function(alpha=NULL){
+      if(is.null(alpha)){
         a<-0.05
-      }else{a<-a}
+      }else{a<-alpha}
 
     n <- length(self$Vectors)
     m <- length(self$Prob)
